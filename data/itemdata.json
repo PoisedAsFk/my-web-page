@@ -1,0 +1,582 @@
+[
+  {
+    "GoldValue": 8,
+    "ItemId": 4,
+    "Name": "raw_perch"
+  },
+  {
+    "GoldValue": 20,
+    "ItemId": 8,
+    "Name": "teak_log"
+  },
+  {
+    "GoldValue": 40,
+    "ItemId": 9,
+    "Name": "mahogany_log"
+  },
+  {
+    "GoldValue": 1,
+    "ItemId": 19,
+    "Name": "gold"
+  },
+  {
+    "GoldValue": 62,
+    "ItemId": 39,
+    "Name": "platinum_ore"
+  },
+  {
+    "GoldValue": 105,
+    "ItemId": 41,
+    "Name": "meteorite_ore"
+  },
+  {
+    "GoldValue": 155,
+    "ItemId": 42,
+    "Name": "titanium_ore"
+  },
+  {
+    "GoldValue": 25000,
+    "ItemId": 47,
+    "Name": "astronomical_ore"
+  },
+  {
+    "GoldValue": 20,
+    "ItemId": 110,
+    "Name": "raw_meat"
+  },
+  {
+    "GoldValue": 60,
+    "ItemId": 111,
+    "Name": "raw_giant_meat"
+  },
+  {
+    "GoldValue": 90,
+    "ItemId": 112,
+    "Name": "raw_quality_meat"
+  },
+  {
+    "GoldValue": 150,
+    "ItemId": 113,
+    "Name": "raw_superior_meat"
+  },
+  {
+    "GoldValue": 7,
+    "ItemId": 126,
+    "Name": "potato_seed"
+  },
+  {
+    "GoldValue": 10,
+    "ItemId": 127,
+    "Name": "carrot_seed"
+  },
+  {
+    "GoldValue": 15,
+    "ItemId": 128,
+    "Name": "tomato_seed"
+  },
+  {
+    "GoldValue": 15,
+    "ItemId": 129,
+    "Name": "cabbage_seed"
+  },
+  {
+    "GoldValue": 30,
+    "ItemId": 130,
+    "Name": "strawberry_seed"
+  },
+  {
+    "GoldValue": 60,
+    "ItemId": 131,
+    "Name": "watermelon_seed"
+  },
+  {
+    "GoldValue": 400,
+    "ItemId": 137,
+    "Name": "watermelon"
+  },
+  {
+    "GoldValue": 50,
+    "ItemId": 155,
+    "Name": "raw_anglerfish"
+  },
+  {
+    "GoldValue": 23,
+    "ItemId": 157,
+    "Name": "raw_zander"
+  },
+  {
+    "GoldValue": 30,
+    "ItemId": 161,
+    "Name": "raw_pufferfish"
+  },
+  {
+    "GoldValue": 14,
+    "ItemId": 163,
+    "Name": "raw_cod"
+  },
+  {
+    "GoldValue": 10,
+    "ItemId": 165,
+    "Name": "kiwi"
+  },
+  {
+    "GoldValue": 80,
+    "ItemId": 168,
+    "Name": "normal_bow"
+  },
+  {
+    "GoldValue": 80,
+    "ItemId": 218,
+    "Name": "normal_staff"
+  },
+  {
+    "GoldValue": 7500,
+    "ItemId": 225,
+    "Name": "refined_gemstone"
+  },
+  {
+    "GoldValue": 15000,
+    "ItemId": 226,
+    "Name": "great_gemstone"
+  },
+  {
+    "GoldValue": 35000,
+    "ItemId": 227,
+    "Name": "elite_gemstone"
+  },
+  {
+    "GoldValue": 80000,
+    "ItemId": 228,
+    "Name": "superior_gemstone"
+  },
+  {
+    "GoldValue": 175000,
+    "ItemId": 229,
+    "Name": "outstanding_gemstone"
+  },
+  {
+    "GoldValue": 575000,
+    "ItemId": 230,
+    "Name": "godlike_gemstone"
+  },
+  {
+    "GoldValue": 120,
+    "ItemId": 231,
+    "Name": "bronze_boots"
+  },
+  {
+    "GoldValue": 250,
+    "ItemId": 232,
+    "Name": "iron_boots"
+  },
+  {
+    "GoldValue": 600,
+    "ItemId": 233,
+    "Name": "steel_boots"
+  },
+  {
+    "GoldValue": 1500,
+    "ItemId": 234,
+    "Name": "platinum_boots"
+  },
+  {
+    "GoldValue": 5500,
+    "ItemId": 235,
+    "Name": "meteorite_boots"
+  },
+  {
+    "GoldValue": 18000,
+    "ItemId": 236,
+    "Name": "titanium_boots"
+  },
+  {
+    "GoldValue": 120,
+    "ItemId": 238,
+    "Name": "bronze_gloves"
+  },
+  {
+    "GoldValue": 250,
+    "ItemId": 239,
+    "Name": "iron_gloves"
+  },
+  {
+    "GoldValue": 600,
+    "ItemId": 240,
+    "Name": "steel_gloves"
+  },
+  {
+    "GoldValue": 1800,
+    "ItemId": 241,
+    "Name": "platinum_gloves"
+  },
+  {
+    "GoldValue": 5500,
+    "ItemId": 242,
+    "Name": "meteorite_gloves"
+  },
+  {
+    "GoldValue": 18000,
+    "ItemId": 243,
+    "Name": "titanium_gloves"
+  },
+  {
+    "GoldValue": 50,
+    "ItemId": 245,
+    "Name": "leather"
+  },
+  {
+    "GoldValue": 100,
+    "ItemId": 246,
+    "Name": "orange_leather"
+  },
+  {
+    "GoldValue": 250,
+    "ItemId": 247,
+    "Name": "green_leather"
+  },
+  {
+    "GoldValue": 400,
+    "ItemId": 248,
+    "Name": "red_leather"
+  },
+  {
+    "GoldValue": 750,
+    "ItemId": 249,
+    "Name": "black_leather"
+  },
+  {
+    "GoldValue": 10000,
+    "ItemId": 267,
+    "Name": "griffin_key"
+  },
+  {
+    "GoldValue": 10000,
+    "ItemId": 268,
+    "Name": "devil_key"
+  },
+  {
+    "GoldValue": 10000,
+    "ItemId": 269,
+    "Name": "hades_key"
+  },
+  {
+    "GoldValue": 10000,
+    "ItemId": 270,
+    "Name": "zeus_key"
+  },
+  {
+    "GoldValue": 10000,
+    "ItemId": 271,
+    "Name": "medusa_key"
+  },
+  {
+    "GoldValue": 10000,
+    "ItemId": 272,
+    "Name": "chimera_key"
+  },
+  {
+    "GoldValue": 34,
+    "ItemId": 275,
+    "Name": "cursed_flax"
+  },
+  {
+    "GoldValue": 55,
+    "ItemId": 282,
+    "Name": "wizards_hat"
+  },
+  {
+    "GoldValue": 80,
+    "ItemId": 283,
+    "Name": "dark_mages_hat"
+  },
+  {
+    "GoldValue": 400,
+    "ItemId": 381,
+    "Name": "common_chest"
+  },
+  {
+    "GoldValue": 2000,
+    "ItemId": 382,
+    "Name": "rare_chest"
+  },
+  {
+    "GoldValue": 12000,
+    "ItemId": 383,
+    "Name": "exceptional_chest"
+  },
+  {
+    "GoldValue": 33000,
+    "ItemId": 389,
+    "Name": "wand_of_lifesteal"
+  },
+  {
+    "GoldValue": 4000,
+    "ItemId": 390,
+    "Name": "decayed_book"
+  },
+  {
+    "GoldValue": 8000,
+    "ItemId": 391,
+    "Name": "wizards_book"
+  },
+  {
+    "GoldValue": 20000,
+    "ItemId": 392,
+    "Name": "book_of_terrors"
+  },
+  {
+    "GoldValue": 1800,
+    "ItemId": 393,
+    "Name": "novices_wand"
+  },
+  {
+    "GoldValue": 80,
+    "ItemId": 400,
+    "Name": "grape_seed"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 401,
+    "Name": "grapes"
+  },
+  {
+    "GoldValue": 100,
+    "ItemId": 402,
+    "Name": "papaya_seed"
+  },
+  {
+    "GoldValue": 650,
+    "ItemId": 403,
+    "Name": "papaya"
+  },
+  {
+    "GoldValue": 125,
+    "ItemId": 404,
+    "Name": "dragonfruit_seed"
+  },
+  {
+    "GoldValue": 800,
+    "ItemId": 405,
+    "Name": "dragonfruit"
+  },
+  {
+    "GoldValue": 75,
+    "ItemId": 406,
+    "Name": "redwood_log"
+  },
+  {
+    "GoldValue": 110,
+    "ItemId": 407,
+    "Name": "magical_log"
+  },
+  {
+    "GoldValue": 80,
+    "ItemId": 601,
+    "Name": "common_fishing_bait"
+  },
+  {
+    "GoldValue": 160,
+    "ItemId": 602,
+    "Name": "rare_fishing_bait"
+  },
+  {
+    "GoldValue": 80,
+    "ItemId": 603,
+    "Name": "common_resin"
+  },
+  {
+    "GoldValue": 160,
+    "ItemId": 604,
+    "Name": "rare_resin"
+  },
+  {
+    "GoldValue": 80,
+    "ItemId": 605,
+    "Name": "common_gem_dust"
+  },
+  {
+    "GoldValue": 160,
+    "ItemId": 606,
+    "Name": "rare_gem_dust"
+  },
+  {
+    "GoldValue": 80,
+    "ItemId": 607,
+    "Name": "common_flax_essence"
+  },
+  {
+    "GoldValue": 160,
+    "ItemId": 608,
+    "Name": "rare_flax_essence"
+  },
+  {
+    "GoldValue": 80,
+    "ItemId": 609,
+    "Name": "common_compost"
+  },
+  {
+    "GoldValue": 160,
+    "ItemId": 610,
+    "Name": "rare_compost"
+  },
+  {
+    "GoldValue": 80,
+    "ItemId": 611,
+    "Name": "common_vial"
+  },
+  {
+    "GoldValue": 160,
+    "ItemId": 612,
+    "Name": "rare_vial"
+  },
+  {
+    "GoldValue": 20000,
+    "ItemId": 613,
+    "Name": "centaurs_shield"
+  },
+  {
+    "GoldValue": 20000,
+    "ItemId": 614,
+    "Name": "centaurs_helmet"
+  },
+  {
+    "GoldValue": 12000,
+    "ItemId": 615,
+    "Name": "minotaurs_horns"
+  },
+  {
+    "GoldValue": 20000,
+    "ItemId": 616,
+    "Name": "necromancers_hat"
+  },
+  {
+    "GoldValue": 20000,
+    "ItemId": 617,
+    "Name": "necromancers_boots"
+  },
+  {
+    "GoldValue": 200,
+    "ItemId": 642,
+    "Name": "silver_precision_symbol"
+  },
+  {
+    "GoldValue": 600,
+    "ItemId": 643,
+    "Name": "gold_precision_symbol"
+  },
+  {
+    "GoldValue": 1800,
+    "ItemId": 644,
+    "Name": "diamond_precision_symbol"
+  },
+  {
+    "GoldValue": 200,
+    "ItemId": 645,
+    "Name": "silver_arcane_symbol"
+  },
+  {
+    "GoldValue": 600,
+    "ItemId": 646,
+    "Name": "gold_arcane_symbol"
+  },
+  {
+    "GoldValue": 1800,
+    "ItemId": 647,
+    "Name": "diamond_arcane_symbol"
+  },
+  {
+    "GoldValue": 200,
+    "ItemId": 648,
+    "Name": "silver_brute_symbol"
+  },
+  {
+    "GoldValue": 600,
+    "ItemId": 649,
+    "Name": "gold_brute_symbol"
+  },
+  {
+    "GoldValue": 1800,
+    "ItemId": 650,
+    "Name": "diamond_brute_symbol"
+  },
+  {
+    "GoldValue": 200,
+    "ItemId": 651,
+    "Name": "silver_marksman_symbol"
+  },
+  {
+    "GoldValue": 600,
+    "ItemId": 652,
+    "Name": "gold_marksman_symbol"
+  },
+  {
+    "GoldValue": 1800,
+    "ItemId": 653,
+    "Name": "diamond_marksman_symbol"
+  },
+  {
+    "GoldValue": 200,
+    "ItemId": 654,
+    "Name": "silver_berserker_symbol"
+  },
+  {
+    "GoldValue": 600,
+    "ItemId": 655,
+    "Name": "gold_berserker_symbol"
+  },
+  {
+    "GoldValue": 1800,
+    "ItemId": 656,
+    "Name": "diamond_berserker_symbol"
+  },
+  {
+    "GoldValue": 200,
+    "ItemId": 657,
+    "Name": "silver_sorcerer_symbol"
+  },
+  {
+    "GoldValue": 600,
+    "ItemId": 658,
+    "Name": "gold_sorcerer_symbol"
+  },
+  {
+    "GoldValue": 1800,
+    "ItemId": 659,
+    "Name": "diamond_sorcerer_symbol"
+  },
+  {
+    "GoldValue": 4800,
+    "ItemId": 672,
+    "Name": "treasure_hunter_gloves"
+  },
+  {
+    "GoldValue": 12000,
+    "ItemId": 673,
+    "Name": "warriors_platebody"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 674,
+    "Name": "artisans_boots"
+  },
+  {
+    "GoldValue": 8000,
+    "ItemId": 675,
+    "Name": "granite_shield"
+  },
+  {
+    "GoldValue": 7500,
+    "ItemId": 676,
+    "Name": "chefs_hat"
+  },
+  {
+    "GoldValue": 15000,
+    "ItemId": 677,
+    "Name": "dragonscale_shield"
+  },
+  {
+    "GoldValue": 15000,
+    "ItemId": 678,
+    "Name": "dragonscale_boots"
+  }
+]
