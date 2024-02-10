@@ -5,17 +5,23 @@ const settingsTab = document.getElementById("settingsTab");
 const calculateTabContent = document.getElementById("calculateTabContent");
 const settingsTabContent = document.getElementById("settingsTabContent");
 const lootItemDatalist = document.getElementById("loot-item-options");
+const filteredNpcsPanel = document.querySelector(".filtered-npc-panel");
+
+let npcsArray = [];
+let itemsArray = [];
 
 fetch("data/npcdata.json")
 	.then((response) => response.json())
 	.then((npcs) => {
+		npcsArray = npcs;
 		createSettingsUI(npcs);
 	})
 	.catch((error) => console.error("Error fetching NPCs:", error));
 
-fetch("data/itemdata.json") // Adjust the path as necessary
+fetch("data/itemdata.json")
 	.then((response) => response.json())
 	.then((items) => {
+		itemsArray = items;
 		const dropdownList = document.querySelector(".dropdown-list");
 		items.forEach((item) => {
 			const li = document.createElement("li");
@@ -32,6 +38,7 @@ calculateTab.addEventListener("click", () => {
 	settingsTabContent.classList.remove("active");
 	calculateTab.classList.add("active");
 	settingsTab.classList.remove("active");
+	loadLocalStorageKills();
 });
 
 settingsTab.addEventListener("click", () => {
@@ -67,6 +74,15 @@ function initDropdownEvents() {
 			document.querySelector(
 				".selected-item-header"
 			).textContent = `Selected: ${event.target.textContent}`; // Update the selected item label
+
+			//get all npcs that have loot that matches the id of the selected item
+			const selectedItemId = event.target.dataset.itemId;
+			const npcsWithLoot = filterNpcsByLoot(npcsArray, selectedItemId);
+			const npcboxdiv = createNpcBox(npcsWithLoot, event.target.textContent);
+
+			filteredNpcsPanel.innerHTML = "";
+			filteredNpcsPanel.appendChild(npcboxdiv);
+			loadLocalStorageKills();
 			list.style.display = "none";
 		}
 	});
@@ -78,42 +94,53 @@ function initDropdownEvents() {
 	});
 }
 
+function filterNpcsByLoot(npcs, itemId) {
+	return npcs.filter((npc) =>
+		npc.Loot.some((lootItem) => lootItem.ItemId == itemId)
+	);
+}
+
 function createSettingsUI(npcs) {
 	const npcLocations = [...new Set(npcs.map((npc) => npc.NpcArea))];
 
 	npcLocations.forEach((npcLocation) => {
-		const npcLocationDiv = document.createElement("div");
-		npcLocationDiv.classList.add("npc-area-panel");
-		npcLocationDiv.id = npcLocation;
-
-		const npcLocationHeader = document.createElement("h2");
-		npcLocationHeader.textContent = prettifyString(npcLocation);
-
-		const npcLocationContentList = document.createElement("ul");
-		npcLocationContentList.classList.add("npc-content-list");
-
-		npcLocationDiv.appendChild(npcLocationHeader);
-		npcLocationDiv.appendChild(npcLocationContentList);
-		settingsTabContent.appendChild(npcLocationDiv);
-
 		const filteredNpcs = npcs.filter((npc) => npc.NpcArea === npcLocation);
-
-		filteredNpcs.forEach((npc) => {
-			const npcListItem = document.createElement("li");
-			npcListItem.textContent = `${prettifyString(npc.Name)}: `;
-
-			const npcInput = document.createElement("input");
-			npcInput.type = "number";
-			npcInput.dataset.npcName = npc.Name;
-
-			npcInput.addEventListener("change", saveLocalStorageKills);
-
-			npcListItem.appendChild(npcInput);
-			npcLocationContentList.appendChild(npcListItem);
-		});
+		const npcBox = createNpcBox(filteredNpcs, npcLocation);
+		npcBox.id = npcLocation; // Set the ID to the location for unique identification if needed
+		settingsTabContent.appendChild(npcBox);
 	});
 
 	loadLocalStorageKills();
+}
+
+function createNpcBox(npcs, headerText) {
+	const npcBoxDiv = document.createElement("div");
+	npcBoxDiv.classList.add("npc-area-panel");
+
+	const npcBoxHeader = document.createElement("h2");
+	npcBoxHeader.textContent = prettifyString(headerText);
+
+	const npcBoxContentList = document.createElement("ul");
+	npcBoxContentList.classList.add("npc-content-list");
+
+	npcBoxDiv.appendChild(npcBoxHeader);
+	npcBoxDiv.appendChild(npcBoxContentList);
+
+	npcs.forEach((npc) => {
+		const npcListItem = document.createElement("li");
+		npcListItem.textContent = `${prettifyString(npc.Name)}: `;
+
+		const npcInput = document.createElement("input");
+		npcInput.type = "number";
+		npcInput.dataset.npcName = npc.Name;
+
+		npcInput.addEventListener("change", saveLocalStorageKills);
+
+		npcListItem.appendChild(npcInput);
+		npcBoxContentList.appendChild(npcListItem);
+	});
+
+	return npcBoxDiv;
 }
 
 //Loads the kills from local storage, if none set each input to 0 and save it to local storage
@@ -133,7 +160,29 @@ function loadLocalStorageKills() {
 
 //Saves the kills to local storage
 function saveLocalStorageKills() {
-	const npcInputs = document.querySelectorAll("input[data-npc-name]");
+	const npcInputs = document.querySelectorAll(
+		"#settingsTabContent input[data-npc-name]"
+	);
+
+	const filteredNpcInputs = document.querySelectorAll(
+		"#calculateTabContent input[data-npc-name]"
+	);
+	if (
+		filteredNpcInputs.length > 0 &&
+		calculateTabContent.classList.contains("active")
+	) {
+		filteredNpcInputs.forEach((input) => {
+			if (input.value !== "") {
+				const npcName = input.dataset.npcName;
+				const npcKillsValue = input.value;
+				const npcInput = document.querySelector(
+					`#settingsTabContent input[data-npc-name="${npcName}"]`
+				);
+				npcInput.value = npcKillsValue;
+			}
+		});
+	}
+
 	const npcKills = {};
 
 	npcInputs.forEach((input) => {

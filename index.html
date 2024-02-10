@@ -20,21 +20,39 @@
     <div id="calculateTabContent" class="tab-content active">
         <div class="calculateTabContainer">
             <div class="select-and-table">
-                <div class="dropdown-container">
-                    <input type="text" class="dropdown-input" placeholder="Search..." />
-                    <ul class="dropdown-list"></ul>
+                <div class="select-and-search">
+                    <div class="dropdown-container">
+                        <input type="text" class="dropdown-input" placeholder="Search..." />
+                        <ul class="dropdown-list"></ul>
+                    </div>
+                    <h3 class="selected-item-header">Selected: None</h3>
                 </div>
-                <h3 class="selected-item-header">Selected: None</h3>
+                <!--full table containing headers with npc name, kills/h, drops/h, drops/6h. gold/h-->
+                <table class="npc-table">
+                    <thead>
+                        <tr>
+                            <th>NPC Name</th>
+                            <th>Kills/h</th>
+                            <th>Drops/h</th>
+                            <th>Drops/6h</th>
+                            <th>Gold/h</th>
+                        </tr>
+                    </thead>
+                    <tbody class="npc-table-body">
+                        <tr>
+                            <td>NPC 1</td>
+                            <td>100</td>
+                            <td>50</td>
+                            <td>300</td>
+                            <td>1000</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
             </div>
-            <div class="npc-area-panel" id="active-npcs">
-                <h2>Woods</h2>
-                <ul class="npc-content-list">
-                    <li>Turkey: <input type="number" data-npc-name="turkey"></li>
-                    <li>Fox: <input type="number" data-npc-name="fox"></li>
-                    <li>Wolf: <input type="number" data-npc-name="wolf"></li>
-                    <li>Boar: <input type="number" data-npc-name="boar"></li>
-                    <li>Bear: <input type="number" data-npc-name="bear"></li>
-                </ul>
+            <div class="filtered-npc-panel">
+
             </div>
 
 

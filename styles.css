@@ -97,12 +97,13 @@ ul li {
 }
 
 input[type="number"] {
-	background-color: #333;
+	background-color: #252525;
 	border: 1px solid #555;
-	color: white;
+	color: #ddd;
 	padding: 5px;
 	border-radius: 5px;
 	width: 30px;
+	text-align: center;
 }
 
 .calculateTabContainer {
@@ -117,41 +118,71 @@ input[type="number"] {
 .dropdown-input {
 	width: 100%;
 	padding: 10px;
-	border: 1px solid #ccc;
-	color: #000; /* Ensure text is visible */
-	background-color: #fff; /* Ensure input background is visible */
+	border: 1px solid #555; /* Darker border */
+	color: #ddd; /* Lighter text for contrast */
+	background-color: #252525;
 	box-sizing: border-box;
+	border-radius: 5px;
 }
 
 .dropdown-list {
 	display: none;
 	position: absolute;
-	background-color: #fff;
-	border: 1px solid #ccc;
+	background-color: #333; /* Darker list background */
+	border: 1px solid #555;
 	width: 100%;
 	max-height: 200px;
 	overflow-y: auto;
 	list-style-type: none;
 	padding: 0;
 	margin: 0;
-	z-index: 10; /* Ensure dropdown is above other content */
+	z-index: 10;
+	border-radius: 5px;
 }
 
 .dropdown-list li {
 	padding: 10px;
 	cursor: pointer;
-	color: #000; /* Ensure text is visible */
+	color: #ddd;
 }
 
 .dropdown-list li:hover {
-	background-color: #f0f0f0;
+	background-color: #404040; /* Highlighted item */
 }
 
-.select-and-table {
+.select-and-search {
 	display: flex;
+	align-items: center;
 }
 
 .selected-item-header {
-	margin: 4px 10px;
-	color: #fff; /* Adjust based on your theme */
+	margin: 8px;
+	font-size: 18px;
+	color: #0078d7; /* Accent color for selection */
+}
+
+.npc-table {
+	width: 100%; /* Make the table responsive */
+	border-collapse: collapse;
+	background-color: #252525;
+	color: #ddd; /* Lighter text against dark background */
+	border-radius: 6px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+}
+
+.npc-table th,
+.npc-table td {
+	text-align: left;
+	padding: 12px 15px;
+	border: 1px solid #333; /* Softer cell borders */
+}
+
+.npc-table th {
+	background-color: #333; /* Slightly darker header background */
+}
+input[type="text"]:focus,
+input[type="number"]:focus,
+.dropdown-list li:focus {
+	outline: none; /* Remove default outline if undesirable */
+	box-shadow: 0 0 5px #0078d7; /* Subtle focus indicator */
 }
