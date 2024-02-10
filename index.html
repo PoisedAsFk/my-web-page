@@ -18,23 +18,27 @@
     </div>
 
     <div id="calculateTabContent" class="tab-content active">
-        <div class="select-and-table">
-            <p>This is the Calculate tab content.</p>
+        <div class="calculateTabContainer">
+            <div class="select-and-table">
+                <div class="dropdown-container">
+                    <input type="text" class="dropdown-input" placeholder="Search..." />
+                    <ul class="dropdown-list"></ul>
+                </div>
+                <h3 class="selected-item-header">Selected: None</h3>
+            </div>
+            <div class="npc-area-panel" id="active-npcs">
+                <h2>Woods</h2>
+                <ul class="npc-content-list">
+                    <li>Turkey: <input type="number" data-npc-name="turkey"></li>
+                    <li>Fox: <input type="number" data-npc-name="fox"></li>
+                    <li>Wolf: <input type="number" data-npc-name="wolf"></li>
+                    <li>Boar: <input type="number" data-npc-name="boar"></li>
+                    <li>Bear: <input type="number" data-npc-name="bear"></li>
+                </ul>
+            </div>
+
 
         </div>
-        <div class="npc-area-panel" id="active-npcs">
-            <h2>Woods</h2>
-            <ul class="npc-content-list">
-                <li>Turkey: <input type="number" data-npc-name="turkey"></li>
-                <li>Fox: <input type="number" data-npc-name="fox"></li>
-                <li>Wolf: <input type="number" data-npc-name="wolf"></li>
-                <li>Boar: <input type="number" data-npc-name="boar"></li>
-                <li>Bear: <input type="number" data-npc-name="bear"></li>
-            </ul>
-        </div>
-
-
-
     </div>
 
     <div id="settingsTabContent" class="tab-content">
