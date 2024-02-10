@@ -2,7 +2,7 @@ import { prettifyString } from "./helpers.js";
 
 const calculateTab = document.getElementById("calculateTab");
 const settingsTab = document.getElementById("settingsTab");
-const tab1Content = document.getElementById("tab1");
+const calculateTabContent = document.getElementById("calculateTabContent");
 const settingsTabContent = document.getElementById("settingsTabContent");
 
 fetch("data/npcdata.json")
@@ -13,7 +13,7 @@ fetch("data/npcdata.json")
 	.catch((error) => console.error("Error fetching NPCs:", error));
 
 calculateTab.addEventListener("click", () => {
-	tab1Content.classList.add("active");
+	calculateTabContent.classList.add("active");
 	settingsTabContent.classList.remove("active");
 	calculateTab.classList.add("active");
 	settingsTab.classList.remove("active");
@@ -21,7 +21,7 @@ calculateTab.addEventListener("click", () => {
 
 settingsTab.addEventListener("click", () => {
 	settingsTabContent.classList.add("active");
-	tab1Content.classList.remove("active");
+	calculateTabContent.classList.remove("active");
 	settingsTab.classList.add("active");
 	calculateTab.classList.remove("active");
 });

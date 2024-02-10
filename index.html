@@ -12,16 +12,32 @@
 
     <div class="tab-container">
         <div class="tab-wrapper">
-            <div id="calculateTab" class="tab">Calculate</div>
-            <div id="settingsTab" class="tab active">Settings</div>
+            <div id="calculateTab" class="tab active">Calculate</div>
+            <div id="settingsTab" class="tab">Settings</div>
         </div>
     </div>
 
-    <div id="tab1" class="tab-content">
-        <p>This is the Calculate tab content.</p>
+    <div id="calculateTabContent" class="tab-content active">
+        <div class="select-and-table">
+            <p>This is the Calculate tab content.</p>
+
+        </div>
+        <div class="npc-area-panel" id="active-npcs">
+            <h2>Woods</h2>
+            <ul class="npc-content-list">
+                <li>Turkey: <input type="number" data-npc-name="turkey"></li>
+                <li>Fox: <input type="number" data-npc-name="fox"></li>
+                <li>Wolf: <input type="number" data-npc-name="wolf"></li>
+                <li>Boar: <input type="number" data-npc-name="boar"></li>
+                <li>Bear: <input type="number" data-npc-name="bear"></li>
+            </ul>
+        </div>
+
+
+
     </div>
 
-    <div id="settingsTabContent" class="tab-content active">
+    <div id="settingsTabContent" class="tab-content">
 
     </div>
 

@@ -104,3 +104,8 @@ input[type="number"] {
 	border-radius: 5px;
 	width: 30px;
 }
+
+#calculateTabContent {
+	display: flex;
+	justify-content: space-between;
+}
