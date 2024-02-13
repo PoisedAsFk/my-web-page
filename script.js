@@ -134,9 +134,9 @@ function calculateDropRates(targetItemId) {
 		const lootData = npc.Loot.find((lootItem) => lootItem.ItemId == targetItemId);
 		const averageQuantity = (lootData.ItemAmountMin + lootData.ItemAmountMax) / 2;
 
-		const itemDropsPerKill = averageQuantity * lootData.Weight;
+		const itemDropsPerKill = (averageQuantity * lootData.Weight) / 100;
 
-		const itemDropsPerHour = (itemDropsPerKill / 100) * currentNpcKills;
+		const itemDropsPerHour = itemDropsPerKill * currentNpcKills;
 
 		const npcDropStats = {
 			npcName: npc.Name,
