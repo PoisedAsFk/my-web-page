@@ -71,9 +71,7 @@ function initDropdownEvents() {
 
 	list.addEventListener("click", (event) => {
 		if (event.target.tagName === "LI") {
-			document.querySelector(
-				".selected-item-header"
-			).textContent = `Selected: ${event.target.textContent}`; // Update the selected item label
+			document.querySelector(".selected-item-header").textContent = `Selected: ${event.target.textContent}`; // Update the selected item label
 
 			//get all npcs that have loot that matches the id of the selected item
 			const selectedItemId = event.target.dataset.itemId;
@@ -84,6 +82,31 @@ function initDropdownEvents() {
 			filteredNpcsPanel.appendChild(npcboxdiv);
 			loadLocalStorageKills();
 			list.style.display = "none";
+			const npcsLootArray = calculateDropRates(selectedItemId);
+			const npcTableBody = document.querySelector(".npc-table-body");
+			npcTableBody.innerHTML = "";
+			npcsLootArray.forEach((npc) => {
+				const tr = document.createElement("tr");
+				const tdNpcName = document.createElement("td");
+				const tdKillsPerHour = document.createElement("td");
+				const tdDropPerHour = document.createElement("td");
+				const tdDropsPer6Hours = document.createElement("td");
+				const tdDropsPerKill = document.createElement("td");
+
+				tdNpcName.textContent = prettifyString(npc.npcName);
+				tdKillsPerHour.textContent = npc.killsPerHour;
+				tdDropPerHour.textContent = npc.dropRate.toFixed(2);
+				tdDropsPer6Hours.textContent = (npc.dropRate * 6).toFixed(2);
+				tdDropsPerKill.textContent = npc.dropsPerKill.toFixed(2);
+
+				tr.appendChild(tdNpcName);
+				tr.appendChild(tdKillsPerHour);
+				tr.appendChild(tdDropPerHour);
+				tr.appendChild(tdDropsPer6Hours);
+				tr.appendChild(tdDropsPerKill);
+
+				npcTableBody.appendChild(tr);
+			});
 		}
 	});
 	input.addEventListener("focusout", () => {
@@ -95,9 +118,38 @@ function initDropdownEvents() {
 }
 
 function filterNpcsByLoot(npcs, itemId) {
-	return npcs.filter((npc) =>
-		npc.Loot.some((lootItem) => lootItem.ItemId == itemId)
-	);
+	return npcs.filter((npc) => npc.Loot.some((lootItem) => lootItem.ItemId == itemId));
+}
+
+function calculateDropRates(targetItemId) {
+	const npcsWithLoot = filterNpcsByLoot(npcsArray, targetItemId);
+	const npcsKills = JSON.parse(localStorage.getItem("npcKills")) || {};
+	const selectedItemDetails = itemsArray.find((item) => item.ItemId == targetItemId);
+
+	const resultsArray = [];
+
+	npcsWithLoot.forEach((npc) => {
+		const currentNpcKills = npcsKills[npc.Name] || 0;
+
+		const lootData = npc.Loot.find((lootItem) => lootItem.ItemId == targetItemId);
+		const averageQuantity = (lootData.ItemAmountMin + lootData.ItemAmountMax) / 2;
+
+		const itemDropsPerKill = averageQuantity * lootData.Weight;
+
+		const itemDropsPerHour = (itemDropsPerKill / 100) * currentNpcKills;
+
+		const npcDropStats = {
+			npcName: npc.Name,
+			dropRate: itemDropsPerHour,
+			dropsPerKill: itemDropsPerKill,
+			killsPerHour: currentNpcKills,
+		};
+
+		resultsArray.push(npcDropStats);
+	});
+	resultsArray.sort((a, b) => b.dropRate - a.dropRate);
+	console.log(resultsArray);
+	return resultsArray;
 }
 
 function createSettingsUI(npcs) {
@@ -160,24 +212,15 @@ function loadLocalStorageKills() {
 
 //Saves the kills to local storage
 function saveLocalStorageKills() {
-	const npcInputs = document.querySelectorAll(
-		"#settingsTabContent input[data-npc-name]"
-	);
+	const npcInputs = document.querySelectorAll("#settingsTabContent input[data-npc-name]");
 
-	const filteredNpcInputs = document.querySelectorAll(
-		"#calculateTabContent input[data-npc-name]"
-	);
-	if (
-		filteredNpcInputs.length > 0 &&
-		calculateTabContent.classList.contains("active")
-	) {
+	const filteredNpcInputs = document.querySelectorAll("#calculateTabContent input[data-npc-name]");
+	if (filteredNpcInputs.length > 0 && calculateTabContent.classList.contains("active")) {
 		filteredNpcInputs.forEach((input) => {
 			if (input.value !== "") {
 				const npcName = input.dataset.npcName;
 				const npcKillsValue = input.value;
-				const npcInput = document.querySelector(
-					`#settingsTabContent input[data-npc-name="${npcName}"]`
-				);
+				const npcInput = document.querySelector(`#settingsTabContent input[data-npc-name="${npcName}"]`);
 				npcInput.value = npcKillsValue;
 			}
 		});
