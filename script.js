@@ -10,43 +10,64 @@ const filteredNpcsPanel = document.querySelector(".filtered-npc-panel");
 let npcsArray = [];
 let itemsArray = [];
 
-fetch("data/npcdata.json")
-	.then((response) => response.json())
-	.then((npcs) => {
-		npcsArray = npcs;
-		createSettingsUI(npcs);
-	})
-	.catch((error) => console.error("Error fetching NPCs:", error));
+async function fetchData(url) {
+	try {
+		const response = await fetch(url);
+		const data = await response.json();
+		return data;
+	} catch (error) {
+		console.error(`Error fetching data from ${url}:`, error);
+	}
+}
 
-fetch("data/itemdata.json")
-	.then((response) => response.json())
-	.then((items) => {
-		itemsArray = items;
-		const dropdownList = document.querySelector(".dropdown-list");
-		items.forEach((item) => {
-			const li = document.createElement("li");
-			li.textContent = prettifyString(item.Name);
-			li.dataset.itemId = item.ItemId;
-			dropdownList.appendChild(li);
-		});
+async function main() {
+	npcsArray = await fetchData("data/npcdata.json");
+	itemsArray = await fetchData("data/itemdata.json");
+
+	if (npcsArray && itemsArray) {
+		createSettingsUI(npcsArray);
+		populateItemsDropdown(itemsArray);
 		initDropdownEvents();
-	})
-	.catch((error) => console.error("Error fetching items:", error));
+		initTabEvents();
+		// ... any other initialization functions
+	}
+}
 
-calculateTab.addEventListener("click", () => {
-	calculateTabContent.classList.add("active");
-	settingsTabContent.classList.remove("active");
-	calculateTab.classList.add("active");
-	settingsTab.classList.remove("active");
+main();
+
+function populateItemsDropdown(items) {
+	const dropdownList = document.querySelector(".dropdown-list");
+	items.forEach((item) => {
+		const li = document.createElement("li");
+		li.textContent = prettifyString(item.Name);
+		li.dataset.itemId = item.ItemId;
+		dropdownList.appendChild(li);
+	});
+}
+
+// Function to toggle the active class for tabs and content
+function toggleActiveTab(clickedTab, contentId) {
+	const tabs = document.querySelectorAll(".tab");
+	const contents = document.querySelectorAll(".tab-content");
+
+	// Remove active class from all tabs and contents
+	tabs.forEach((tab) => tab.classList.remove("active"));
+	contents.forEach((content) => content.classList.remove("active"));
+
+	// Add active class to the clicked tab and the corresponding content
+	clickedTab.classList.add("active");
+	document.getElementById(contentId).classList.add("active");
 	loadLocalStorageKills();
-});
+}
 
-settingsTab.addEventListener("click", () => {
-	settingsTabContent.classList.add("active");
-	calculateTabContent.classList.remove("active");
-	settingsTab.classList.add("active");
-	calculateTab.classList.remove("active");
-});
+// Function to initialize tab events
+function initTabEvents() {
+	const calculateTab = document.getElementById("calculateTab");
+	const settingsTab = document.getElementById("settingsTab");
+
+	calculateTab.addEventListener("click", () => toggleActiveTab(calculateTab, "calculateTabContent"));
+	settingsTab.addEventListener("click", () => toggleActiveTab(settingsTab, "settingsTabContent"));
+}
 
 function initDropdownEvents() {
 	const input = document.querySelector(".dropdown-input");
