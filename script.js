@@ -29,7 +29,6 @@ async function main() {
 		populateItemsDropdown(itemsArray);
 		initDropdownEvents();
 		initTabEvents();
-		// ... any other initialization functions
 	}
 }
 
@@ -62,9 +61,6 @@ function toggleActiveTab(clickedTab, contentId) {
 
 // Function to initialize tab events
 function initTabEvents() {
-	const calculateTab = document.getElementById("calculateTab");
-	const settingsTab = document.getElementById("settingsTab");
-
 	calculateTab.addEventListener("click", () => toggleActiveTab(calculateTab, "calculateTabContent"));
 	settingsTab.addEventListener("click", () => toggleActiveTab(settingsTab, "settingsTabContent"));
 }
@@ -83,12 +79,9 @@ function initDropdownEvents() {
 			item.style.display = isVisible ? "" : "none";
 			if (isVisible) listHasVisibleItems = true;
 		});
-		//list.style.display = listHasVisibleItems ? "" : "none";
 	});
 
-	input.addEventListener("click", () => {
-		list.style.display = "block";
-	});
+	input.addEventListener("click", () => (list.style.display = "block"));
 
 	list.addEventListener("click", (event) => {
 		if (event.target.tagName === "LI") {
@@ -131,10 +124,8 @@ function initDropdownEvents() {
 		}
 	});
 	input.addEventListener("focusout", () => {
-		//delay the hiding of the list so that the click event on the list can be triggered
-		setTimeout(() => {
-			list.style.display = "none";
-		}, 100);
+		// Delay hiding of the list so that the click event on the list can trigger
+		setTimeout(() => (list.style.display = "none"), 100);
 	});
 }
 
