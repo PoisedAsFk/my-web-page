@@ -65,72 +65,93 @@ function initTabEvents() {
 	settingsTab.addEventListener("click", () => toggleActiveTab(settingsTab, "settingsTabContent"));
 }
 
+// Refactored initDropdownEvents function
 function initDropdownEvents() {
 	const input = document.querySelector(".dropdown-input");
 	const list = document.querySelector(".dropdown-list");
 
-	input.addEventListener("input", () => {
-		const filter = input.value.toLowerCase();
-		const listItems = list.querySelectorAll("li");
-		let listHasVisibleItems = false;
-		listItems.forEach((item) => {
-			const text = item.textContent.toLowerCase();
-			const isVisible = text.includes(filter);
-			item.style.display = isVisible ? "" : "none";
-			if (isVisible) listHasVisibleItems = true;
-		});
-	});
+	// Initialize input filter event
+	input.addEventListener("input", () => filterDropdownItems(input, list));
 
+	// Show list on input click
 	input.addEventListener("click", () => (list.style.display = "block"));
 
-	list.addEventListener("click", (event) => {
-		if (event.target.tagName === "LI") {
-			document.querySelector(".selected-item-header").textContent = `Selected: ${event.target.textContent}`; // Update the selected item label
+	// Handle list item selection
+	list.addEventListener("click", (event) => handleDropdownSelection(event, list));
 
-			//get all npcs that have loot that matches the id of the selected item
-			const selectedItemId = event.target.dataset.itemId;
-			const npcsWithLoot = filterNpcsByLoot(npcsArray, selectedItemId);
-			const npcboxdiv = createNpcBox(npcsWithLoot, event.target.textContent);
+	// Hide list on input focus out, with delay to allow click event
+	input.addEventListener("focusout", () => setTimeout(() => (list.style.display = "none"), 100));
+}
 
-			filteredNpcsPanel.innerHTML = "";
-			filteredNpcsPanel.appendChild(npcboxdiv);
-			loadLocalStorageKills();
-			list.style.display = "none";
-			const npcsLootArray = calculateDropRates(selectedItemId);
-			const npcTableBody = document.querySelector(".npc-table-body");
-			npcTableBody.innerHTML = "";
-			npcsLootArray.forEach((npc) => {
-				const tr = document.createElement("tr");
-				const tdNpcName = document.createElement("td");
-				const tdKillsPerHour = document.createElement("td");
-				const tdDropPerHour = document.createElement("td");
-				const tdDropsPer6Hours = document.createElement("td");
-				const tdDropsPerKill = document.createElement("td");
-
-				tdNpcName.textContent = prettifyString(npc.npcName);
-				tdKillsPerHour.textContent = npc.killsPerHour;
-				tdDropPerHour.textContent = npc.dropRate.toFixed(2);
-				tdDropsPer6Hours.textContent = (npc.dropRate * 6).toFixed(2);
-				tdDropsPerKill.textContent = npc.dropsPerKill.toFixed(2);
-
-				tr.appendChild(tdNpcName);
-				tr.appendChild(tdKillsPerHour);
-				tr.appendChild(tdDropPerHour);
-				tr.appendChild(tdDropsPer6Hours);
-				tr.appendChild(tdDropsPerKill);
-
-				npcTableBody.appendChild(tr);
-			});
-		}
+// Define the filterDropdownItems function to filter dropdown items based on input
+function filterDropdownItems(input, list) {
+	const filter = input.value.toLowerCase();
+	const listItems = list.querySelectorAll("li");
+	let listHasVisibleItems = false;
+	listItems.forEach((item) => {
+		const text = item.textContent.toLowerCase();
+		const isVisible = text.includes(filter);
+		item.style.display = isVisible ? "" : "none";
+		if (isVisible) listHasVisibleItems = true;
 	});
-	input.addEventListener("focusout", () => {
-		// Delay hiding of the list so that the click event on the list can trigger
-		setTimeout(() => (list.style.display = "none"), 100);
-	});
+}
+
+// Define the handleDropdownSelection function to handle selection from the dropdown
+function handleDropdownSelection(event, list) {
+	if (event.target.tagName === "LI") {
+		const selectedItemId = event.target.dataset.itemId;
+		selectItemAndUpdateUI(selectedItemId, event.target.textContent, list);
+	}
+}
+
+// Define the selectItemAndUpdateUI function to update UI based on item selection
+function selectItemAndUpdateUI(selectedItemId, selectedItemText, list) {
+	document.querySelector(".selected-item-header").textContent = `Selected: ${selectedItemText}`;
+	const npcsWithLoot = filterNpcsByLoot(npcsArray, selectedItemId);
+	updateFilteredNpcsPanel(npcsWithLoot, selectedItemText);
+	list.style.display = "none";
+	updateNpcsDropRatesTable(selectedItemId);
 }
 
 function filterNpcsByLoot(npcs, itemId) {
 	return npcs.filter((npc) => npc.Loot.some((lootItem) => lootItem.ItemId == itemId));
+}
+
+// Define the updateFilteredNpcsPanel function to update the filtered NPCs panel
+function updateFilteredNpcsPanel(npcsWithLoot, selectedItemText) {
+	const npcboxdiv = createNpcBox(npcsWithLoot, selectedItemText);
+	filteredNpcsPanel.innerHTML = "";
+	filteredNpcsPanel.appendChild(npcboxdiv);
+	loadLocalStorageKills();
+}
+
+// Define the updateNpcsDropRatesTable function to update NPCs drop rates table
+function updateNpcsDropRatesTable(selectedItemId) {
+	const npcsLootArray = calculateDropRates(selectedItemId);
+	const npcTableBody = document.querySelector(".npc-table-body");
+	npcTableBody.innerHTML = "";
+	npcsLootArray.forEach((npc) => {
+		const tr = document.createElement("tr");
+		const tdNpcName = document.createElement("td");
+		const tdKillsPerHour = document.createElement("td");
+		const tdDropPerHour = document.createElement("td");
+		const tdDropsPer6Hours = document.createElement("td");
+		const tdDropsPerKill = document.createElement("td");
+
+		tdNpcName.textContent = prettifyString(npc.npcName);
+		tdKillsPerHour.textContent = npc.killsPerHour;
+		tdDropPerHour.textContent = npc.dropRate.toFixed(2);
+		tdDropsPer6Hours.textContent = (npc.dropRate * 6).toFixed(2);
+		tdDropsPerKill.textContent = npc.dropsPerKill.toFixed(2);
+
+		tr.appendChild(tdNpcName);
+		tr.appendChild(tdKillsPerHour);
+		tr.appendChild(tdDropPerHour);
+		tr.appendChild(tdDropsPer6Hours);
+		tr.appendChild(tdDropsPerKill);
+
+		npcTableBody.appendChild(tr);
+	});
 }
 
 function calculateDropRates(targetItemId) {
