@@ -80,7 +80,7 @@ function initDropdownEvents() {
 	list.addEventListener("click", (event) => handleDropdownSelection(event, list));
 
 	// Hide list on input focus out, with delay to allow click event
-	input.addEventListener("focusout", () => setTimeout(() => (list.style.display = "none"), 100));
+	input.addEventListener("focusout", () => setTimeout(() => (list.style.display = "none"), 150));
 }
 
 // Define the filterDropdownItems function to filter dropdown items based on input
