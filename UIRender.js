@@ -1,4 +1,3 @@
-// UIRender.js
 import { prettifyString } from "./helpers.js";
 
 export function createDropdownItems(items) {
