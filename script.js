@@ -1,4 +1,5 @@
 import { prettifyString } from "./helpers.js";
+import { createDropdownItems, createNpcsTable } from "./UIRender.js";
 
 const calculateTab = document.getElementById("calculateTab");
 const settingsTab = document.getElementById("settingsTab");
@@ -6,6 +7,8 @@ const calculateTabContent = document.getElementById("calculateTabContent");
 const settingsTabContent = document.getElementById("settingsTabContent");
 const lootItemDatalist = document.getElementById("loot-item-options");
 const filteredNpcsPanel = document.querySelector(".filtered-npc-panel");
+const dropdownList = document.querySelector(".dropdown-list");
+const npcTableBody = document.querySelector(".npc-table-body");
 
 let npcsArray = [];
 let itemsArray = [];
@@ -26,23 +29,13 @@ async function main() {
 
 	if (npcsArray && itemsArray) {
 		createSettingsUI(npcsArray);
-		populateItemsDropdown(itemsArray);
+		dropdownList.appendChild(createDropdownItems(itemsArray));
 		initDropdownEvents();
 		initTabEvents();
 	}
 }
 
 main();
-
-function populateItemsDropdown(items) {
-	const dropdownList = document.querySelector(".dropdown-list");
-	items.forEach((item) => {
-		const li = document.createElement("li");
-		li.textContent = prettifyString(item.Name);
-		li.dataset.itemId = item.ItemId;
-		dropdownList.appendChild(li);
-	});
-}
 
 // Function to toggle the active class for tabs and content
 function toggleActiveTab(clickedTab, contentId) {
@@ -128,30 +121,9 @@ function updateFilteredNpcsPanel(npcsWithLoot, selectedItemText) {
 // Define the updateNpcsDropRatesTable function to update NPCs drop rates table
 function updateNpcsDropRatesTable(selectedItemId) {
 	const npcsLootArray = calculateDropRates(selectedItemId);
-	const npcTableBody = document.querySelector(".npc-table-body");
 	npcTableBody.innerHTML = "";
-	npcsLootArray.forEach((npc) => {
-		const tr = document.createElement("tr");
-		const tdNpcName = document.createElement("td");
-		const tdKillsPerHour = document.createElement("td");
-		const tdDropPerHour = document.createElement("td");
-		const tdDropsPer6Hours = document.createElement("td");
-		const tdDropsPerKill = document.createElement("td");
-
-		tdNpcName.textContent = prettifyString(npc.npcName);
-		tdKillsPerHour.textContent = npc.killsPerHour;
-		tdDropPerHour.textContent = npc.dropRate.toFixed(2);
-		tdDropsPer6Hours.textContent = (npc.dropRate * 6).toFixed(2);
-		tdDropsPerKill.textContent = npc.dropsPerKill.toFixed(2);
-
-		tr.appendChild(tdNpcName);
-		tr.appendChild(tdKillsPerHour);
-		tr.appendChild(tdDropPerHour);
-		tr.appendChild(tdDropsPer6Hours);
-		tr.appendChild(tdDropsPerKill);
-
-		npcTableBody.appendChild(tr);
-	});
+	const tableFragment = createNpcsTable(npcsLootArray);
+	npcTableBody.appendChild(tableFragment);
 }
 
 function calculateDropRates(targetItemId) {
