@@ -1,14 +1,15 @@
 import { prettifyString } from "./helpers.js";
-import { createDropdownItems, createNpcsTable } from "./UIRender.js";
+import { createDropdownItems, createNpcsTable, createNpcBox } from "./UIRender.js";
 
 const calculateTab = document.getElementById("calculateTab");
 const settingsTab = document.getElementById("settingsTab");
 const calculateTabContent = document.getElementById("calculateTabContent");
 const settingsTabContent = document.getElementById("settingsTabContent");
-const lootItemDatalist = document.getElementById("loot-item-options");
 const filteredNpcsPanel = document.querySelector(".filtered-npc-panel");
 const dropdownList = document.querySelector(".dropdown-list");
+const dropdownInput = document.querySelector(".dropdown-input");
 const npcTableBody = document.querySelector(".npc-table-body");
+const selectedItemHeader = document.querySelector(".selected-item-header");
 
 let npcsArray = [];
 let itemsArray = [];
@@ -23,19 +24,26 @@ async function fetchData(url) {
 	}
 }
 
-async function main() {
+async function setupApp() {
 	npcsArray = await fetchData("data/npcdata.json");
 	itemsArray = await fetchData("data/itemdata.json");
 
 	if (npcsArray && itemsArray) {
 		createSettingsUI(npcsArray);
+		calculateTab.addEventListener("click", () => toggleActiveTab(calculateTab, "calculateTabContent"));
+		settingsTab.addEventListener("click", () => toggleActiveTab(settingsTab, "settingsTabContent"));
+
 		dropdownList.appendChild(createDropdownItems(itemsArray));
-		initDropdownEvents();
-		initTabEvents();
+		dropdownInput.addEventListener("click", () => (dropdownList.style.display = "block")); // Show list on input click
+		dropdownInput.addEventListener("input", () => filterDropdownList(dropdownInput, dropdownList)); // Initialize input filter event
+		dropdownInput.addEventListener("focusout", () => setTimeout(() => (dropdownList.style.display = "none"), 150)); // Hide list on input focus out, with delay to allow click event
+		dropdownList.addEventListener("click", (event) => handleDropdownSelection(event)); // Handle list item selection
+
+		loadLocalStorageKills();
 	}
 }
 
-main();
+setupApp();
 
 // Function to toggle the active class for tabs and content
 function toggleActiveTab(clickedTab, contentId) {
@@ -52,58 +60,26 @@ function toggleActiveTab(clickedTab, contentId) {
 	loadLocalStorageKills();
 }
 
-// Function to initialize tab events
-function initTabEvents() {
-	calculateTab.addEventListener("click", () => toggleActiveTab(calculateTab, "calculateTabContent"));
-	settingsTab.addEventListener("click", () => toggleActiveTab(settingsTab, "settingsTabContent"));
-}
-
-// Refactored initDropdownEvents function
-function initDropdownEvents() {
-	const input = document.querySelector(".dropdown-input");
-	const list = document.querySelector(".dropdown-list");
-
-	// Initialize input filter event
-	input.addEventListener("input", () => filterDropdownItems(input, list));
-
-	// Show list on input click
-	input.addEventListener("click", () => (list.style.display = "block"));
-
-	// Handle list item selection
-	list.addEventListener("click", (event) => handleDropdownSelection(event, list));
-
-	// Hide list on input focus out, with delay to allow click event
-	input.addEventListener("focusout", () => setTimeout(() => (list.style.display = "none"), 150));
-}
-
 // Define the filterDropdownItems function to filter dropdown items based on input
-function filterDropdownItems(input, list) {
+function filterDropdownList(input, list) {
 	const filter = input.value.toLowerCase();
 	const listItems = list.querySelectorAll("li");
-	let listHasVisibleItems = false;
 	listItems.forEach((item) => {
 		const text = item.textContent.toLowerCase();
-		const isVisible = text.includes(filter);
-		item.style.display = isVisible ? "" : "none";
-		if (isVisible) listHasVisibleItems = true;
+		item.style.display = text.includes(filter) ? "" : "none";
 	});
 }
 
 // Define the handleDropdownSelection function to handle selection from the dropdown
-function handleDropdownSelection(event, list) {
+function handleDropdownSelection(event) {
 	if (event.target.tagName === "LI") {
 		const selectedItemId = event.target.dataset.itemId;
-		selectItemAndUpdateUI(selectedItemId, event.target.textContent, list);
+		const selectedItemText = event.target.textContent;
+		selectedItemHeader.textContent = `Selected: ${selectedItemText}`;
+		const npcsWithLoot = filterNpcsByLoot(npcsArray, selectedItemId);
+		updateFilteredNpcsPanel(npcsWithLoot, selectedItemText);
+		updateNpcsTable(selectedItemId);
 	}
-}
-
-// Define the selectItemAndUpdateUI function to update UI based on item selection
-function selectItemAndUpdateUI(selectedItemId, selectedItemText, list) {
-	document.querySelector(".selected-item-header").textContent = `Selected: ${selectedItemText}`;
-	const npcsWithLoot = filterNpcsByLoot(npcsArray, selectedItemId);
-	updateFilteredNpcsPanel(npcsWithLoot, selectedItemText);
-	list.style.display = "none";
-	updateNpcsDropRatesTable(selectedItemId);
 }
 
 function filterNpcsByLoot(npcs, itemId) {
@@ -112,14 +88,14 @@ function filterNpcsByLoot(npcs, itemId) {
 
 // Define the updateFilteredNpcsPanel function to update the filtered NPCs panel
 function updateFilteredNpcsPanel(npcsWithLoot, selectedItemText) {
-	const npcboxdiv = createNpcBox(npcsWithLoot, selectedItemText);
+	const npcboxdiv = createNpcBox(npcsWithLoot, selectedItemText, saveLocalStorageKills);
 	filteredNpcsPanel.innerHTML = "";
 	filteredNpcsPanel.appendChild(npcboxdiv);
 	loadLocalStorageKills();
 }
 
 // Define the updateNpcsDropRatesTable function to update NPCs drop rates table
-function updateNpcsDropRatesTable(selectedItemId) {
+function updateNpcsTable(selectedItemId) {
 	const npcsLootArray = calculateDropRates(selectedItemId);
 	npcTableBody.innerHTML = "";
 	const tableFragment = createNpcsTable(npcsLootArray);
@@ -162,42 +138,10 @@ function createSettingsUI(npcs) {
 
 	npcLocations.forEach((npcLocation) => {
 		const filteredNpcs = npcs.filter((npc) => npc.NpcArea === npcLocation);
-		const npcBox = createNpcBox(filteredNpcs, npcLocation);
+		const npcBox = createNpcBox(filteredNpcs, npcLocation, saveLocalStorageKills);
 		npcBox.id = npcLocation; // Set the ID to the location for unique identification if needed
 		settingsTabContent.appendChild(npcBox);
 	});
-
-	loadLocalStorageKills();
-}
-
-function createNpcBox(npcs, headerText) {
-	const npcBoxDiv = document.createElement("div");
-	npcBoxDiv.classList.add("npc-area-panel");
-
-	const npcBoxHeader = document.createElement("h2");
-	npcBoxHeader.textContent = prettifyString(headerText);
-
-	const npcBoxContentList = document.createElement("ul");
-	npcBoxContentList.classList.add("npc-content-list");
-
-	npcBoxDiv.appendChild(npcBoxHeader);
-	npcBoxDiv.appendChild(npcBoxContentList);
-
-	npcs.forEach((npc) => {
-		const npcListItem = document.createElement("li");
-		npcListItem.textContent = `${prettifyString(npc.Name)}: `;
-
-		const npcInput = document.createElement("input");
-		npcInput.type = "number";
-		npcInput.dataset.npcName = npc.Name;
-
-		npcInput.addEventListener("change", saveLocalStorageKills);
-
-		npcListItem.appendChild(npcInput);
-		npcBoxContentList.appendChild(npcListItem);
-	});
-
-	return npcBoxDiv;
 }
 
 //Loads the kills from local storage, if none set each input to 0 and save it to local storage

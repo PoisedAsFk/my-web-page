@@ -38,3 +38,32 @@ export function createNpcsTable(npcsLootArray) {
 	});
 	return fragment;
 }
+
+export function createNpcBox(npcs, headerText, saveLocalStorageKills) {
+	const npcBoxDiv = document.createElement("div");
+	npcBoxDiv.classList.add("npc-area-panel");
+
+	const npcBoxHeader = document.createElement("h2");
+	npcBoxHeader.textContent = prettifyString(headerText);
+	npcBoxDiv.appendChild(npcBoxHeader);
+
+	const npcBoxContentList = document.createElement("ul");
+	npcBoxContentList.classList.add("npc-content-list");
+	npcBoxDiv.appendChild(npcBoxContentList);
+
+	npcs.forEach((npc) => {
+		const npcListItem = document.createElement("li");
+		npcListItem.textContent = `${prettifyString(npc.Name)}: `;
+
+		const npcInput = document.createElement("input");
+		npcInput.type = "number";
+		npcInput.dataset.npcName = npc.Name;
+
+		npcInput.addEventListener("change", saveLocalStorageKills);
+
+		npcListItem.appendChild(npcInput);
+		npcBoxContentList.appendChild(npcListItem);
+	});
+	npcBoxDiv.id = headerText;
+	return npcBoxDiv;
+}
