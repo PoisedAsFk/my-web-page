@@ -1,4 +1,3 @@
-// This script fetches data from JSON files, creates a UI for selecting items and NPCs, filters NPCs based on selected items, calculates drop rates, and saves/retrieves NPC kill counts in local storage.
 import { createDropdownItems, createNpcsTable, createNpcBox } from "./UIRender.js";
 
 const calculateTab = document.getElementById("calculateTab");
@@ -85,9 +84,9 @@ function filterNpcsByLoot(npcs, itemId) {
 
 //updates/creates the npc panel with npcs filtered by loot/item selected
 function updateFilteredNpcsPanel(npcsWithLoot, selectedItemText) {
-	const npcboxdiv = createNpcBox(npcsWithLoot, selectedItemText, saveLocalStorageKills);
+	const npcboxFragment = createNpcBox(npcsWithLoot, selectedItemText, saveLocalStorageKills);
 	filteredNpcsPanel.innerHTML = "";
-	filteredNpcsPanel.appendChild(npcboxdiv);
+	filteredNpcsPanel.appendChild(npcboxFragment);
 	loadLocalStorageKills();
 }
 
@@ -134,8 +133,8 @@ function createSettingsUI(npcs) {
 
 	npcLocations.forEach((npcLocation) => {
 		const filteredNpcs = npcs.filter((npc) => npc.NpcArea === npcLocation);
-		const npcBox = createNpcBox(filteredNpcs, npcLocation, saveLocalStorageKills);
-		settingsTabContent.appendChild(npcBox);
+		const npcBoxFragment = createNpcBox(filteredNpcs, npcLocation, saveLocalStorageKills);
+		settingsTabContent.appendChild(npcBoxFragment);
 	});
 }
 

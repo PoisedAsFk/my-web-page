@@ -39,6 +39,7 @@ export function createNpcsTable(npcsLootArray) {
 }
 
 export function createNpcBox(npcs, headerText, saveLocalStorageKills) {
+	const fragment = document.createDocumentFragment();
 	const npcBoxDiv = document.createElement("div");
 	npcBoxDiv.classList.add("npc-area-panel");
 
@@ -57,12 +58,13 @@ export function createNpcBox(npcs, headerText, saveLocalStorageKills) {
 		const npcInput = document.createElement("input");
 		npcInput.type = "number";
 		npcInput.dataset.npcName = npc.Name;
-
 		npcInput.addEventListener("change", saveLocalStorageKills);
 
 		npcListItem.appendChild(npcInput);
 		npcBoxContentList.appendChild(npcListItem);
 	});
+
 	npcBoxDiv.id = headerText;
-	return npcBoxDiv;
+	fragment.appendChild(npcBoxDiv);
+	return fragment;
 }
