@@ -1,4 +1,4 @@
-import { prettifyString } from "./helpers.js";
+import { prettifyString, convertDropsPerHourToTime } from "./helpers.js";
 
 export function createDropdownItems(items) {
 	const fragment = document.createDocumentFragment();
@@ -19,19 +19,19 @@ export function createNpcsTable(npcsLootArray) {
 		const tdKillsPerHour = document.createElement("td");
 		const tdDropPerHour = document.createElement("td");
 		const tdDropsPer6Hours = document.createElement("td");
-		const tdDropsPerKill = document.createElement("td");
+		const tdAvgEtaForDrop = document.createElement("td");
 
 		tdNpcName.textContent = prettifyString(npc.npcName);
 		tdKillsPerHour.textContent = npc.killsPerHour;
 		tdDropPerHour.textContent = npc.dropRate.toFixed(2);
 		tdDropsPer6Hours.textContent = (npc.dropRate * 6).toFixed(2);
-		tdDropsPerKill.textContent = npc.dropsPerKill.toFixed(2);
+		tdAvgEtaForDrop.textContent = convertDropsPerHourToTime(npc.dropRate);
 
 		tr.appendChild(tdNpcName);
 		tr.appendChild(tdKillsPerHour);
 		tr.appendChild(tdDropPerHour);
 		tr.appendChild(tdDropsPer6Hours);
-		tr.appendChild(tdDropsPerKill);
+		tr.appendChild(tdAvgEtaForDrop);
 
 		fragment.appendChild(tr);
 	});
