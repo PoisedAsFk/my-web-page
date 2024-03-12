@@ -48,7 +48,7 @@ body {
 .tab-content {
 	display: none;
 	text-align: center;
-	margin-top: -1px;
+	margin-top: -1px; /* Aligns with the bottom border of the tabs */
 	padding: 20px;
 	background-color: #1e1e1e;
 	border: 1px solid #555;
@@ -57,7 +57,7 @@ body {
 
 .active.tab {
 	background-color: #404040;
-	border-bottom: 3px solid #0078d7;
+	border-bottom: 3px solid #0078d7; /* Active tab indicator */
 	transition: border-bottom-color 0.2s ease-out;
 }
 
@@ -90,9 +90,9 @@ ul li {
 	margin: 4px 0;
 	padding: 8px;
 	border-radius: 5px;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+	display: flex; /* Use flexbox layout */
+	justify-content: space-between; /* Space between the text and the input */
+	align-items: center; /* Align items vertically */
 	width: 200px;
 }
 
@@ -118,8 +118,8 @@ input[type="number"] {
 .dropdown-input {
 	width: 100%;
 	padding: 10px;
-	border: 1px solid #555;
-	color: #ddd;
+	border: 1px solid #555; /* Darker border */
+	color: #ddd; /* Lighter text for contrast */
 	background-color: #252525;
 	box-sizing: border-box;
 	border-radius: 5px;
@@ -128,7 +128,7 @@ input[type="number"] {
 .dropdown-list {
 	display: none;
 	position: absolute;
-	background-color: #333;
+	background-color: #333; /* Darker list background */
 	border: 1px solid #555;
 	width: 100%;
 	max-height: 200px;
@@ -147,7 +147,7 @@ input[type="number"] {
 }
 
 .dropdown-list li:hover {
-	background-color: #404040;
+	background-color: #404040; /* Highlighted item */
 }
 
 .select-and-search {
@@ -158,31 +158,31 @@ input[type="number"] {
 .selected-item-header {
 	margin: 8px;
 	font-size: 18px;
-	color: #0078d7;
+	color: #0078d7; /* Accent color for selection */
 }
 
 .npc-table {
-	width: 100%;
+	width: 100%; /* Make the table responsive */
 	border-collapse: collapse;
 	background-color: #252525;
-	color: #ddd;
+	color: #ddd; /* Lighter text against dark background */
 	border-radius: 6px;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
 }
 
 .npc-table th,
 .npc-table td {
 	text-align: left;
 	padding: 12px 15px;
-	border: 1px solid #333;
+	border: 1px solid #333; /* Softer cell borders */
 }
 
 .npc-table th {
-	background-color: #333;
+	background-color: #333; /* Slightly darker header background */
 }
 input[type="text"]:focus,
 input[type="number"]:focus,
 .dropdown-list li:focus {
-	outline: none;
-	box-shadow: 0 0 5px #0078d7;
+	outline: none; /* Remove default outline if undesirable */
+	box-shadow: 0 0 5px #0078d7; /* Subtle focus indicator */
 }
