@@ -20,18 +20,21 @@ export function createNpcsTable(npcsLootArray) {
 		const tdDropPerHour = document.createElement("td");
 		const tdDropsPer6Hours = document.createElement("td");
 		const tdAvgEtaForDrop = document.createElement("td");
+		const tdAvgKillsForDrop = document.createElement("td");
 
 		tdNpcName.textContent = prettifyString(npc.npcName);
 		tdKillsPerHour.textContent = npc.killsPerHour;
 		tdDropPerHour.textContent = npc.dropRate.toFixed(2);
 		tdDropsPer6Hours.textContent = (npc.dropRate * 6).toFixed(2);
 		tdAvgEtaForDrop.textContent = convertDropsPerHourToTime(npc.dropRate);
+		tdAvgKillsForDrop.textContent = npc.dropsPerKill > 0 ? (1 / npc.dropsPerKill).toFixed(0) : "N/A";
 
 		tr.appendChild(tdNpcName);
 		tr.appendChild(tdKillsPerHour);
 		tr.appendChild(tdDropPerHour);
 		tr.appendChild(tdDropsPer6Hours);
 		tr.appendChild(tdAvgEtaForDrop);
+		tr.appendChild(tdAvgKillsForDrop);
 
 		fragment.appendChild(tr);
 	});
