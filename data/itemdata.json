@@ -1,8 +1,43 @@
 [
   {
+    "GoldValue": 6,
+    "ItemId": 0,
+    "Name": "spruce_log"
+  },
+  {
+    "GoldValue": 10,
+    "ItemId": 1,
+    "Name": "pine_log"
+  },
+  {
+    "GoldValue": 30,
+    "ItemId": 2,
+    "Name": "chestnut_log"
+  },
+  {
+    "GoldValue": 20,
+    "ItemId": 3,
+    "Name": "raw_roach"
+  },
+  {
     "GoldValue": 8,
     "ItemId": 4,
     "Name": "raw_perch"
+  },
+  {
+    "GoldValue": 30,
+    "ItemId": 5,
+    "Name": "raw_pike"
+  },
+  {
+    "GoldValue": 13,
+    "ItemId": 6,
+    "Name": "oak_log"
+  },
+  {
+    "GoldValue": 16,
+    "ItemId": 7,
+    "Name": "maple_log"
   },
   {
     "GoldValue": 20,
@@ -15,14 +50,159 @@
     "Name": "mahogany_log"
   },
   {
+    "GoldValue": 55,
+    "ItemId": 10,
+    "Name": "yew_log"
+  },
+  {
+    "GoldValue": 25,
+    "ItemId": 11,
+    "Name": "raw_shrimp"
+  },
+  {
+    "GoldValue": 10,
+    "ItemId": 12,
+    "Name": "raw_mackerel"
+  },
+  {
+    "GoldValue": 16,
+    "ItemId": 13,
+    "Name": "raw_trout"
+  },
+  {
+    "GoldValue": 17,
+    "ItemId": 14,
+    "Name": "raw_salmon"
+  },
+  {
+    "GoldValue": 18,
+    "ItemId": 15,
+    "Name": "raw_carp"
+  },
+  {
+    "GoldValue": 45,
+    "ItemId": 16,
+    "Name": "raw_bass"
+  },
+  {
+    "GoldValue": 80,
+    "ItemId": 17,
+    "Name": "raw_lobster"
+  },
+  {
+    "GoldValue": 70,
+    "ItemId": 18,
+    "Name": "raw_shark"
+  },
+  {
     "GoldValue": 1,
     "ItemId": 19,
     "Name": "gold"
   },
   {
+    "GoldValue": 35,
+    "ItemId": 20,
+    "Name": "spruce_plank"
+  },
+  {
+    "GoldValue": 45,
+    "ItemId": 21,
+    "Name": "pine_plank"
+  },
+  {
+    "GoldValue": 85,
+    "ItemId": 22,
+    "Name": "chestnut_plank"
+  },
+  {
+    "GoldValue": 55,
+    "ItemId": 23,
+    "Name": "oak_plank"
+  },
+  {
+    "GoldValue": 65,
+    "ItemId": 24,
+    "Name": "maple_plank"
+  },
+  {
+    "GoldValue": 75,
+    "ItemId": 25,
+    "Name": "teak_plank"
+  },
+  {
+    "GoldValue": 95,
+    "ItemId": 26,
+    "Name": "mahogany_plank"
+  },
+  {
+    "GoldValue": 110,
+    "ItemId": 27,
+    "Name": "yew_plank"
+  },
+  {
+    "GoldValue": 5,
+    "ItemId": 28,
+    "Name": "tin_ore"
+  },
+  {
+    "GoldValue": 5,
+    "ItemId": 29,
+    "Name": "copper_ore"
+  },
+  {
+    "GoldValue": 8,
+    "ItemId": 30,
+    "Name": "iron_ore"
+  },
+  {
+    "GoldValue": 11,
+    "ItemId": 31,
+    "Name": "coal_ore"
+  },
+  {
+    "GoldValue": 15,
+    "ItemId": 32,
+    "Name": "silver_ore"
+  },
+  {
+    "GoldValue": 52,
+    "ItemId": 33,
+    "Name": "gold_ore"
+  },
+  {
+    "GoldValue": 12,
+    "ItemId": 34,
+    "Name": "bronze_bar"
+  },
+  {
+    "GoldValue": 18,
+    "ItemId": 35,
+    "Name": "iron_bar"
+  },
+  {
+    "GoldValue": 30,
+    "ItemId": 36,
+    "Name": "steel_bar"
+  },
+  {
+    "GoldValue": 14,
+    "ItemId": 37,
+    "Name": "silver_bar"
+  },
+  {
+    "GoldValue": 30,
+    "ItemId": 38,
+    "Name": "gold_bar"
+  },
+  {
     "GoldValue": 62,
     "ItemId": 39,
     "Name": "platinum_ore"
+  },
+  {
+    "GoldValue": 750,
+    "ItemId": 40,
+    "Name": "adamantite_ore"
   },
   {
     "GoldValue": 105,
@@ -35,9 +215,339 @@
     "Name": "titanium_ore"
   },
   {
+    "GoldValue": 195,
+    "ItemId": 43,
+    "Name": "platinum_bar"
+  },
+  {
+    "GoldValue": 1,
+    "ItemId": 44,
+    "Name": "adamantite_bar"
+  },
+  {
+    "GoldValue": 345,
+    "ItemId": 45,
+    "Name": "meteorite_bar"
+  },
+  {
+    "GoldValue": 650,
+    "ItemId": 46,
+    "Name": "titanium_bar"
+  },
+  {
     "GoldValue": 25000,
     "ItemId": 47,
     "Name": "astronomical_ore"
+  },
+  {
+    "GoldValue": 50000,
+    "ItemId": 48,
+    "Name": "astronomical_bar"
+  },
+  {
+    "GoldValue": 96,
+    "ItemId": 49,
+    "Name": "bronze_platebody"
+  },
+  {
+    "GoldValue": 64,
+    "ItemId": 50,
+    "Name": "bronze_platelegs"
+  },
+  {
+    "GoldValue": 32,
+    "ItemId": 51,
+    "Name": "bronze_helmet"
+  },
+  {
+    "GoldValue": 64,
+    "ItemId": 52,
+    "Name": "bronze_shield"
+  },
+  {
+    "GoldValue": 32,
+    "ItemId": 53,
+    "Name": "normal_pickaxe"
+  },
+  {
+    "GoldValue": 32,
+    "ItemId": 54,
+    "Name": "normal_hatchet"
+  },
+  {
+    "GoldValue": 96,
+    "ItemId": 55,
+    "Name": "iron_platebody"
+  },
+  {
+    "GoldValue": 64,
+    "ItemId": 56,
+    "Name": "iron_platelegs"
+  },
+  {
+    "GoldValue": 32,
+    "ItemId": 57,
+    "Name": "iron_helmet"
+  },
+  {
+    "GoldValue": 64,
+    "ItemId": 58,
+    "Name": "iron_shield"
+  },
+  {
+    "GoldValue": 2000,
+    "ItemId": 59,
+    "Name": "refined_pickaxe"
+  },
+  {
+    "GoldValue": 2000,
+    "ItemId": 60,
+    "Name": "refined_hatchet"
+  },
+  {
+    "GoldValue": 216,
+    "ItemId": 61,
+    "Name": "steel_platebody"
+  },
+  {
+    "GoldValue": 144,
+    "ItemId": 62,
+    "Name": "steel_platelegs"
+  },
+  {
+    "GoldValue": 72,
+    "ItemId": 63,
+    "Name": "steel_helmet"
+  },
+  {
+    "GoldValue": 144,
+    "ItemId": 64,
+    "Name": "steel_shield"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 65,
+    "Name": "great_pickaxe"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 66,
+    "Name": "great_hatchet"
+  },
+  {
+    "GoldValue": 30,
+    "ItemId": 67,
+    "Name": "silver_ring"
+  },
+  {
+    "GoldValue": 30,
+    "ItemId": 68,
+    "Name": "silver_amulet"
+  },
+  {
+    "GoldValue": 30,
+    "ItemId": 69,
+    "Name": "silver_bracelet"
+  },
+  {
+    "GoldValue": 30,
+    "ItemId": 70,
+    "Name": "silver_earrings"
+  },
+  {
+    "GoldValue": 40,
+    "ItemId": 71,
+    "Name": "gold_ring"
+  },
+  {
+    "GoldValue": 40,
+    "ItemId": 72,
+    "Name": "gold_amulet"
+  },
+  {
+    "GoldValue": 40,
+    "ItemId": 73,
+    "Name": "gold_bracelet"
+  },
+  {
+    "GoldValue": 40,
+    "ItemId": 74,
+    "Name": "gold_earrings"
+  },
+  {
+    "GoldValue": 2340,
+    "ItemId": 75,
+    "Name": "platinum_platebody"
+  },
+  {
+    "GoldValue": 1560,
+    "ItemId": 76,
+    "Name": "platinum_platelegs"
+  },
+  {
+    "GoldValue": 780,
+    "ItemId": 77,
+    "Name": "platinum_helmet"
+  },
+  {
+    "GoldValue": 1560,
+    "ItemId": 78,
+    "Name": "platinum_shield"
+  },
+  {
+    "GoldValue": 20000,
+    "ItemId": 79,
+    "Name": "elite_pickaxe"
+  },
+  {
+    "GoldValue": 20000,
+    "ItemId": 80,
+    "Name": "elite_hatchet"
+  },
+  {
+    "GoldValue": 6210,
+    "ItemId": 81,
+    "Name": "meteorite_platebody"
+  },
+  {
+    "GoldValue": 4140,
+    "ItemId": 82,
+    "Name": "meteorite_platelegs"
+  },
+  {
+    "GoldValue": 4140,
+    "ItemId": 83,
+    "Name": "meteorite_shield"
+  },
+  {
+    "GoldValue": 2070,
+    "ItemId": 84,
+    "Name": "meteorite_helmet"
+  },
+  {
+    "GoldValue": 50000,
+    "ItemId": 85,
+    "Name": "superior_pickaxe"
+  },
+  {
+    "GoldValue": 50000,
+    "ItemId": 86,
+    "Name": "superior_hatchet"
+  },
+  {
+    "GoldValue": 15600,
+    "ItemId": 87,
+    "Name": "titanium_platebody"
+  },
+  {
+    "GoldValue": 10400,
+    "ItemId": 88,
+    "Name": "titanium_platelegs"
+  },
+  {
+    "GoldValue": 5200,
+    "ItemId": 89,
+    "Name": "titanium_helmet"
+  },
+  {
+    "GoldValue": 10400,
+    "ItemId": 90,
+    "Name": "titanium_shield"
+  },
+  {
+    "GoldValue": 100000,
+    "ItemId": 91,
+    "Name": "outstanding_pickaxe"
+  },
+  {
+    "GoldValue": 100000,
+    "ItemId": 92,
+    "Name": "outstanding_hatchet"
+  },
+  {
+    "GoldValue": 450000,
+    "ItemId": 93,
+    "Name": "astronomical_platebody"
+  },
+  {
+    "GoldValue": 300000,
+    "ItemId": 94,
+    "Name": "astronomical_platelegs"
+  },
+  {
+    "GoldValue": 150000,
+    "ItemId": 95,
+    "Name": "astronomical_helmet"
+  },
+  {
+    "GoldValue": 300000,
+    "ItemId": 96,
+    "Name": "astronomical_shield"
+  },
+  {
+    "GoldValue": 500000,
+    "ItemId": 97,
+    "Name": "godlike_pickaxe"
+  },
+  {
+    "GoldValue": 500000,
+    "ItemId": 98,
+    "Name": "godlike_hatchet"
+  },
+  {
+    "GoldValue": 25,
+    "ItemId": 99,
+    "Name": "cooked_shrimp"
+  },
+  {
+    "GoldValue": 12,
+    "ItemId": 100,
+    "Name": "cooked_mackerel"
+  },
+  {
+    "GoldValue": 20,
+    "ItemId": 101,
+    "Name": "cooked_roach"
+  },
+  {
+    "GoldValue": 10,
+    "ItemId": 102,
+    "Name": "cooked_perch"
+  },
+  {
+    "GoldValue": 30,
+    "ItemId": 103,
+    "Name": "cooked_pike"
+  },
+  {
+    "GoldValue": 18,
+    "ItemId": 104,
+    "Name": "cooked_trout"
+  },
+  {
+    "GoldValue": 18,
+    "ItemId": 105,
+    "Name": "cooked_salmon"
+  },
+  {
+    "GoldValue": 20,
+    "ItemId": 106,
+    "Name": "cooked_carp"
+  },
+  {
+    "GoldValue": 45,
+    "ItemId": 107,
+    "Name": "cooked_bass"
+  },
+  {
+    "GoldValue": 80,
+    "ItemId": 108,
+    "Name": "cooked_lobster"
+  },
+  {
+    "GoldValue": 70,
+    "ItemId": 109,
+    "Name": "cooked_shark"
   },
   {
     "GoldValue": 20,
@@ -58,6 +568,66 @@
     "GoldValue": 150,
     "ItemId": 113,
     "Name": "raw_superior_meat"
+  },
+  {
+    "GoldValue": 20,
+    "ItemId": 114,
+    "Name": "cooked_meat"
+  },
+  {
+    "GoldValue": 60,
+    "ItemId": 115,
+    "Name": "cooked_giant_meat"
+  },
+  {
+    "GoldValue": 90,
+    "ItemId": 116,
+    "Name": "cooked_quality_meat"
+  },
+  {
+    "GoldValue": 150,
+    "ItemId": 117,
+    "Name": "cooked_superior_meat"
+  },
+  {
+    "GoldValue": 7,
+    "ItemId": 118,
+    "Name": "nettle"
+  },
+  {
+    "GoldValue": 15,
+    "ItemId": 119,
+    "Name": "blackberry"
+  },
+  {
+    "GoldValue": 20,
+    "ItemId": 120,
+    "Name": "garlic"
+  },
+  {
+    "GoldValue": 30,
+    "ItemId": 121,
+    "Name": "sweet_chestnut"
+  },
+  {
+    "GoldValue": 16,
+    "ItemId": 122,
+    "Name": "blueberry"
+  },
+  {
+    "GoldValue": 40,
+    "ItemId": 123,
+    "Name": "chanterelle"
+  },
+  {
+    "GoldValue": 25,
+    "ItemId": 124,
+    "Name": "sea_buckthorn"
+  },
+  {
+    "GoldValue": 24,
+    "ItemId": 125,
+    "Name": "porcini"
   },
   {
     "GoldValue": 7,
@@ -90,9 +660,119 @@
     "Name": "watermelon_seed"
   },
   {
+    "GoldValue": 50,
+    "ItemId": 132,
+    "Name": "potato"
+  },
+  {
+    "GoldValue": 75,
+    "ItemId": 133,
+    "Name": "carrot"
+  },
+  {
+    "GoldValue": 110,
+    "ItemId": 134,
+    "Name": "tomato"
+  },
+  {
+    "GoldValue": 150,
+    "ItemId": 135,
+    "Name": "cabbage"
+  },
+  {
+    "GoldValue": 250,
+    "ItemId": 136,
+    "Name": "strawberry"
+  },
+  {
     "GoldValue": 400,
     "ItemId": 137,
     "Name": "watermelon"
+  },
+  {
+    "GoldValue": 12,
+    "ItemId": 138,
+    "Name": "onion"
+  },
+  {
+    "GoldValue": 20,
+    "ItemId": 139,
+    "Name": "onion_seed"
+  },
+  {
+    "GoldValue": 35,
+    "ItemId": 140,
+    "Name": "potato_soup"
+  },
+  {
+    "GoldValue": 40,
+    "ItemId": 141,
+    "Name": "meat_burger"
+  },
+  {
+    "GoldValue": 30,
+    "ItemId": 142,
+    "Name": "blackberry_muffin"
+  },
+  {
+    "GoldValue": 55,
+    "ItemId": 143,
+    "Name": "cod_soup"
+  },
+  {
+    "GoldValue": 70,
+    "ItemId": 144,
+    "Name": "blueberry_pie"
+  },
+  {
+    "GoldValue": 105,
+    "ItemId": 145,
+    "Name": "salmon_salad"
+  },
+  {
+    "GoldValue": 175,
+    "ItemId": 146,
+    "Name": "porcini_soup"
+  },
+  {
+    "GoldValue": 300,
+    "ItemId": 147,
+    "Name": "grilled_lobster"
+  },
+  {
+    "GoldValue": 525,
+    "ItemId": 148,
+    "Name": "power_pizza"
+  },
+  {
+    "GoldValue": 80,
+    "ItemId": 149,
+    "Name": "normal_longsword"
+  },
+  {
+    "GoldValue": 80,
+    "ItemId": 150,
+    "Name": "normal_scimitar"
+  },
+  {
+    "GoldValue": 80,
+    "ItemId": 151,
+    "Name": "normal_heavy_hammer"
+  },
+  {
+    "GoldValue": 80,
+    "ItemId": 152,
+    "Name": "normal_club"
+  },
+  {
+    "GoldValue": 80,
+    "ItemId": 153,
+    "Name": "normal_battle_axe"
+  },
+  {
+    "GoldValue": 80,
+    "ItemId": 154,
+    "Name": "normal_spear"
   },
   {
     "GoldValue": 50,
@@ -100,9 +780,29 @@
     "Name": "raw_anglerfish"
   },
   {
+    "GoldValue": 55,
+    "ItemId": 156,
+    "Name": "cooked_anglerfish"
+  },
+  {
     "GoldValue": 23,
     "ItemId": 157,
     "Name": "raw_zander"
+  },
+  {
+    "GoldValue": 25,
+    "ItemId": 158,
+    "Name": "cooked_zander"
+  },
+  {
+    "GoldValue": 5,
+    "ItemId": 159,
+    "Name": "raw_piranha"
+  },
+  {
+    "GoldValue": 6,
+    "ItemId": 160,
+    "Name": "cooked_piranha"
   },
   {
     "GoldValue": 30,
@@ -110,14 +810,34 @@
     "Name": "raw_pufferfish"
   },
   {
+    "GoldValue": 34,
+    "ItemId": 162,
+    "Name": "cooked_pufferfish"
+  },
+  {
     "GoldValue": 14,
     "ItemId": 163,
     "Name": "raw_cod"
   },
   {
+    "GoldValue": 15,
+    "ItemId": 164,
+    "Name": "cooked_cod"
+  },
+  {
     "GoldValue": 10,
     "ItemId": 165,
     "Name": "kiwi"
+  },
+  {
+    "GoldValue": 15,
+    "ItemId": 166,
+    "Name": "mango"
+  },
+  {
+    "GoldValue": 20,
+    "ItemId": 167,
+    "Name": "pomegranate"
   },
   {
     "GoldValue": 80,
@@ -126,8 +846,283 @@
   },
   {
     "GoldValue": 80,
+    "ItemId": 169,
+    "Name": "normal_crossbow"
+  },
+  {
+    "GoldValue": 400,
+    "ItemId": 170,
+    "Name": "refined_longsword"
+  },
+  {
+    "GoldValue": 400,
+    "ItemId": 171,
+    "Name": "refined_scimitar"
+  },
+  {
+    "GoldValue": 400,
+    "ItemId": 172,
+    "Name": "refined_heavy_hammer"
+  },
+  {
+    "GoldValue": 400,
+    "ItemId": 173,
+    "Name": "refined_club"
+  },
+  {
+    "GoldValue": 400,
+    "ItemId": 174,
+    "Name": "refined_battle_axe"
+  },
+  {
+    "GoldValue": 400,
+    "ItemId": 175,
+    "Name": "refined_spear"
+  },
+  {
+    "GoldValue": 1800,
+    "ItemId": 176,
+    "Name": "great_longsword"
+  },
+  {
+    "GoldValue": 1800,
+    "ItemId": 177,
+    "Name": "great_scimitar"
+  },
+  {
+    "GoldValue": 1800,
+    "ItemId": 178,
+    "Name": "great_heavy_hammer"
+  },
+  {
+    "GoldValue": 1800,
+    "ItemId": 179,
+    "Name": "great_club"
+  },
+  {
+    "GoldValue": 1800,
+    "ItemId": 180,
+    "Name": "great_battle_axe"
+  },
+  {
+    "GoldValue": 1800,
+    "ItemId": 181,
+    "Name": "great_spear"
+  },
+  {
+    "GoldValue": 8000,
+    "ItemId": 182,
+    "Name": "elite_longsword"
+  },
+  {
+    "GoldValue": 8000,
+    "ItemId": 183,
+    "Name": "elite_scimitar"
+  },
+  {
+    "GoldValue": 8000,
+    "ItemId": 184,
+    "Name": "elite_heavy_hammer"
+  },
+  {
+    "GoldValue": 8000,
+    "ItemId": 185,
+    "Name": "elite_club"
+  },
+  {
+    "GoldValue": 8000,
+    "ItemId": 186,
+    "Name": "elite_battle_axe"
+  },
+  {
+    "GoldValue": 8000,
+    "ItemId": 187,
+    "Name": "elite_spear"
+  },
+  {
+    "GoldValue": 24000,
+    "ItemId": 188,
+    "Name": "superior_longsword"
+  },
+  {
+    "GoldValue": 24000,
+    "ItemId": 189,
+    "Name": "superior_scimitar"
+  },
+  {
+    "GoldValue": 24000,
+    "ItemId": 190,
+    "Name": "superior_heavy_hammer"
+  },
+  {
+    "GoldValue": 24000,
+    "ItemId": 191,
+    "Name": "superior_club"
+  },
+  {
+    "GoldValue": 24000,
+    "ItemId": 192,
+    "Name": "superior_battle_axe"
+  },
+  {
+    "GoldValue": 24000,
+    "ItemId": 193,
+    "Name": "superior_spear"
+  },
+  {
+    "GoldValue": 99000,
+    "ItemId": 194,
+    "Name": "outstanding_longsword"
+  },
+  {
+    "GoldValue": 99000,
+    "ItemId": 195,
+    "Name": "outstanding_scimitar"
+  },
+  {
+    "GoldValue": 99000,
+    "ItemId": 196,
+    "Name": "outstanding_heavy_hammer"
+  },
+  {
+    "GoldValue": 99000,
+    "ItemId": 197,
+    "Name": "outstanding_club"
+  },
+  {
+    "GoldValue": 99000,
+    "ItemId": 198,
+    "Name": "outstanding_battle_axe"
+  },
+  {
+    "GoldValue": 99000,
+    "ItemId": 199,
+    "Name": "outstanding_spear"
+  },
+  {
+    "GoldValue": 333000,
+    "ItemId": 200,
+    "Name": "godlike_longsword"
+  },
+  {
+    "GoldValue": 333000,
+    "ItemId": 201,
+    "Name": "godlike_scimitar"
+  },
+  {
+    "GoldValue": 333000,
+    "ItemId": 202,
+    "Name": "godlike_heavy_hammer"
+  },
+  {
+    "GoldValue": 333000,
+    "ItemId": 203,
+    "Name": "godlike_club"
+  },
+  {
+    "GoldValue": 333000,
+    "ItemId": 204,
+    "Name": "godlike_battle_axe"
+  },
+  {
+    "GoldValue": 333000,
+    "ItemId": 205,
+    "Name": "godlike_spear"
+  },
+  {
+    "GoldValue": 400,
+    "ItemId": 206,
+    "Name": "refined_bow"
+  },
+  {
+    "GoldValue": 400,
+    "ItemId": 207,
+    "Name": "refined_crossbow"
+  },
+  {
+    "GoldValue": 1800,
+    "ItemId": 208,
+    "Name": "great_bow"
+  },
+  {
+    "GoldValue": 1800,
+    "ItemId": 209,
+    "Name": "great_crossbow"
+  },
+  {
+    "GoldValue": 8000,
+    "ItemId": 210,
+    "Name": "elite_bow"
+  },
+  {
+    "GoldValue": 8000,
+    "ItemId": 211,
+    "Name": "elite_crossbow"
+  },
+  {
+    "GoldValue": 24000,
+    "ItemId": 212,
+    "Name": "superior_bow"
+  },
+  {
+    "GoldValue": 24000,
+    "ItemId": 213,
+    "Name": "superior_crossbow"
+  },
+  {
+    "GoldValue": 99000,
+    "ItemId": 214,
+    "Name": "outstanding_bow"
+  },
+  {
+    "GoldValue": 99000,
+    "ItemId": 215,
+    "Name": "outstanding_crossbow"
+  },
+  {
+    "GoldValue": 333000,
+    "ItemId": 216,
+    "Name": "godlike_bow"
+  },
+  {
+    "GoldValue": 333000,
+    "ItemId": 217,
+    "Name": "godlike_crossbow"
+  },
+  {
+    "GoldValue": 80,
     "ItemId": 218,
     "Name": "normal_staff"
+  },
+  {
+    "GoldValue": 400,
+    "ItemId": 219,
+    "Name": "refined_staff"
+  },
+  {
+    "GoldValue": 1800,
+    "ItemId": 220,
+    "Name": "great_staff"
+  },
+  {
+    "GoldValue": 8000,
+    "ItemId": 221,
+    "Name": "elite_staff"
+  },
+  {
+    "GoldValue": 24000,
+    "ItemId": 222,
+    "Name": "superior_staff"
+  },
+  {
+    "GoldValue": 99000,
+    "ItemId": 223,
+    "Name": "outstanding_staff"
+  },
+  {
+    "GoldValue": 333000,
+    "ItemId": 224,
+    "Name": "godlike_staff"
   },
   {
     "GoldValue": 7500,
@@ -190,6 +1185,11 @@
     "Name": "titanium_boots"
   },
   {
+    "GoldValue": 72000,
+    "ItemId": 237,
+    "Name": "astronomical_boots"
+  },
+  {
     "GoldValue": 120,
     "ItemId": 238,
     "Name": "bronze_gloves"
@@ -220,6 +1220,11 @@
     "Name": "titanium_gloves"
   },
   {
+    "GoldValue": 55000,
+    "ItemId": 244,
+    "Name": "astronomical_gloves"
+  },
+  {
     "GoldValue": 50,
     "ItemId": 245,
     "Name": "leather"
@@ -243,6 +1248,91 @@
     "GoldValue": 750,
     "ItemId": 249,
     "Name": "black_leather"
+  },
+  {
+    "GoldValue": 150,
+    "ItemId": 250,
+    "Name": "orange_leather_trousers"
+  },
+  {
+    "GoldValue": 175,
+    "ItemId": 251,
+    "Name": "orange_leather_coat"
+  },
+  {
+    "GoldValue": 250,
+    "ItemId": 252,
+    "Name": "green_leather_trousers"
+  },
+  {
+    "GoldValue": 275,
+    "ItemId": 253,
+    "Name": "green_leather_coat"
+  },
+  {
+    "GoldValue": 350,
+    "ItemId": 254,
+    "Name": "red_leather_trousers"
+  },
+  {
+    "GoldValue": 375,
+    "ItemId": 255,
+    "Name": "red_leather_coat"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 256,
+    "Name": "black_leather_trousers"
+  },
+  {
+    "GoldValue": 600,
+    "ItemId": 257,
+    "Name": "black_leather_coat"
+  },
+  {
+    "GoldValue": 40,
+    "ItemId": 258,
+    "Name": "leather_trousers"
+  },
+  {
+    "GoldValue": 55,
+    "ItemId": 259,
+    "Name": "leather_coat"
+  },
+  {
+    "GoldValue": 6,
+    "ItemId": 260,
+    "Name": "bronze_arrow"
+  },
+  {
+    "GoldValue": 9,
+    "ItemId": 261,
+    "Name": "iron_arrow"
+  },
+  {
+    "GoldValue": 15,
+    "ItemId": 262,
+    "Name": "steel_arrow"
+  },
+  {
+    "GoldValue": 25,
+    "ItemId": 263,
+    "Name": "platinum_arrow"
+  },
+  {
+    "GoldValue": 35,
+    "ItemId": 264,
+    "Name": "meteorite_arrow"
+  },
+  {
+    "GoldValue": 50,
+    "ItemId": 265,
+    "Name": "titanium_arrow"
+  },
+  {
+    "GoldValue": 80,
+    "ItemId": 266,
+    "Name": "astronomical_arrow"
   },
   {
     "GoldValue": 10000,
@@ -275,9 +1365,49 @@
     "Name": "chimera_key"
   },
   {
+    "GoldValue": 15,
+    "ItemId": 273,
+    "Name": "magical_flax"
+  },
+  {
+    "GoldValue": 18,
+    "ItemId": 274,
+    "Name": "enchanted_flax"
+  },
+  {
     "GoldValue": 34,
     "ItemId": 275,
     "Name": "cursed_flax"
+  },
+  {
+    "GoldValue": 40,
+    "ItemId": 276,
+    "Name": "magical_robe"
+  },
+  {
+    "GoldValue": 30,
+    "ItemId": 277,
+    "Name": "magical_trousers"
+  },
+  {
+    "GoldValue": 95,
+    "ItemId": 278,
+    "Name": "enchanted_robe"
+  },
+  {
+    "GoldValue": 80,
+    "ItemId": 279,
+    "Name": "enchanted_trousers"
+  },
+  {
+    "GoldValue": 200,
+    "ItemId": 280,
+    "Name": "cursed_robe"
+  },
+  {
+    "GoldValue": 160,
+    "ItemId": 281,
+    "Name": "cursed_trousers"
   },
   {
     "GoldValue": 55,
@@ -288,6 +1418,491 @@
     "GoldValue": 80,
     "ItemId": 283,
     "Name": "dark_mages_hat"
+  },
+  {
+    "GoldValue": 32,
+    "ItemId": 284,
+    "Name": "normal_fishing_rod"
+  },
+  {
+    "GoldValue": 32,
+    "ItemId": 285,
+    "Name": "normal_rake"
+  },
+  {
+    "GoldValue": 32,
+    "ItemId": 286,
+    "Name": "normal_secateurs"
+  },
+  {
+    "GoldValue": 32,
+    "ItemId": 287,
+    "Name": "normal_hammer"
+  },
+  {
+    "GoldValue": 32,
+    "ItemId": 288,
+    "Name": "normal_saw"
+  },
+  {
+    "GoldValue": 32,
+    "ItemId": 289,
+    "Name": "normal_cooking_pan"
+  },
+  {
+    "GoldValue": 32,
+    "ItemId": 290,
+    "Name": "normal_crafting_needle"
+  },
+  {
+    "GoldValue": 2000,
+    "ItemId": 291,
+    "Name": "refined_fishing_rod"
+  },
+  {
+    "GoldValue": 2000,
+    "ItemId": 292,
+    "Name": "refined_rake"
+  },
+  {
+    "GoldValue": 2000,
+    "ItemId": 293,
+    "Name": "refined_secateurs"
+  },
+  {
+    "GoldValue": 2000,
+    "ItemId": 294,
+    "Name": "refined_hammer"
+  },
+  {
+    "GoldValue": 2000,
+    "ItemId": 295,
+    "Name": "refined_saw"
+  },
+  {
+    "GoldValue": 2000,
+    "ItemId": 296,
+    "Name": "refined_cooking_pan"
+  },
+  {
+    "GoldValue": 2000,
+    "ItemId": 297,
+    "Name": "refined_crafting_needle"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 298,
+    "Name": "great_fishing_rod"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 299,
+    "Name": "great_rake"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 300,
+    "Name": "great_secateurs"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 301,
+    "Name": "great_hammer"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 302,
+    "Name": "great_saw"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 303,
+    "Name": "great_cooking_pan"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 304,
+    "Name": "great_crafting_needle"
+  },
+  {
+    "GoldValue": 20000,
+    "ItemId": 305,
+    "Name": "elite_fishing_rod"
+  },
+  {
+    "GoldValue": 20000,
+    "ItemId": 306,
+    "Name": "elite_rake"
+  },
+  {
+    "GoldValue": 20000,
+    "ItemId": 307,
+    "Name": "elite_secateurs"
+  },
+  {
+    "GoldValue": 20000,
+    "ItemId": 308,
+    "Name": "elite_hammer"
+  },
+  {
+    "GoldValue": 20000,
+    "ItemId": 309,
+    "Name": "elite_saw"
+  },
+  {
+    "GoldValue": 20000,
+    "ItemId": 310,
+    "Name": "elite_cooking_pan"
+  },
+  {
+    "GoldValue": 20000,
+    "ItemId": 311,
+    "Name": "elite_crafting_needle"
+  },
+  {
+    "GoldValue": 50000,
+    "ItemId": 312,
+    "Name": "superior_fishing_rod"
+  },
+  {
+    "GoldValue": 50000,
+    "ItemId": 313,
+    "Name": "superior_rake"
+  },
+  {
+    "GoldValue": 50000,
+    "ItemId": 314,
+    "Name": "superior_secateurs"
+  },
+  {
+    "GoldValue": 50000,
+    "ItemId": 315,
+    "Name": "superior_hammer"
+  },
+  {
+    "GoldValue": 50000,
+    "ItemId": 316,
+    "Name": "superior_saw"
+  },
+  {
+    "GoldValue": 50000,
+    "ItemId": 317,
+    "Name": "superior_cooking_pan"
+  },
+  {
+    "GoldValue": 50000,
+    "ItemId": 318,
+    "Name": "superior_crafting_needle"
+  },
+  {
+    "GoldValue": 100000,
+    "ItemId": 319,
+    "Name": "outstanding_fishing_rod"
+  },
+  {
+    "GoldValue": 100000,
+    "ItemId": 320,
+    "Name": "outstanding_rake"
+  },
+  {
+    "GoldValue": 100000,
+    "ItemId": 321,
+    "Name": "outstanding_secateurs"
+  },
+  {
+    "GoldValue": 100000,
+    "ItemId": 322,
+    "Name": "outstanding_hammer"
+  },
+  {
+    "GoldValue": 100000,
+    "ItemId": 323,
+    "Name": "outstanding_saw"
+  },
+  {
+    "GoldValue": 100000,
+    "ItemId": 324,
+    "Name": "outstanding_cooking_pan"
+  },
+  {
+    "GoldValue": 100000,
+    "ItemId": 325,
+    "Name": "outstanding_crafting_needle"
+  },
+  {
+    "GoldValue": 500000,
+    "ItemId": 326,
+    "Name": "godlike_fishing_rod"
+  },
+  {
+    "GoldValue": 500000,
+    "ItemId": 327,
+    "Name": "godlike_rake"
+  },
+  {
+    "GoldValue": 500000,
+    "ItemId": 328,
+    "Name": "godlike_secateurs"
+  },
+  {
+    "GoldValue": 500000,
+    "ItemId": 329,
+    "Name": "godlike_hammer"
+  },
+  {
+    "GoldValue": 500000,
+    "ItemId": 330,
+    "Name": "godlike_saw"
+  },
+  {
+    "GoldValue": 500000,
+    "ItemId": 331,
+    "Name": "godlike_cooking_pan"
+  },
+  {
+    "GoldValue": 500000,
+    "ItemId": 332,
+    "Name": "godlike_crafting_needle"
+  },
+  {
+    "GoldValue": 40,
+    "ItemId": 333,
+    "Name": "cape"
+  },
+  {
+    "GoldValue": 120,
+    "ItemId": 334,
+    "Name": "knights_cape"
+  },
+  {
+    "GoldValue": 1500,
+    "ItemId": 335,
+    "Name": "royal_cape"
+  },
+  {
+    "GoldValue": 1,
+    "ItemId": 336,
+    "Name": "premium_one_month"
+  },
+  {
+    "GoldValue": 1,
+    "ItemId": 337,
+    "Name": "premium_permanent"
+  },
+  {
+    "GoldValue": 1,
+    "ItemId": 338,
+    "Name": "effect_scimitar"
+  },
+  {
+    "GoldValue": 1,
+    "ItemId": 339,
+    "Name": "effect_longsword"
+  },
+  {
+    "GoldValue": 1,
+    "ItemId": 340,
+    "Name": "effect_club"
+  },
+  {
+    "GoldValue": 1,
+    "ItemId": 341,
+    "Name": "effect_battle_axe"
+  },
+  {
+    "GoldValue": 1,
+    "ItemId": 342,
+    "Name": "effect_heavy_hammer"
+  },
+  {
+    "GoldValue": 1,
+    "ItemId": 343,
+    "Name": "effect_bow"
+  },
+  {
+    "GoldValue": 1,
+    "ItemId": 344,
+    "Name": "effect_crossbow"
+  },
+  {
+    "GoldValue": 1,
+    "ItemId": 345,
+    "Name": "effect_staff"
+  },
+  {
+    "GoldValue": 1,
+    "ItemId": 346,
+    "Name": "effect_spear"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 347,
+    "Name": "common_scroll_of_woodcutting"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 348,
+    "Name": "common_scroll_of_plundering"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 349,
+    "Name": "common_scroll_of_fishing"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 350,
+    "Name": "common_scroll_of_mining"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 351,
+    "Name": "common_scroll_of_smithing"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 352,
+    "Name": "common_scroll_of_foraging"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 353,
+    "Name": "common_scroll_of_farming"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 354,
+    "Name": "common_scroll_of_agility"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 355,
+    "Name": "common_scroll_of_crafting"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 356,
+    "Name": "rare_scroll_of_woodcutting"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 357,
+    "Name": "rare_scroll_of_plundering"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 358,
+    "Name": "rare_scroll_of_fishing"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 359,
+    "Name": "rare_scroll_of_mining"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 360,
+    "Name": "rare_scroll_of_smithing"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 361,
+    "Name": "rare_scroll_of_foraging"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 362,
+    "Name": "rare_scroll_of_farming"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 363,
+    "Name": "rare_scroll_of_agility"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 364,
+    "Name": "rare_scroll_of_crafting"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 365,
+    "Name": "exceptional_scroll_of_woodcutting"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 366,
+    "Name": "exceptional_scroll_of_plundering"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 367,
+    "Name": "exceptional_scroll_of_fishing"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 368,
+    "Name": "exceptional_scroll_of_mining"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 369,
+    "Name": "exceptional_scroll_of_smithing"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 370,
+    "Name": "exceptional_scroll_of_foraging"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 371,
+    "Name": "exceptional_scroll_of_farming"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 372,
+    "Name": "exceptional_scroll_of_agility"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 373,
+    "Name": "exceptional_scroll_of_crafting"
+  },
+  {
+    "GoldValue": 200,
+    "ItemId": 374,
+    "Name": "diamond_ring"
+  },
+  {
+    "GoldValue": 200,
+    "ItemId": 375,
+    "Name": "diamond_amulet"
+  },
+  {
+    "GoldValue": 200,
+    "ItemId": 376,
+    "Name": "diamond_bracelet"
+  },
+  {
+    "GoldValue": 200,
+    "ItemId": 377,
+    "Name": "diamond_earrings"
+  },
+  {
+    "GoldValue": 125,
+    "ItemId": 378,
+    "Name": "diamond_ore"
+  },
+  {
+    "GoldValue": 115,
+    "ItemId": 379,
+    "Name": "diamond_bar"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 380,
+    "Name": "exceptional_scroll_of_rigour"
   },
   {
     "GoldValue": 400,
@@ -303,6 +1918,31 @@
     "GoldValue": 12000,
     "ItemId": 383,
     "Name": "exceptional_chest"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 384,
+    "Name": "boots_of_quickness"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 385,
+    "Name": "archery_boots"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 386,
+    "Name": "cowboy_hat"
+  },
+  {
+    "GoldValue": 10000,
+    "ItemId": 387,
+    "Name": "archers_hat"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 388,
+    "Name": "wizards_boots"
   },
   {
     "GoldValue": 33000,
@@ -328,6 +1968,36 @@
     "GoldValue": 1800,
     "ItemId": 393,
     "Name": "novices_wand"
+  },
+  {
+    "GoldValue": 12000,
+    "ItemId": 394,
+    "Name": "archers_shield"
+  },
+  {
+    "GoldValue": 1,
+    "ItemId": 395,
+    "Name": "cosmetic_effect_flaming"
+  },
+  {
+    "GoldValue": 1,
+    "ItemId": 396,
+    "Name": "cosmetic_effect_ghostly"
+  },
+  {
+    "GoldValue": 1,
+    "ItemId": 397,
+    "Name": "cosmetic_effect_void"
+  },
+  {
+    "GoldValue": 1,
+    "ItemId": 398,
+    "Name": "cosmetic_effect_nature"
+  },
+  {
+    "GoldValue": 54,
+    "ItemId": 399,
+    "Name": "seaweed"
   },
   {
     "GoldValue": 80,
@@ -368,6 +2038,966 @@
     "GoldValue": 110,
     "ItemId": 407,
     "Name": "magical_log"
+  },
+  {
+    "GoldValue": 250,
+    "ItemId": 408,
+    "Name": "potion_of_swiftness"
+  },
+  {
+    "GoldValue": 350,
+    "ItemId": 409,
+    "Name": "potion_of_negotiation"
+  },
+  {
+    "GoldValue": 425,
+    "ItemId": 410,
+    "Name": "potion_of_resurrection"
+  },
+  {
+    "GoldValue": 575,
+    "ItemId": 411,
+    "Name": "potion_of_forgery"
+  },
+  {
+    "GoldValue": 650,
+    "ItemId": 412,
+    "Name": "potion_of_great_sight"
+  },
+  {
+    "GoldValue": 725,
+    "ItemId": 413,
+    "Name": "potion_of_trickery"
+  },
+  {
+    "GoldValue": 800,
+    "ItemId": 414,
+    "Name": "potion_of_dark_magic"
+  },
+  {
+    "GoldValue": 900,
+    "ItemId": 415,
+    "Name": "potion_of_pure_power"
+  },
+  {
+    "GoldValue": 1000,
+    "ItemId": 416,
+    "Name": "potion_of_ancient_knowledge"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 417,
+    "Name": "silver_ring_enchanted"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 418,
+    "Name": "silver_amulet_enchanted"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 419,
+    "Name": "silver_bracelet_enchanted"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 420,
+    "Name": "silver_earrings_enchanted"
+  },
+  {
+    "GoldValue": 2500,
+    "ItemId": 421,
+    "Name": "gold_ring_enchanted"
+  },
+  {
+    "GoldValue": 2500,
+    "ItemId": 422,
+    "Name": "gold_amulet_enchanted"
+  },
+  {
+    "GoldValue": 2500,
+    "ItemId": 423,
+    "Name": "gold_bracelet_enchanted"
+  },
+  {
+    "GoldValue": 2500,
+    "ItemId": 424,
+    "Name": "gold_earrings_enchanted"
+  },
+  {
+    "GoldValue": 10000,
+    "ItemId": 425,
+    "Name": "diamond_ring_enchanted"
+  },
+  {
+    "GoldValue": 10000,
+    "ItemId": 426,
+    "Name": "diamond_amulet_enchanted"
+  },
+  {
+    "GoldValue": 10000,
+    "ItemId": 427,
+    "Name": "diamond_bracelet_enchanted"
+  },
+  {
+    "GoldValue": 10000,
+    "ItemId": 428,
+    "Name": "diamond_earrings_enchanted"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 429,
+    "Name": "common_scroll_of_rigour"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 430,
+    "Name": "rare_scroll_of_rigour"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 431,
+    "Name": "common_scroll_of_strength"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 432,
+    "Name": "common_scroll_of_defence"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 433,
+    "Name": "common_scroll_of_magic"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 434,
+    "Name": "common_scroll_of_archery"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 435,
+    "Name": "common_scroll_of_carpentry"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 436,
+    "Name": "common_scroll_of_enchanting"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 437,
+    "Name": "common_scroll_of_brewing"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 438,
+    "Name": "rare_scroll_of_strength"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 439,
+    "Name": "rare_scroll_of_defence"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 440,
+    "Name": "rare_scroll_of_magic"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 441,
+    "Name": "rare_scroll_of_archery"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 442,
+    "Name": "rare_scroll_of_carpentry"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 443,
+    "Name": "rare_scroll_of_enchanting"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 444,
+    "Name": "rare_scroll_of_brewing"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 445,
+    "Name": "exceptional_scroll_of_strength"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 446,
+    "Name": "exceptional_scroll_of_defence"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 447,
+    "Name": "exceptional_scroll_of_magic"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 448,
+    "Name": "exceptional_scroll_of_archery"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 449,
+    "Name": "exceptional_scroll_of_carpentry"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 450,
+    "Name": "exceptional_scroll_of_enchanting"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 451,
+    "Name": "exceptional_scroll_of_brewing"
+  },
+  {
+    "GoldValue": 250000,
+    "ItemId": 453,
+    "Name": "agility_cape_tier_1"
+  },
+  {
+    "GoldValue": 250000,
+    "ItemId": 454,
+    "Name": "archery_cape_tier_1"
+  },
+  {
+    "GoldValue": 250000,
+    "ItemId": 455,
+    "Name": "brewing_cape_tier_1"
+  },
+  {
+    "GoldValue": 250000,
+    "ItemId": 456,
+    "Name": "carpentry_cape_tier_1"
+  },
+  {
+    "GoldValue": 250000,
+    "ItemId": 457,
+    "Name": "cooking_cape_tier_1"
+  },
+  {
+    "GoldValue": 250000,
+    "ItemId": 458,
+    "Name": "crafting_cape_tier_1"
+  },
+  {
+    "GoldValue": 250000,
+    "ItemId": 459,
+    "Name": "defence_cape_tier_1"
+  },
+  {
+    "GoldValue": 250000,
+    "ItemId": 460,
+    "Name": "enchanting_cape_tier_1"
+  },
+  {
+    "GoldValue": 250000,
+    "ItemId": 461,
+    "Name": "farming_cape_tier_1"
+  },
+  {
+    "GoldValue": 250000,
+    "ItemId": 462,
+    "Name": "fishing_cape_tier_1"
+  },
+  {
+    "GoldValue": 250000,
+    "ItemId": 463,
+    "Name": "foraging_cape_tier_1"
+  },
+  {
+    "GoldValue": 250000,
+    "ItemId": 464,
+    "Name": "health_cape_tier_1"
+  },
+  {
+    "GoldValue": 250000,
+    "ItemId": 465,
+    "Name": "magic_cape_tier_1"
+  },
+  {
+    "GoldValue": 250000,
+    "ItemId": 466,
+    "Name": "mining_cape_tier_1"
+  },
+  {
+    "GoldValue": 250000,
+    "ItemId": 467,
+    "Name": "plundering_cape_tier_1"
+  },
+  {
+    "GoldValue": 250000,
+    "ItemId": 468,
+    "Name": "rigour_cape_tier_1"
+  },
+  {
+    "GoldValue": 250000,
+    "ItemId": 469,
+    "Name": "smithing_cape_tier_1"
+  },
+  {
+    "GoldValue": 250000,
+    "ItemId": 470,
+    "Name": "strength_cape_tier_1"
+  },
+  {
+    "GoldValue": 250000,
+    "ItemId": 471,
+    "Name": "woodcutting_cape_tier_1"
+  },
+  {
+    "GoldValue": 500000,
+    "ItemId": 472,
+    "Name": "agility_cape_tier_2"
+  },
+  {
+    "GoldValue": 500000,
+    "ItemId": 473,
+    "Name": "archery_cape_tier_2"
+  },
+  {
+    "GoldValue": 500000,
+    "ItemId": 474,
+    "Name": "brewing_cape_tier_2"
+  },
+  {
+    "GoldValue": 500000,
+    "ItemId": 475,
+    "Name": "carpentry_cape_tier_2"
+  },
+  {
+    "GoldValue": 500000,
+    "ItemId": 476,
+    "Name": "cooking_cape_tier_2"
+  },
+  {
+    "GoldValue": 500000,
+    "ItemId": 477,
+    "Name": "crafting_cape_tier_2"
+  },
+  {
+    "GoldValue": 500000,
+    "ItemId": 478,
+    "Name": "defence_cape_tier_2"
+  },
+  {
+    "GoldValue": 500000,
+    "ItemId": 479,
+    "Name": "enchanting_cape_tier_2"
+  },
+  {
+    "GoldValue": 500000,
+    "ItemId": 480,
+    "Name": "farming_cape_tier_2"
+  },
+  {
+    "GoldValue": 500000,
+    "ItemId": 481,
+    "Name": "fishing_cape_tier_2"
+  },
+  {
+    "GoldValue": 500000,
+    "ItemId": 482,
+    "Name": "foraging_cape_tier_2"
+  },
+  {
+    "GoldValue": 500000,
+    "ItemId": 483,
+    "Name": "health_cape_tier_2"
+  },
+  {
+    "GoldValue": 500000,
+    "ItemId": 484,
+    "Name": "magic_cape_tier_2"
+  },
+  {
+    "GoldValue": 500000,
+    "ItemId": 485,
+    "Name": "mining_cape_tier_2"
+  },
+  {
+    "GoldValue": 500000,
+    "ItemId": 486,
+    "Name": "plundering_cape_tier_2"
+  },
+  {
+    "GoldValue": 500000,
+    "ItemId": 487,
+    "Name": "rigour_cape_tier_2"
+  },
+  {
+    "GoldValue": 500000,
+    "ItemId": 488,
+    "Name": "smithing_cape_tier_2"
+  },
+  {
+    "GoldValue": 500000,
+    "ItemId": 489,
+    "Name": "strength_cape_tier_2"
+  },
+  {
+    "GoldValue": 500000,
+    "ItemId": 490,
+    "Name": "woodcutting_cape_tier_2"
+  },
+  {
+    "GoldValue": 1000000,
+    "ItemId": 491,
+    "Name": "agility_cape_tier_3"
+  },
+  {
+    "GoldValue": 1000000,
+    "ItemId": 492,
+    "Name": "archery_cape_tier_3"
+  },
+  {
+    "GoldValue": 1000000,
+    "ItemId": 493,
+    "Name": "brewing_cape_tier_3"
+  },
+  {
+    "GoldValue": 1000000,
+    "ItemId": 494,
+    "Name": "carpentry_cape_tier_3"
+  },
+  {
+    "GoldValue": 1000000,
+    "ItemId": 495,
+    "Name": "cooking_cape_tier_3"
+  },
+  {
+    "GoldValue": 1000000,
+    "ItemId": 496,
+    "Name": "crafting_cape_tier_3"
+  },
+  {
+    "GoldValue": 1000000,
+    "ItemId": 497,
+    "Name": "defence_cape_tier_3"
+  },
+  {
+    "GoldValue": 1000000,
+    "ItemId": 498,
+    "Name": "enchanting_cape_tier_3"
+  },
+  {
+    "GoldValue": 1000000,
+    "ItemId": 499,
+    "Name": "farming_cape_tier_3"
+  },
+  {
+    "GoldValue": 1000000,
+    "ItemId": 500,
+    "Name": "fishing_cape_tier_3"
+  },
+  {
+    "GoldValue": 1000000,
+    "ItemId": 501,
+    "Name": "foraging_cape_tier_3"
+  },
+  {
+    "GoldValue": 1000000,
+    "ItemId": 502,
+    "Name": "health_cape_tier_3"
+  },
+  {
+    "GoldValue": 1000000,
+    "ItemId": 503,
+    "Name": "magic_cape_tier_3"
+  },
+  {
+    "GoldValue": 1000000,
+    "ItemId": 504,
+    "Name": "mining_cape_tier_3"
+  },
+  {
+    "GoldValue": 1000000,
+    "ItemId": 505,
+    "Name": "plundering_cape_tier_3"
+  },
+  {
+    "GoldValue": 1000000,
+    "ItemId": 506,
+    "Name": "rigour_cape_tier_3"
+  },
+  {
+    "GoldValue": 1000000,
+    "ItemId": 507,
+    "Name": "smithing_cape_tier_3"
+  },
+  {
+    "GoldValue": 1000000,
+    "ItemId": 508,
+    "Name": "strength_cape_tier_3"
+  },
+  {
+    "GoldValue": 1000000,
+    "ItemId": 509,
+    "Name": "woodcutting_cape_tier_3"
+  },
+  {
+    "GoldValue": 2500000,
+    "ItemId": 510,
+    "Name": "agility_cape_tier_4"
+  },
+  {
+    "GoldValue": 2500000,
+    "ItemId": 511,
+    "Name": "archery_cape_tier_4"
+  },
+  {
+    "GoldValue": 2500000,
+    "ItemId": 512,
+    "Name": "brewing_cape_tier_4"
+  },
+  {
+    "GoldValue": 2500000,
+    "ItemId": 513,
+    "Name": "carpentry_cape_tier_4"
+  },
+  {
+    "GoldValue": 2500000,
+    "ItemId": 514,
+    "Name": "cooking_cape_tier_4"
+  },
+  {
+    "GoldValue": 2500000,
+    "ItemId": 515,
+    "Name": "crafting_cape_tier_4"
+  },
+  {
+    "GoldValue": 2500000,
+    "ItemId": 516,
+    "Name": "defence_cape_tier_4"
+  },
+  {
+    "GoldValue": 2500000,
+    "ItemId": 517,
+    "Name": "enchanting_cape_tier_4"
+  },
+  {
+    "GoldValue": 2500000,
+    "ItemId": 518,
+    "Name": "farming_cape_tier_4"
+  },
+  {
+    "GoldValue": 2500000,
+    "ItemId": 519,
+    "Name": "fishing_cape_tier_4"
+  },
+  {
+    "GoldValue": 2500000,
+    "ItemId": 520,
+    "Name": "foraging_cape_tier_4"
+  },
+  {
+    "GoldValue": 2500000,
+    "ItemId": 521,
+    "Name": "health_cape_tier_4"
+  },
+  {
+    "GoldValue": 2500000,
+    "ItemId": 522,
+    "Name": "magic_cape_tier_4"
+  },
+  {
+    "GoldValue": 2500000,
+    "ItemId": 523,
+    "Name": "mining_cape_tier_4"
+  },
+  {
+    "GoldValue": 2500000,
+    "ItemId": 524,
+    "Name": "plundering_cape_tier_4"
+  },
+  {
+    "GoldValue": 2500000,
+    "ItemId": 525,
+    "Name": "rigour_cape_tier_4"
+  },
+  {
+    "GoldValue": 2500000,
+    "ItemId": 526,
+    "Name": "smithing_cape_tier_4"
+  },
+  {
+    "GoldValue": 2500000,
+    "ItemId": 527,
+    "Name": "strength_cape_tier_4"
+  },
+  {
+    "GoldValue": 2500000,
+    "ItemId": 528,
+    "Name": "woodcutting_cape_tier_4"
+  },
+  {
+    "GoldValue": 250000,
+    "ItemId": 529,
+    "Name": "completionist_cape_tier_1"
+  },
+  {
+    "GoldValue": 500000,
+    "ItemId": 530,
+    "Name": "completionist_cape_tier_2"
+  },
+  {
+    "GoldValue": 1000000,
+    "ItemId": 531,
+    "Name": "completionist_cape_tier_3"
+  },
+  {
+    "GoldValue": 2500000,
+    "ItemId": 532,
+    "Name": "completionist_cape_tier_4"
+  },
+  {
+    "GoldValue": 32,
+    "ItemId": 533,
+    "Name": "normal_lockpicks"
+  },
+  {
+    "GoldValue": 2000,
+    "ItemId": 534,
+    "Name": "refined_lockpicks"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 535,
+    "Name": "great_lockpicks"
+  },
+  {
+    "GoldValue": 20000,
+    "ItemId": 536,
+    "Name": "elite_lockpicks"
+  },
+  {
+    "GoldValue": 50000,
+    "ItemId": 537,
+    "Name": "superior_lockpicks"
+  },
+  {
+    "GoldValue": 100000,
+    "ItemId": 538,
+    "Name": "outstanding_lockpicks"
+  },
+  {
+    "GoldValue": 500000,
+    "ItemId": 539,
+    "Name": "godlike_lockpicks"
+  },
+  {
+    "GoldValue": 32,
+    "ItemId": 540,
+    "Name": "normal_philosopher_stone"
+  },
+  {
+    "GoldValue": 2000,
+    "ItemId": 541,
+    "Name": "refined_philosopher_stone"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 542,
+    "Name": "great_philosopher_stone"
+  },
+  {
+    "GoldValue": 20000,
+    "ItemId": 543,
+    "Name": "elite_philosopher_stone"
+  },
+  {
+    "GoldValue": 50000,
+    "ItemId": 544,
+    "Name": "superior_philosopher_stone"
+  },
+  {
+    "GoldValue": 100000,
+    "ItemId": 545,
+    "Name": "outstanding_philosopher_stone"
+  },
+  {
+    "GoldValue": 500000,
+    "ItemId": 546,
+    "Name": "godlike_philosopher_stone"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 547,
+    "Name": "common_scroll_of_cooking"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 548,
+    "Name": "rare_scroll_of_cooking"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 549,
+    "Name": "exceptional_scroll_of_cooking"
+  },
+  {
+    "GoldValue": 1,
+    "ItemId": 550,
+    "Name": "boss_hunter_consumable"
+  },
+  {
+    "GoldValue": 1,
+    "ItemId": 551,
+    "Name": "premium_permanent_untradeable"
+  },
+  {
+    "GoldValue": 32,
+    "ItemId": 552,
+    "Name": "normal_jumping_rope"
+  },
+  {
+    "GoldValue": 2000,
+    "ItemId": 553,
+    "Name": "refined_jumping_rope"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 554,
+    "Name": "great_jumping_rope"
+  },
+  {
+    "GoldValue": 20000,
+    "ItemId": 555,
+    "Name": "elite_jumping_rope"
+  },
+  {
+    "GoldValue": 50000,
+    "ItemId": 556,
+    "Name": "superior_jumping_rope"
+  },
+  {
+    "GoldValue": 100000,
+    "ItemId": 557,
+    "Name": "outstanding_jumping_rope"
+  },
+  {
+    "GoldValue": 500000,
+    "ItemId": 558,
+    "Name": "godlike_jumping_rope"
+  },
+  {
+    "GoldValue": 225,
+    "ItemId": 559,
+    "Name": "stew"
+  },
+  {
+    "GoldValue": 10000,
+    "ItemId": 560,
+    "Name": "toolbelt"
+  },
+  {
+    "GoldValue": 65,
+    "ItemId": 561,
+    "Name": "raw_tuna"
+  },
+  {
+    "GoldValue": 75,
+    "ItemId": 562,
+    "Name": "cooked_tuna"
+  },
+  {
+    "GoldValue": 20000,
+    "ItemId": 563,
+    "Name": "bulwark_shield"
+  },
+  {
+    "GoldValue": 15000,
+    "ItemId": 564,
+    "Name": "warriors_helmet"
+  },
+  {
+    "GoldValue": 50000,
+    "ItemId": 565,
+    "Name": "divine_buckler"
+  },
+  {
+    "GoldValue": 50000,
+    "ItemId": 566,
+    "Name": "dragon_slayers_crossbow"
+  },
+  {
+    "GoldValue": 50000,
+    "ItemId": 567,
+    "Name": "astaroths_scimitar"
+  },
+  {
+    "GoldValue": 10000,
+    "ItemId": 568,
+    "Name": "astronomical_flax"
+  },
+  {
+    "GoldValue": 10000,
+    "ItemId": 569,
+    "Name": "astronomical_leather"
+  },
+  {
+    "GoldValue": 25000,
+    "ItemId": 570,
+    "Name": "warriors_toolbelt"
+  },
+  {
+    "GoldValue": 25000,
+    "ItemId": 571,
+    "Name": "archers_toolbelt"
+  },
+  {
+    "GoldValue": 25000,
+    "ItemId": 572,
+    "Name": "mages_toolbelt"
+  },
+  {
+    "GoldValue": 40000,
+    "ItemId": 573,
+    "Name": "gatherers_handbook"
+  },
+  {
+    "GoldValue": 10000000,
+    "ItemId": 574,
+    "Name": "eagleclaw_battle_axe"
+  },
+  {
+    "GoldValue": 10000000,
+    "ItemId": 575,
+    "Name": "infernal_club"
+  },
+  {
+    "GoldValue": 10000000,
+    "ItemId": 576,
+    "Name": "stygian_longsword"
+  },
+  {
+    "GoldValue": 10000000,
+    "ItemId": 577,
+    "Name": "thunderbolt_bow"
+  },
+  {
+    "GoldValue": 10000000,
+    "ItemId": 578,
+    "Name": "viperstrike_scimitar"
+  },
+  {
+    "GoldValue": 10000000,
+    "ItemId": 579,
+    "Name": "divine_staff"
+  },
+  {
+    "GoldValue": 50000,
+    "ItemId": 580,
+    "Name": "sorcerers_staff"
+  },
+  {
+    "GoldValue": 80000,
+    "ItemId": 581,
+    "Name": "astronomical_robe"
+  },
+  {
+    "GoldValue": 80000,
+    "ItemId": 582,
+    "Name": "astronomical_trousers"
+  },
+  {
+    "GoldValue": 80000,
+    "ItemId": 583,
+    "Name": "astronomical_leather_coat"
+  },
+  {
+    "GoldValue": 80000,
+    "ItemId": 584,
+    "Name": "astronomical_leather_trousers"
+  },
+  {
+    "GoldValue": 1,
+    "ItemId": 585,
+    "Name": "prestige"
+  },
+  {
+    "GoldValue": 155,
+    "ItemId": 586,
+    "Name": "redwood_plank"
+  },
+  {
+    "GoldValue": 210,
+    "ItemId": 587,
+    "Name": "magical_plank"
+  },
+  {
+    "GoldValue": 4000,
+    "ItemId": 588,
+    "Name": "lumberjacks_hat"
+  },
+  {
+    "GoldValue": 4000,
+    "ItemId": 589,
+    "Name": "lumberjacks_shirt"
+  },
+  {
+    "GoldValue": 4000,
+    "ItemId": 590,
+    "Name": "lumberjacks_pants"
+  },
+  {
+    "GoldValue": 4000,
+    "ItemId": 591,
+    "Name": "miners_helmet"
+  },
+  {
+    "GoldValue": 4000,
+    "ItemId": 592,
+    "Name": "miners_jacket"
+  },
+  {
+    "GoldValue": 4000,
+    "ItemId": 593,
+    "Name": "miners_pants"
+  },
+  {
+    "GoldValue": 4000,
+    "ItemId": 594,
+    "Name": "fishermans_hat"
+  },
+  {
+    "GoldValue": 4000,
+    "ItemId": 595,
+    "Name": "fishermans_jacket"
+  },
+  {
+    "GoldValue": 4000,
+    "ItemId": 596,
+    "Name": "fishermans_pants"
+  },
+  {
+    "GoldValue": 4000,
+    "ItemId": 597,
+    "Name": "foragers_hat"
+  },
+  {
+    "GoldValue": 4000,
+    "ItemId": 598,
+    "Name": "foragers_jacket"
+  },
+  {
+    "GoldValue": 4000,
+    "ItemId": 599,
+    "Name": "foragers_shorts"
+  },
+  {
+    "GoldValue": 1,
+    "ItemId": 600,
+    "Name": "inventory_space_token"
   },
   {
     "GoldValue": 80,
@@ -453,6 +3083,126 @@
     "GoldValue": 20000,
     "ItemId": 617,
     "Name": "necromancers_boots"
+  },
+  {
+    "GoldValue": 30,
+    "ItemId": 618,
+    "Name": "silver_precision_ring"
+  },
+  {
+    "GoldValue": 40,
+    "ItemId": 619,
+    "Name": "gold_precision_ring"
+  },
+  {
+    "GoldValue": 200,
+    "ItemId": 620,
+    "Name": "diamond_precision_ring"
+  },
+  {
+    "GoldValue": 30,
+    "ItemId": 621,
+    "Name": "silver_arcane_ring"
+  },
+  {
+    "GoldValue": 40,
+    "ItemId": 622,
+    "Name": "gold_arcane_ring"
+  },
+  {
+    "GoldValue": 200,
+    "ItemId": 623,
+    "Name": "diamond_arcane_ring"
+  },
+  {
+    "GoldValue": 30,
+    "ItemId": 624,
+    "Name": "silver_brute_bracelet"
+  },
+  {
+    "GoldValue": 40,
+    "ItemId": 625,
+    "Name": "gold_brute_bracelet"
+  },
+  {
+    "GoldValue": 200,
+    "ItemId": 626,
+    "Name": "diamond_brute_bracelet"
+  },
+  {
+    "GoldValue": 30,
+    "ItemId": 627,
+    "Name": "silver_marksman_bracelet"
+  },
+  {
+    "GoldValue": 40,
+    "ItemId": 628,
+    "Name": "gold_marksman_bracelet"
+  },
+  {
+    "GoldValue": 200,
+    "ItemId": 629,
+    "Name": "diamond_marksman_bracelet"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 630,
+    "Name": "silver_precision_ring_enchanted"
+  },
+  {
+    "GoldValue": 2500,
+    "ItemId": 631,
+    "Name": "gold_precision_ring_enchanted"
+  },
+  {
+    "GoldValue": 10000,
+    "ItemId": 632,
+    "Name": "diamond_precision_ring_enchanted"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 633,
+    "Name": "silver_arcane_ring_enchanted"
+  },
+  {
+    "GoldValue": 2500,
+    "ItemId": 634,
+    "Name": "gold_arcane_ring_enchanted"
+  },
+  {
+    "GoldValue": 10000,
+    "ItemId": 635,
+    "Name": "diamond_arcane_ring_enchanted"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 636,
+    "Name": "silver_brute_bracelet_enchanted"
+  },
+  {
+    "GoldValue": 2500,
+    "ItemId": 637,
+    "Name": "gold_brute_bracelet_enchanted"
+  },
+  {
+    "GoldValue": 10000,
+    "ItemId": 638,
+    "Name": "diamond_brute_bracelet_enchanted"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 639,
+    "Name": "silver_marksman_bracelet_enchanted"
+  },
+  {
+    "GoldValue": 2500,
+    "ItemId": 640,
+    "Name": "gold_marksman_bracelet_enchanted"
+  },
+  {
+    "GoldValue": 10000,
+    "ItemId": 641,
+    "Name": "diamond_marksman_bracelet_enchanted"
   },
   {
     "GoldValue": 200,
@@ -545,6 +3295,66 @@
     "Name": "diamond_sorcerer_symbol"
   },
   {
+    "GoldValue": 30,
+    "ItemId": 660,
+    "Name": "silver_berserker_ring"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 661,
+    "Name": "silver_berserker_ring_enchanted"
+  },
+  {
+    "GoldValue": 40,
+    "ItemId": 662,
+    "Name": "gold_berserker_ring"
+  },
+  {
+    "GoldValue": 2500,
+    "ItemId": 663,
+    "Name": "gold_berserker_ring_enchanted"
+  },
+  {
+    "GoldValue": 200,
+    "ItemId": 664,
+    "Name": "diamond_berserker_ring"
+  },
+  {
+    "GoldValue": 10000,
+    "ItemId": 665,
+    "Name": "diamond_berserker_ring_enchanted"
+  },
+  {
+    "GoldValue": 30,
+    "ItemId": 666,
+    "Name": "silver_sorcerer_bracelet"
+  },
+  {
+    "GoldValue": 40,
+    "ItemId": 667,
+    "Name": "gold_sorcerer_bracelet"
+  },
+  {
+    "GoldValue": 200,
+    "ItemId": 668,
+    "Name": "diamond_sorcerer_bracelet"
+  },
+  {
+    "GoldValue": 500,
+    "ItemId": 669,
+    "Name": "silver_sorcerer_bracelet_enchanted"
+  },
+  {
+    "GoldValue": 2500,
+    "ItemId": 670,
+    "Name": "gold_sorcerer_bracelet_enchanted"
+  },
+  {
+    "GoldValue": 10000,
+    "ItemId": 671,
+    "Name": "diamond_sorcerer_bracelet_enchanted"
+  },
+  {
     "GoldValue": 4800,
     "ItemId": 672,
     "Name": "treasure_hunter_gloves"
@@ -578,5 +3388,1130 @@
     "GoldValue": 15000,
     "ItemId": 678,
     "Name": "dragonscale_boots"
+  },
+  {
+    "GoldValue": 1,
+    "ItemId": 683,
+    "Name": "auto_loadout_token"
+  },
+  {
+    "GoldValue": 1,
+    "ItemId": 684,
+    "Name": "clan_vault_space_token"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 685,
+    "Name": "boss_page_piece_mountain"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 686,
+    "Name": "boss_page_piece_burning"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 687,
+    "Name": "boss_page_piece_underworld"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 688,
+    "Name": "boss_page_piece_godly"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 689,
+    "Name": "boss_page_piece_stone"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 690,
+    "Name": "boss_page_piece_mutated"
+  },
+  {
+    "GoldValue": 30000,
+    "ItemId": 691,
+    "Name": "kronos_scroll"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 692,
+    "Name": "book_of_the_sage_cook"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 693,
+    "Name": "book_of_skinning_techniques"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 694,
+    "Name": "fishermans_lost_page"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 695,
+    "Name": "lumberjacks_lost_page"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 696,
+    "Name": "arrow_crafting_secrets"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 697,
+    "Name": "textile_manufacturing_techniques"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 698,
+    "Name": "book_of_potions"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 699,
+    "Name": "negotiation_techniques"
+  },
+  {
+    "GoldValue": 99000,
+    "ItemId": 700,
+    "Name": "otherworldly_gloves"
+  },
+  {
+    "GoldValue": 99000,
+    "ItemId": 701,
+    "Name": "otherworldly_boots"
+  },
+  {
+    "GoldValue": 90,
+    "ItemId": 702,
+    "Name": "enhanced_redwood_arrow"
+  },
+  {
+    "GoldValue": 100,
+    "ItemId": 703,
+    "Name": "enhanced_magical_arrow"
+  },
+  {
+    "GoldValue": 70,
+    "ItemId": 704,
+    "Name": "melee_resistance_seed_tier_1"
+  },
+  {
+    "GoldValue": 90,
+    "ItemId": 705,
+    "Name": "melee_resistance_seed_tier_2"
+  },
+  {
+    "GoldValue": 110,
+    "ItemId": 706,
+    "Name": "melee_resistance_seed_tier_3"
+  },
+  {
+    "GoldValue": 130,
+    "ItemId": 707,
+    "Name": "melee_resistance_seed_tier_4"
+  },
+  {
+    "GoldValue": 70,
+    "ItemId": 708,
+    "Name": "archery_resistance_seed_tier_1"
+  },
+  {
+    "GoldValue": 90,
+    "ItemId": 709,
+    "Name": "archery_resistance_seed_tier_2"
+  },
+  {
+    "GoldValue": 110,
+    "ItemId": 710,
+    "Name": "archery_resistance_seed_tier_3"
+  },
+  {
+    "GoldValue": 130,
+    "ItemId": 711,
+    "Name": "archery_resistance_seed_tier_4"
+  },
+  {
+    "GoldValue": 70,
+    "ItemId": 712,
+    "Name": "magic_resistance_seed_tier_1"
+  },
+  {
+    "GoldValue": 90,
+    "ItemId": 713,
+    "Name": "magic_resistance_seed_tier_2"
+  },
+  {
+    "GoldValue": 110,
+    "ItemId": 714,
+    "Name": "magic_resistance_seed_tier_3"
+  },
+  {
+    "GoldValue": 130,
+    "ItemId": 715,
+    "Name": "magic_resistance_seed_tier_4"
+  },
+  {
+    "GoldValue": 70,
+    "ItemId": 716,
+    "Name": "melee_resistance_herb_tier_1"
+  },
+  {
+    "GoldValue": 90,
+    "ItemId": 717,
+    "Name": "melee_resistance_herb_tier_2"
+  },
+  {
+    "GoldValue": 110,
+    "ItemId": 718,
+    "Name": "melee_resistance_herb_tier_3"
+  },
+  {
+    "GoldValue": 130,
+    "ItemId": 719,
+    "Name": "melee_resistance_herb_tier_4"
+  },
+  {
+    "GoldValue": 70,
+    "ItemId": 720,
+    "Name": "archery_resistance_herb_tier_1"
+  },
+  {
+    "GoldValue": 90,
+    "ItemId": 721,
+    "Name": "archery_resistance_herb_tier_2"
+  },
+  {
+    "GoldValue": 110,
+    "ItemId": 722,
+    "Name": "archery_resistance_herb_tier_3"
+  },
+  {
+    "GoldValue": 130,
+    "ItemId": 723,
+    "Name": "archery_resistance_herb_tier_4"
+  },
+  {
+    "GoldValue": 70,
+    "ItemId": 724,
+    "Name": "magic_resistance_herb_tier_1"
+  },
+  {
+    "GoldValue": 90,
+    "ItemId": 725,
+    "Name": "magic_resistance_herb_tier_2"
+  },
+  {
+    "GoldValue": 110,
+    "ItemId": 726,
+    "Name": "magic_resistance_herb_tier_3"
+  },
+  {
+    "GoldValue": 130,
+    "ItemId": 727,
+    "Name": "magic_resistance_herb_tier_4"
+  },
+  {
+    "GoldValue": 70,
+    "ItemId": 728,
+    "Name": "melee_resistance_potion_tier_1"
+  },
+  {
+    "GoldValue": 90,
+    "ItemId": 729,
+    "Name": "melee_resistance_potion_tier_2"
+  },
+  {
+    "GoldValue": 110,
+    "ItemId": 730,
+    "Name": "melee_resistance_potion_tier_3"
+  },
+  {
+    "GoldValue": 130,
+    "ItemId": 731,
+    "Name": "melee_resistance_potion_tier_4"
+  },
+  {
+    "GoldValue": 70,
+    "ItemId": 732,
+    "Name": "archery_resistance_potion_tier_1"
+  },
+  {
+    "GoldValue": 90,
+    "ItemId": 733,
+    "Name": "archery_resistance_potion_tier_2"
+  },
+  {
+    "GoldValue": 110,
+    "ItemId": 734,
+    "Name": "archery_resistance_potion_tier_3"
+  },
+  {
+    "GoldValue": 130,
+    "ItemId": 735,
+    "Name": "archery_resistance_potion_tier_4"
+  },
+  {
+    "GoldValue": 70,
+    "ItemId": 736,
+    "Name": "magic_resistance_potion_tier_1"
+  },
+  {
+    "GoldValue": 90,
+    "ItemId": 737,
+    "Name": "magic_resistance_potion_tier_2"
+  },
+  {
+    "GoldValue": 110,
+    "ItemId": 738,
+    "Name": "magic_resistance_potion_tier_3"
+  },
+  {
+    "GoldValue": 130,
+    "ItemId": 739,
+    "Name": "magic_resistance_potion_tier_4"
+  },
+  {
+    "GoldValue": 175000,
+    "ItemId": 740,
+    "Name": "guardians_lamp"
+  },
+  {
+    "GoldValue": 175000,
+    "ItemId": 741,
+    "Name": "guardians_brewspoon"
+  },
+  {
+    "GoldValue": 175000,
+    "ItemId": 742,
+    "Name": "guardians_trowel"
+  },
+  {
+    "GoldValue": 175000,
+    "ItemId": 743,
+    "Name": "guardians_mallet"
+  },
+  {
+    "GoldValue": 175000,
+    "ItemId": 744,
+    "Name": "guardians_chisel"
+  },
+  {
+    "GoldValue": 200000,
+    "ItemId": 745,
+    "Name": "citadel_woodworking_tips"
+  },
+  {
+    "GoldValue": 175000,
+    "ItemId": 746,
+    "Name": "grouping_techniques"
+  },
+  {
+    "GoldValue": 1000000,
+    "ItemId": 747,
+    "Name": "pet_woodcutting"
+  },
+  {
+    "GoldValue": 1000000,
+    "ItemId": 748,
+    "Name": "pet_fishing"
+  },
+  {
+    "GoldValue": 1000000,
+    "ItemId": 749,
+    "Name": "pet_mining"
+  },
+  {
+    "GoldValue": 1000000,
+    "ItemId": 750,
+    "Name": "pet_cooking"
+  },
+  {
+    "GoldValue": 1000000,
+    "ItemId": 751,
+    "Name": "pet_smithing"
+  },
+  {
+    "GoldValue": 1000000,
+    "ItemId": 752,
+    "Name": "pet_carpentry"
+  },
+  {
+    "GoldValue": 1000000,
+    "ItemId": 753,
+    "Name": "pet_foraging"
+  },
+  {
+    "GoldValue": 1000000,
+    "ItemId": 754,
+    "Name": "pet_farming"
+  },
+  {
+    "GoldValue": 1000000,
+    "ItemId": 755,
+    "Name": "pet_agility"
+  },
+  {
+    "GoldValue": 1000000,
+    "ItemId": 756,
+    "Name": "pet_plundering"
+  },
+  {
+    "GoldValue": 1000000,
+    "ItemId": 757,
+    "Name": "pet_enchanting"
+  },
+  {
+    "GoldValue": 1000000,
+    "ItemId": 758,
+    "Name": "pet_brewing"
+  },
+  {
+    "GoldValue": 1000000,
+    "ItemId": 759,
+    "Name": "pet_crafting"
+  },
+  {
+    "GoldValue": 1000000,
+    "ItemId": 760,
+    "Name": "pet_attack"
+  },
+  {
+    "GoldValue": 1000000,
+    "ItemId": 761,
+    "Name": "pet_strength"
+  },
+  {
+    "GoldValue": 1000000,
+    "ItemId": 762,
+    "Name": "pet_defence"
+  },
+  {
+    "GoldValue": 200000,
+    "ItemId": 763,
+    "Name": "pet_archer_tier_1"
+  },
+  {
+    "GoldValue": 200000,
+    "ItemId": 764,
+    "Name": "pet_magic_tier_1"
+  },
+  {
+    "GoldValue": 1,
+    "ItemId": 765,
+    "Name": "questing_token"
+  },
+  {
+    "GoldValue": 1,
+    "ItemId": 766,
+    "Name": "gilded_pet_1"
+  },
+  {
+    "GoldValue": 100000000,
+    "ItemId": 767,
+    "Name": "gilded_pet_2"
+  },
+  {
+    "GoldValue": 200000,
+    "ItemId": 768,
+    "Name": "pet_melee_tier_1"
+  },
+  {
+    "GoldValue": 200000,
+    "ItemId": 769,
+    "Name": "pet_melee_tier_2"
+  },
+  {
+    "GoldValue": 200000,
+    "ItemId": 770,
+    "Name": "pet_melee_tier_3"
+  },
+  {
+    "GoldValue": 200000,
+    "ItemId": 771,
+    "Name": "pet_melee_tier_4"
+  },
+  {
+    "GoldValue": 200000,
+    "ItemId": 772,
+    "Name": "pet_melee_tier_5"
+  },
+  {
+    "GoldValue": 200000,
+    "ItemId": 773,
+    "Name": "pet_melee_tier_6"
+  },
+  {
+    "GoldValue": 200000,
+    "ItemId": 774,
+    "Name": "pet_melee_tier_7"
+  },
+  {
+    "GoldValue": 200000,
+    "ItemId": 775,
+    "Name": "pet_archer_tier_2"
+  },
+  {
+    "GoldValue": 200000,
+    "ItemId": 776,
+    "Name": "pet_archer_tier_3"
+  },
+  {
+    "GoldValue": 200000,
+    "ItemId": 777,
+    "Name": "pet_archer_tier_4"
+  },
+  {
+    "GoldValue": 200000,
+    "ItemId": 778,
+    "Name": "pet_archer_tier_5"
+  },
+  {
+    "GoldValue": 200000,
+    "ItemId": 779,
+    "Name": "pet_archer_tier_6"
+  },
+  {
+    "GoldValue": 200000,
+    "ItemId": 780,
+    "Name": "pet_archer_tier_7"
+  },
+  {
+    "GoldValue": 200000,
+    "ItemId": 781,
+    "Name": "pet_magic_tier_2"
+  },
+  {
+    "GoldValue": 200000,
+    "ItemId": 782,
+    "Name": "pet_magic_tier_3"
+  },
+  {
+    "GoldValue": 200000,
+    "ItemId": 783,
+    "Name": "pet_magic_tier_4"
+  },
+  {
+    "GoldValue": 200000,
+    "ItemId": 784,
+    "Name": "pet_magic_tier_5"
+  },
+  {
+    "GoldValue": 200000,
+    "ItemId": 785,
+    "Name": "pet_magic_tier_6"
+  },
+  {
+    "GoldValue": 200000,
+    "ItemId": 786,
+    "Name": "pet_magic_tier_7"
+  },
+  {
+    "GoldValue": 1150000,
+    "ItemId": 787,
+    "Name": "otherworldly_gemstone"
+  },
+  {
+    "GoldValue": 200000,
+    "ItemId": 788,
+    "Name": "pet_melee_tier_8"
+  },
+  {
+    "GoldValue": 200000,
+    "ItemId": 789,
+    "Name": "pet_archer_tier_8"
+  },
+  {
+    "GoldValue": 200000,
+    "ItemId": 790,
+    "Name": "pet_magic_tier_8"
+  },
+  {
+    "GoldValue": 990000,
+    "ItemId": 791,
+    "Name": "otherworldly_scimitar"
+  },
+  {
+    "GoldValue": 990000,
+    "ItemId": 792,
+    "Name": "otherworldly_battle_axe"
+  },
+  {
+    "GoldValue": 990000,
+    "ItemId": 793,
+    "Name": "otherworldly_bow"
+  },
+  {
+    "GoldValue": 990000,
+    "ItemId": 794,
+    "Name": "otherworldly_club"
+  },
+  {
+    "GoldValue": 990000,
+    "ItemId": 795,
+    "Name": "otherworldly_crossbow"
+  },
+  {
+    "GoldValue": 990000,
+    "ItemId": 796,
+    "Name": "otherworldly_heavy_hammer"
+  },
+  {
+    "GoldValue": 990000,
+    "ItemId": 797,
+    "Name": "otherworldly_longsword"
+  },
+  {
+    "GoldValue": 990000,
+    "ItemId": 798,
+    "Name": "otherworldly_spear"
+  },
+  {
+    "GoldValue": 990000,
+    "ItemId": 799,
+    "Name": "otherworldly_staff"
+  },
+  {
+    "GoldValue": 1500000,
+    "ItemId": 800,
+    "Name": "otherworldly_hatchet"
+  },
+  {
+    "GoldValue": 1500000,
+    "ItemId": 801,
+    "Name": "otherworldly_pickaxe"
+  },
+  {
+    "GoldValue": 1500000,
+    "ItemId": 802,
+    "Name": "otherworldly_fishing_rod"
+  },
+  {
+    "GoldValue": 1500000,
+    "ItemId": 803,
+    "Name": "otherworldly_rake"
+  },
+  {
+    "GoldValue": 1500000,
+    "ItemId": 804,
+    "Name": "otherworldly_secateurs"
+  },
+  {
+    "GoldValue": 1500000,
+    "ItemId": 805,
+    "Name": "otherworldly_hammer"
+  },
+  {
+    "GoldValue": 1500000,
+    "ItemId": 806,
+    "Name": "otherworldly_saw"
+  },
+  {
+    "GoldValue": 1500000,
+    "ItemId": 807,
+    "Name": "otherworldly_cooking_pan"
+  },
+  {
+    "GoldValue": 1500000,
+    "ItemId": 808,
+    "Name": "otherworldly_crafting_needle"
+  },
+  {
+    "GoldValue": 1500000,
+    "ItemId": 809,
+    "Name": "otherworldly_philosopher_stone"
+  },
+  {
+    "GoldValue": 1500000,
+    "ItemId": 810,
+    "Name": "otherworldly_lockpicks"
+  },
+  {
+    "GoldValue": 1500000,
+    "ItemId": 811,
+    "Name": "otherworldly_jumping_rope"
+  },
+  {
+    "GoldValue": 12000,
+    "ItemId": 812,
+    "Name": "warriors_platelegs"
+  },
+  {
+    "GoldValue": 12000,
+    "ItemId": 813,
+    "Name": "spiked_shield"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 814,
+    "Name": "quiver"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 815,
+    "Name": "spider_fang"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 816,
+    "Name": "ancient_bone"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 817,
+    "Name": "golem_fragment"
+  },
+  {
+    "GoldValue": 15,
+    "ItemId": 818,
+    "Name": "otherworldly_essence"
+  },
+  {
+    "GoldValue": 80,
+    "ItemId": 819,
+    "Name": "common_thread"
+  },
+  {
+    "GoldValue": 160,
+    "ItemId": 820,
+    "Name": "rare_thread"
+  },
+  {
+    "GoldValue": 80,
+    "ItemId": 821,
+    "Name": "common_smoke_bomb"
+  },
+  {
+    "GoldValue": 160,
+    "ItemId": 822,
+    "Name": "rare_smoke_bomb"
+  },
+  {
+    "GoldValue": 80,
+    "ItemId": 823,
+    "Name": "common_seasoning"
+  },
+  {
+    "GoldValue": 160,
+    "ItemId": 824,
+    "Name": "rare_seasoning"
+  },
+  {
+    "GoldValue": 80,
+    "ItemId": 825,
+    "Name": "common_wax"
+  },
+  {
+    "GoldValue": 160,
+    "ItemId": 826,
+    "Name": "rare_wax"
+  },
+  {
+    "GoldValue": 1,
+    "ItemId": 827,
+    "Name": "exterminating_token"
+  },
+  {
+    "GoldValue": 80,
+    "ItemId": 828,
+    "Name": "common_clay_core"
+  },
+  {
+    "GoldValue": 160,
+    "ItemId": 829,
+    "Name": "rare_clay_core"
+  },
+  {
+    "GoldValue": 160,
+    "ItemId": 830,
+    "Name": "common_prehistoric_elixir"
+  },
+  {
+    "GoldValue": 160,
+    "ItemId": 831,
+    "Name": "rare_prehistoric_elixir"
+  },
+  {
+    "GoldValue": 160,
+    "ItemId": 832,
+    "Name": "basilisk_scale"
+  },
+  {
+    "GoldValue": 25000,
+    "ItemId": 833,
+    "Name": "basilisk_scale_trousers"
+  },
+  {
+    "GoldValue": 25000,
+    "ItemId": 834,
+    "Name": "basilisk_scale_coat"
+  },
+  {
+    "GoldValue": 20000,
+    "ItemId": 835,
+    "Name": "stone_boots"
+  },
+  {
+    "GoldValue": 10000,
+    "ItemId": 836,
+    "Name": "rocs_talon"
+  },
+  {
+    "GoldValue": 10000,
+    "ItemId": 837,
+    "Name": "dire_wolf_fang"
+  },
+  {
+    "GoldValue": 15000,
+    "ItemId": 838,
+    "Name": "behemoth_hide_boots"
+  },
+  {
+    "GoldValue": 30000,
+    "ItemId": 839,
+    "Name": "ancient_boots"
+  },
+  {
+    "GoldValue": 40000,
+    "ItemId": 840,
+    "Name": "drake_hide_hat"
+  },
+  {
+    "GoldValue": 50000,
+    "ItemId": 841,
+    "Name": "nagas_crown"
+  },
+  {
+    "GoldValue": 300000,
+    "ItemId": 842,
+    "Name": "abyssal_maul"
+  },
+  {
+    "GoldValue": 300000,
+    "ItemId": 843,
+    "Name": "furys_glaive"
+  },
+  {
+    "GoldValue": 300000,
+    "ItemId": 844,
+    "Name": "scorched_halberd"
+  },
+  {
+    "GoldValue": 4000,
+    "ItemId": 845,
+    "Name": "ghostly_hood"
+  },
+  {
+    "GoldValue": 4000,
+    "ItemId": 846,
+    "Name": "ghostly_top"
+  },
+  {
+    "GoldValue": 4000,
+    "ItemId": 847,
+    "Name": "ghostly_pants"
+  },
+  {
+    "GoldValue": 4000,
+    "ItemId": 848,
+    "Name": "feather_hat"
+  },
+  {
+    "GoldValue": 4000,
+    "ItemId": 849,
+    "Name": "feather_jacket"
+  },
+  {
+    "GoldValue": 4000,
+    "ItemId": 850,
+    "Name": "feather_pants"
+  },
+  {
+    "GoldValue": 4000,
+    "ItemId": 851,
+    "Name": "wolf_fur_hat"
+  },
+  {
+    "GoldValue": 4000,
+    "ItemId": 852,
+    "Name": "wolf_fur_jacket"
+  },
+  {
+    "GoldValue": 4000,
+    "ItemId": 853,
+    "Name": "wolf_fur_pants"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 854,
+    "Name": "crafting_ticket"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 855,
+    "Name": "plundering_ticket"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 856,
+    "Name": "woodcutting_ticket"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 857,
+    "Name": "fishing_ticket"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 858,
+    "Name": "mining_ticket"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 859,
+    "Name": "smithing_ticket"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 860,
+    "Name": "cooking_ticket"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 861,
+    "Name": "enchanting_ticket"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 862,
+    "Name": "foraging_ticket"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 863,
+    "Name": "farming_ticket"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 864,
+    "Name": "brewing_ticket"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 865,
+    "Name": "carpentry_ticket"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 866,
+    "Name": "agility_ticket"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 867,
+    "Name": "exterminating_ticket"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 868,
+    "Name": "crafting_gloves"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 869,
+    "Name": "woodcutting_gloves"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 870,
+    "Name": "carpentry_gloves"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 871,
+    "Name": "fishing_gloves"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 872,
+    "Name": "cooking_gloves"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 873,
+    "Name": "mining_gloves"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 874,
+    "Name": "smithing_gloves"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 875,
+    "Name": "foraging_gloves"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 876,
+    "Name": "farming_gloves"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 877,
+    "Name": "agility_gloves"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 878,
+    "Name": "plundering_gloves"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 879,
+    "Name": "enchanting_gloves"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 880,
+    "Name": "brewing_gloves"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 881,
+    "Name": "bloodmoon_bag"
+  },
+  {
+    "GoldValue": 10000,
+    "ItemId": 882,
+    "Name": "bloodmoon_belt"
+  },
+  {
+    "GoldValue": 100000,
+    "ItemId": 883,
+    "Name": "belt_of_the_moon"
+  },
+  {
+    "GoldValue": 10000,
+    "ItemId": 884,
+    "Name": "bloodmoon_secrets"
+  },
+  {
+    "GoldValue": 200000,
+    "ItemId": 885,
+    "Name": "pet_bloodmoon"
+  },
+  {
+    "GoldValue": 40,
+    "ItemId": 886,
+    "Name": "bloodmoon_worm"
+  },
+  {
+    "GoldValue": 120,
+    "ItemId": 887,
+    "Name": "bloodmoon_eel"
+  },
+  {
+    "GoldValue": 140,
+    "ItemId": 888,
+    "Name": "cooked_bloodmoon_eel"
+  },
+  {
+    "GoldValue": 50000,
+    "ItemId": 889,
+    "Name": "bloodmoon_helmet"
+  },
+  {
+    "GoldValue": 10000,
+    "ItemId": 890,
+    "Name": "bloodmoon_bait_fishing"
+  },
+  {
+    "GoldValue": 10000,
+    "ItemId": 891,
+    "Name": "bloodmoon_helmet_upgrade"
+  },
+  {
+    "GoldValue": 10000,
+    "ItemId": 893,
+    "Name": "sobek_key"
+  },
+  {
+    "GoldValue": 50000,
+    "ItemId": 894,
+    "Name": "primeval_fangblade"
+  },
+  {
+    "GoldValue": 10000,
+    "ItemId": 895,
+    "Name": "primeval_fang"
+  },
+  {
+    "GoldValue": 4000,
+    "ItemId": 896,
+    "Name": "cooking_hat"
+  },
+  {
+    "GoldValue": 4000,
+    "ItemId": 897,
+    "Name": "cooking_jacket"
+  },
+  {
+    "GoldValue": 4000,
+    "ItemId": 898,
+    "Name": "cooking_pants"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 899,
+    "Name": "sobek_upgrade_item"
+  },
+  {
+    "GoldValue": 50000,
+    "ItemId": 900,
+    "Name": "sobeks_blessing"
+  },
+  {
+    "GoldValue": 5000,
+    "ItemId": 901,
+    "Name": "arrow_of_sobek"
+  },
+  {
+    "GoldValue": 1,
+    "ItemId": 902,
+    "Name": "white_block_of_mass_destruction"
+  },
+  {
+    "GoldValue": 75000,
+    "ItemId": 903,
+    "Name": "divine_hide_buckler"
+  },
+  {
+    "GoldValue": 25000,
+    "ItemId": 904,
+    "Name": "blessed_crocodile_hide"
+  },
+  {
+    "GoldValue": 250,
+    "ItemId": 905,
+    "Name": "raw_apex_meat"
+  },
+  {
+    "GoldValue": 250,
+    "ItemId": 906,
+    "Name": "cooked_apex_meat"
+  },
+  {
+    "GoldValue": 50000,
+    "ItemId": 907,
+    "Name": "nagas_blessed_crown"
+  },
+  {
+    "GoldValue": 25000,
+    "ItemId": 908,
+    "Name": "sobeks_charm"
   }
 ]
