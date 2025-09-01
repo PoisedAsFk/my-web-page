@@ -1,14 +1,27 @@
-import { createDropdownItems, createNpcsTable, createNpcBox } from "./UIRender.js";
+import {
+	createDropdownItems,
+	createNpcsTable,
+	createNpcBox,
+	createMonsterDropdownItems,
+	createMonsterLootTable,
+} from "./UIRender.js";
 
 const calculateTab = document.getElementById("calculateTab");
 const settingsTab = document.getElementById("settingsTab");
+const monsterLootTab = document.getElementById("monsterLootTab");
 const calculateTabContent = document.getElementById("calculateTabContent");
 const settingsTabContent = document.getElementById("settingsTabContent");
+const monsterLootTabContent = document.getElementById("monsterLootTabContent");
 const filteredNpcsPanel = document.querySelector(".filtered-npc-panel");
 const dropdownList = document.querySelector(".dropdown-list");
 const dropdownInput = document.querySelector(".dropdown-input");
+const monsterDropdownList = document.querySelector(".monster-dropdown-list");
+const monsterDropdownInput = document.querySelector(".monster-dropdown-input");
 const npcTableBody = document.querySelector(".npc-table-body");
 const selectedItemHeader = document.querySelector(".selected-item-header");
+const selectedMonsterHeader = document.querySelector(".selected-monster-header");
+const monsterLootTableBody = document.querySelector(".monster-loot-table-body");
+const totalGold = document.getElementById("total-gold");
 
 let npcsArray = [];
 let itemsArray = [];
@@ -31,12 +44,23 @@ async function setupApp() {
 		createSettingsUI(npcsArray);
 		calculateTab.addEventListener("click", () => toggleActiveTab(calculateTab, "calculateTabContent"));
 		settingsTab.addEventListener("click", () => toggleActiveTab(settingsTab, "settingsTabContent"));
+		monsterLootTab.addEventListener("click", () => toggleActiveTab(monsterLootTab, "monsterLootTabContent"));
 
 		dropdownList.appendChild(createDropdownItems(itemsArray));
 		dropdownInput.addEventListener("click", () => (dropdownList.style.display = "block")); //Show list on  click
 		dropdownInput.addEventListener("input", () => filterDropdownList(dropdownInput, dropdownList)); //filter dropdown on input
 		dropdownInput.addEventListener("focusout", () => setTimeout(() => (dropdownList.style.display = "none"), 150)); //Hide list on focus out
 		dropdownList.addEventListener("click", (event) => handleDropdownSelection(event)); //handle item selection
+
+		monsterDropdownList.appendChild(createMonsterDropdownItems(npcsArray));
+		monsterDropdownInput.addEventListener("click", () => (monsterDropdownList.style.display = "block"));
+		monsterDropdownInput.addEventListener("input", () =>
+			filterDropdownList(monsterDropdownInput, monsterDropdownList)
+		);
+		monsterDropdownInput.addEventListener("focusout", () =>
+			setTimeout(() => (monsterDropdownList.style.display = "none"), 150)
+		);
+		monsterDropdownList.addEventListener("click", (event) => handleMonsterSelection(event));
 
 		loadLocalStorageKills();
 	}
@@ -75,6 +99,14 @@ function handleDropdownSelection(event) {
 		const npcsWithLoot = filterNpcsByLoot(npcsArray, selectedItemId);
 		updateFilteredNpcsPanel(npcsWithLoot, selectedItemText);
 		updateNpcsTable(selectedItemId);
+	}
+}
+
+function handleMonsterSelection(event) {
+	if (event.target.tagName === "LI") {
+		const selectedMonsterName = event.target.dataset.npcName;
+		selectedMonsterHeader.textContent = `Selected: ${selectedMonsterName}`;
+		calculateMonsterLoot(selectedMonsterName);
 	}
 }
 
@@ -126,6 +158,40 @@ function calculateDropRates(targetItemId) {
 	resultsArray.sort((a, b) => b.dropRate - a.dropRate);
 	console.log(resultsArray);
 	return resultsArray;
+}
+
+function calculateMonsterLoot(monsterName) {
+	const npc = npcsArray.find((npc) => npc.Name === monsterName);
+	const npcsKills = JSON.parse(localStorage.getItem("npcKills")) || {};
+	const killsPerHour = npcsKills[monsterName] || 0;
+	let totalGoldValue = 0;
+
+	const lootTable = npc.Loot.map((lootItem) => {
+		const item = itemsArray.find((item) => item.ItemId === lootItem.ItemId);
+		const averageQuantity = (lootItem.ItemAmountMin + lootItem.ItemAmountMax) / 2;
+		const dropsPerHour = ((averageQuantity * lootItem.Weight) / 100) * killsPerHour;
+		const goldValuePerHour = dropsPerHour * item.GoldValue;
+		totalGoldValue += goldValuePerHour;
+
+		return {
+			itemName: item.Name,
+			dropChance: lootItem.Weight,
+			averageGoldValue: averageQuantity * item.GoldValue,
+			dropsPerHour: dropsPerHour,
+			goldValuePerHour: goldValuePerHour,
+			dropsPer6Hours: dropsPerHour * 6,
+			goldValuePer6Hours: goldValuePerHour * 6,
+			dropsPerDay: dropsPerHour * 24,
+			goldValuePerDay: goldValuePerHour * 24,
+		};
+	});
+
+	lootTable.sort((a, b) => b.dropChance - a.dropChance);
+
+	monsterLootTableBody.innerHTML = "";
+	const tableFragment = createMonsterLootTable(lootTable);
+	monsterLootTableBody.appendChild(tableFragment);
+	totalGold.textContent = totalGoldValue.toFixed(2);
 }
 
 function createSettingsUI(npcs) {

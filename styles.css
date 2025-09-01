@@ -115,7 +115,8 @@ input[type="number"] {
 	width: 250px;
 }
 
-.dropdown-input {
+.dropdown-input,
+.monster-dropdown-input {
 	width: 100%;
 	padding: 10px;
 	border: 1px solid #555; /* Darker border */
@@ -125,7 +126,8 @@ input[type="number"] {
 	border-radius: 5px;
 }
 
-.dropdown-list {
+.dropdown-list,
+.monster-dropdown-list {
 	display: none;
 	position: absolute;
 	background-color: #333; /* Darker list background */
@@ -140,28 +142,33 @@ input[type="number"] {
 	border-radius: 5px;
 }
 
-.dropdown-list li {
+.dropdown-list li,
+.monster-dropdown-list li {
 	padding: 10px;
 	cursor: pointer;
 	color: #ddd;
 }
 
-.dropdown-list li:hover {
+.dropdown-list li:hover,
+.monster-dropdown-list li:hover {
 	background-color: #404040; /* Highlighted item */
 }
 
-.select-and-search {
+.select-and-search,
+.monster-selection-container {
 	display: flex;
 	align-items: center;
 }
 
-.selected-item-header {
+.selected-item-header,
+.selected-monster-header {
 	margin: 8px;
 	font-size: 18px;
 	color: #0078d7; /* Accent color for selection */
 }
 
-.npc-table {
+.npc-table,
+.monster-loot-table {
 	width: 100%; /* Make the table responsive */
 	border-collapse: collapse;
 	background-color: #252525;
@@ -171,18 +178,22 @@ input[type="number"] {
 }
 
 .npc-table th,
-.npc-table td {
+.npc-table td,
+.monster-loot-table th,
+.monster-loot-table td {
 	text-align: left;
 	padding: 12px 15px;
 	border: 1px solid #333; /* Softer cell borders */
 }
 
-.npc-table th {
+.npc-table th,
+.monster-loot-table th {
 	background-color: #333; /* Slightly darker header background */
 }
 input[type="text"]:focus,
 input[type="number"]:focus,
-.dropdown-list li:focus {
+.dropdown-list li:focus,
+.monster-dropdown-list li:focus {
 	outline: none; /* Remove default outline if undesirable */
 	box-shadow: 0 0 5px #0078d7; /* Subtle focus indicator */
 }
