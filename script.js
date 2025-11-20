@@ -1,17 +1,25 @@
+import { fetchData, fetchMarketPrices } from "./api.js";
+import { loadLocalStorageKills, saveLocalStorageKills } from "./storage.js";
+import { calculateDropRates, calculateMonsterLoot, filterNpcsByLoot, calculateMonsterLootWithMarketPrices } from "./calculations.js";
 import {
 	createDropdownItems,
 	createNpcsTable,
 	createNpcBox,
 	createMonsterDropdownItems,
 	createMonsterLootTable,
+	createMarketLootTable
 } from "./UIRender.js";
 
 const calculateTab = document.getElementById("calculateTab");
 const settingsTab = document.getElementById("settingsTab");
 const monsterLootTab = document.getElementById("monsterLootTab");
+const marketTestTab = document.getElementById("marketTestTab");
+
 const calculateTabContent = document.getElementById("calculateTabContent");
 const settingsTabContent = document.getElementById("settingsTabContent");
 const monsterLootTabContent = document.getElementById("monsterLootTabContent");
+const marketTestTabContent = document.getElementById("marketTestTabContent");
+
 const filteredNpcsPanel = document.querySelector(".filtered-npc-panel");
 const dropdownList = document.querySelector(".dropdown-list");
 const dropdownInput = document.querySelector(".dropdown-input");
@@ -23,30 +31,68 @@ const selectedMonsterHeader = document.querySelector(".selected-monster-header")
 const monsterLootTableBody = document.querySelector(".monster-loot-table-body");
 const totalGold = document.getElementById("total-gold");
 
+// Market Tab Elements
+const marketMonsterDropdownList = document.querySelector(".market-monster-dropdown-list");
+const marketMonsterDropdownInput = document.querySelector(".market-monster-dropdown-input");
+const marketSelectedMonsterHeader = document.querySelector(".market-selected-monster-header");
+const marketLootTableBody = document.querySelector(".market-loot-table-body");
+const marketTotalProfit = document.getElementById("market-total-profit");
+const marketLootDetails = document.querySelector(".market-loot-details");
+
+
+// Elements to toggle visibility
+const npcTableWrapper = document.querySelector(".npc-table").closest(".table-wrapper");
+const monsterLootDetails = document.querySelector(".monster-loot-details");
+
 let npcsArray = [];
 let itemsArray = [];
+let marketPrices = [];
 
-async function fetchData(url) {
-	try {
-		const response = await fetch(url);
-		const data = await response.json();
-		return data;
-	} catch (error) {
-		console.error(`Error fetching data from ${url}:`, error);
+// Global variable to track selected item
+let currentSelectedItemId = null;
+
+// Callback for storage updates
+const onStorageUpdate = () => {
+	if (currentSelectedItemId) {
+		updateNpcsTable(currentSelectedItemId);
 	}
-}
+};
+
+// Bound save function to pass to UI components
+const boundSaveLocalStorageKills = () => saveLocalStorageKills(onStorageUpdate);
 
 async function setupApp() {
 	npcsArray = await fetchData("data/npcdata.json");
 	itemsArray = await fetchData("data/itemdata.json");
 
 	if (npcsArray && itemsArray) {
+		// Filter items to only those dropped by monsters
+		const droppableItemIds = new Set();
+		npcsArray.forEach(npc => {
+			if (npc.Loot) {
+				npc.Loot.forEach(loot => droppableItemIds.add(loot.ItemId));
+			}
+		});
+
+		const filteredItemsArray = itemsArray.filter(item => droppableItemIds.has(item.ItemId));
+
 		createSettingsUI(npcsArray);
 		calculateTab.addEventListener("click", () => toggleActiveTab(calculateTab, "calculateTabContent"));
 		settingsTab.addEventListener("click", () => toggleActiveTab(settingsTab, "settingsTabContent"));
 		monsterLootTab.addEventListener("click", () => toggleActiveTab(monsterLootTab, "monsterLootTabContent"));
+		marketTestTab.addEventListener("click", async () => {
+			toggleActiveTab(marketTestTab, "marketTestTabContent");
+			if (marketPrices.length === 0) {
+				// Fetch prices when tab is first clicked
+				marketPrices = await fetchMarketPrices();
+				if (!marketPrices) {
+					alert("Failed to fetch market prices. Please try again later.");
+					marketPrices = [];
+				}
+			}
+		});
 
-		dropdownList.appendChild(createDropdownItems(itemsArray));
+		dropdownList.appendChild(createDropdownItems(filteredItemsArray));
 		dropdownInput.addEventListener("click", () => (dropdownList.style.display = "block")); //Show list on  click
 		dropdownInput.addEventListener("input", () => filterDropdownList(dropdownInput, dropdownList)); //filter dropdown on input
 		dropdownInput.addEventListener("focusout", () => setTimeout(() => (dropdownList.style.display = "none"), 150)); //Hide list on focus out
@@ -62,7 +108,24 @@ async function setupApp() {
 		);
 		monsterDropdownList.addEventListener("click", (event) => handleMonsterSelection(event));
 
-		loadLocalStorageKills();
+		// Market Tab Dropdown
+		marketMonsterDropdownList.appendChild(createMonsterDropdownItems(npcsArray));
+		marketMonsterDropdownInput.addEventListener("click", () => (marketMonsterDropdownList.style.display = "block"));
+		marketMonsterDropdownInput.addEventListener("input", () =>
+			filterDropdownList(marketMonsterDropdownInput, marketMonsterDropdownList)
+		);
+		marketMonsterDropdownInput.addEventListener("focusout", () =>
+			setTimeout(() => (marketMonsterDropdownList.style.display = "none"), 150)
+		);
+		marketMonsterDropdownList.addEventListener("click", (event) => handleMarketMonsterSelection(event));
+
+		loadLocalStorageKills(onStorageUpdate);
+
+		// Initial Visibility State
+		npcTableWrapper.classList.add("hidden");
+		filteredNpcsPanel.classList.add("hidden");
+		monsterLootDetails.classList.add("hidden");
+		marketLootDetails.classList.add("hidden");
 	}
 }
 
@@ -79,7 +142,9 @@ function toggleActiveTab(clickedTab, contentId) {
 	//Add active class clicked tab
 	clickedTab.classList.add("active");
 	document.getElementById(contentId).classList.add("active");
-	loadLocalStorageKills();
+
+	// Refresh kills when switching tabs to ensure sync
+	loadLocalStorageKills(onStorageUpdate);
 }
 
 function filterDropdownList(input, list) {
@@ -94,11 +159,16 @@ function filterDropdownList(input, list) {
 function handleDropdownSelection(event) {
 	if (event.target.tagName === "LI") {
 		const selectedItemId = event.target.dataset.itemId;
+		currentSelectedItemId = selectedItemId; // Store selected item ID
 		const selectedItemText = event.target.textContent;
 		selectedItemHeader.textContent = `Selected: ${selectedItemText}`;
 		const npcsWithLoot = filterNpcsByLoot(npcsArray, selectedItemId);
 		updateFilteredNpcsPanel(npcsWithLoot, selectedItemText);
 		updateNpcsTable(selectedItemId);
+
+		// Show results
+		npcTableWrapper.classList.remove("hidden");
+		filteredNpcsPanel.classList.remove("hidden");
 	}
 }
 
@@ -106,87 +176,42 @@ function handleMonsterSelection(event) {
 	if (event.target.tagName === "LI") {
 		const selectedMonsterName = event.target.dataset.npcName;
 		selectedMonsterHeader.textContent = `Selected: ${selectedMonsterName}`;
-		calculateMonsterLoot(selectedMonsterName);
+		updateMonsterLootTable(selectedMonsterName);
+
+		// Show results
+		monsterLootDetails.classList.remove("hidden");
 	}
 }
 
-function filterNpcsByLoot(npcs, itemId) {
-	return npcs.filter((npc) => npc.Loot.some((lootItem) => lootItem.ItemId == itemId));
+function handleMarketMonsterSelection(event) {
+	if (event.target.tagName === "LI") {
+		const selectedMonsterName = event.target.dataset.npcName;
+		marketSelectedMonsterHeader.textContent = `Selected: ${selectedMonsterName}`;
+		updateMarketLootTable(selectedMonsterName);
+
+		// Show results
+		marketLootDetails.classList.remove("hidden");
+	}
 }
 
 //updates/creates the npc panel with npcs filtered by loot/item selected
 function updateFilteredNpcsPanel(npcsWithLoot, selectedItemText) {
-	const npcboxFragment = createNpcBox(npcsWithLoot, selectedItemText, saveLocalStorageKills);
+	const npcboxFragment = createNpcBox(npcsWithLoot, selectedItemText, boundSaveLocalStorageKills);
 	filteredNpcsPanel.innerHTML = "";
 	filteredNpcsPanel.appendChild(npcboxFragment);
-	loadLocalStorageKills();
+	loadLocalStorageKills(onStorageUpdate);
 }
 
 //update/create npc table
 function updateNpcsTable(selectedItemId) {
-	const npcsLootArray = calculateDropRates(selectedItemId);
+	const npcsLootArray = calculateDropRates(selectedItemId, npcsArray);
 	npcTableBody.innerHTML = "";
 	const tableFragment = createNpcsTable(npcsLootArray);
 	npcTableBody.appendChild(tableFragment);
 }
 
-function calculateDropRates(targetItemId) {
-	const npcsWithLoot = filterNpcsByLoot(npcsArray, targetItemId);
-	const npcsKills = JSON.parse(localStorage.getItem("npcKills")) || {};
-
-	const resultsArray = [];
-
-	npcsWithLoot.forEach((npc) => {
-		const currentNpcKills = npcsKills[npc.Name] || 0;
-
-		const lootData = npc.Loot.find((lootItem) => lootItem.ItemId == targetItemId);
-		const averageQuantity = (lootData.ItemAmountMin + lootData.ItemAmountMax) / 2;
-
-		const itemDropsPerKill = (averageQuantity * lootData.Weight) / 100;
-
-		const itemDropsPerHour = itemDropsPerKill * currentNpcKills;
-
-		const npcDropStats = {
-			npcName: npc.Name,
-			dropRate: itemDropsPerHour,
-			dropsPerKill: itemDropsPerKill,
-			killsPerHour: currentNpcKills,
-		};
-
-		resultsArray.push(npcDropStats);
-	});
-	resultsArray.sort((a, b) => b.dropRate - a.dropRate);
-	console.log(resultsArray);
-	return resultsArray;
-}
-
-function calculateMonsterLoot(monsterName) {
-	const npc = npcsArray.find((npc) => npc.Name === monsterName);
-	const npcsKills = JSON.parse(localStorage.getItem("npcKills")) || {};
-	const killsPerHour = npcsKills[monsterName] || 0;
-	let totalGoldValue = 0;
-
-	const lootTable = npc.Loot.map((lootItem) => {
-		const item = itemsArray.find((item) => item.ItemId === lootItem.ItemId);
-		const averageQuantity = (lootItem.ItemAmountMin + lootItem.ItemAmountMax) / 2;
-		const dropsPerHour = ((averageQuantity * lootItem.Weight) / 100) * killsPerHour;
-		const goldValuePerHour = dropsPerHour * item.GoldValue;
-		totalGoldValue += goldValuePerHour;
-
-		return {
-			itemName: item.Name,
-			dropChance: lootItem.Weight,
-			averageGoldValue: averageQuantity * item.GoldValue,
-			dropsPerHour: dropsPerHour,
-			goldValuePerHour: goldValuePerHour,
-			dropsPer6Hours: dropsPerHour * 6,
-			goldValuePer6Hours: goldValuePerHour * 6,
-			dropsPerDay: dropsPerHour * 24,
-			goldValuePerDay: goldValuePerHour * 24,
-		};
-	});
-
-	lootTable.sort((a, b) => b.dropChance - a.dropChance);
+function updateMonsterLootTable(monsterName) {
+	const { lootTable, totalGoldValue } = calculateMonsterLoot(monsterName, npcsArray, itemsArray);
 
 	monsterLootTableBody.innerHTML = "";
 	const tableFragment = createMonsterLootTable(lootTable);
@@ -194,54 +219,21 @@ function calculateMonsterLoot(monsterName) {
 	totalGold.textContent = totalGoldValue.toFixed(2);
 }
 
+function updateMarketLootTable(monsterName) {
+	const { lootTable, totalProfitValue } = calculateMonsterLootWithMarketPrices(monsterName, npcsArray, itemsArray, marketPrices);
+
+	marketLootTableBody.innerHTML = "";
+	const tableFragment = createMarketLootTable(lootTable);
+	marketLootTableBody.appendChild(tableFragment);
+	marketTotalProfit.textContent = totalProfitValue.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+}
+
 function createSettingsUI(npcs) {
 	const npcLocations = [...new Set(npcs.map((npc) => npc.NpcArea))];
 
 	npcLocations.forEach((npcLocation) => {
 		const filteredNpcs = npcs.filter((npc) => npc.NpcArea === npcLocation);
-		const npcBoxFragment = createNpcBox(filteredNpcs, npcLocation, saveLocalStorageKills);
+		const npcBoxFragment = createNpcBox(filteredNpcs, npcLocation, boundSaveLocalStorageKills);
 		settingsTabContent.appendChild(npcBoxFragment);
 	});
-}
-
-//Loads the kills from local storage, if none create the object and set to 0
-function loadLocalStorageKills() {
-	const npcInputs = document.querySelectorAll("input[data-npc-name]");
-	const npcKills = JSON.parse(localStorage.getItem("npcKills")) || {};
-
-	npcInputs.forEach((input) => {
-		const npcName = input.dataset.npcName;
-		const npcKillsValue = npcKills[npcName] || 0;
-
-		input.value = npcKillsValue;
-	});
-
-	saveLocalStorageKills();
-}
-
-function saveLocalStorageKills() {
-	const npcInputs = document.querySelectorAll("#settingsTabContent input[data-npc-name]");
-
-	const filteredNpcInputs = document.querySelectorAll("#calculateTabContent input[data-npc-name]");
-	if (filteredNpcInputs.length > 0 && calculateTabContent.classList.contains("active")) {
-		filteredNpcInputs.forEach((input) => {
-			if (input.value !== "") {
-				const npcName = input.dataset.npcName;
-				const npcKillsValue = input.value;
-				const npcInput = document.querySelector(`#settingsTabContent input[data-npc-name="${npcName}"]`);
-				npcInput.value = npcKillsValue;
-			}
-		});
-	}
-
-	const npcKills = {};
-
-	npcInputs.forEach((input) => {
-		const npcName = input.dataset.npcName;
-		const npcKillsValue = input.value;
-
-		npcKills[npcName] = npcKillsValue;
-	});
-
-	localStorage.setItem("npcKills", JSON.stringify(npcKills));
 }

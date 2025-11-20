@@ -1025,6 +1025,12 @@
         "Weight": 0.1
       },
       {
+        "ItemId": 383,
+        "ItemAmountMin": 1,
+        "ItemAmountMax": 1,
+        "Weight": 0.025
+      },
+      {
         "ItemId": 643,
         "ItemAmountMin": 1,
         "ItemAmountMax": 1,
@@ -1110,6 +1116,12 @@
         "Weight": 0.1
       },
       {
+        "ItemId": 383,
+        "ItemAmountMin": 1,
+        "ItemAmountMax": 1,
+        "Weight": 0.025
+      },
+      {
         "ItemId": 646,
         "ItemAmountMin": 1,
         "ItemAmountMax": 1,
@@ -1193,6 +1205,12 @@
         "ItemAmountMin": 1,
         "ItemAmountMax": 1,
         "Weight": 0.1
+      },
+      {
+        "ItemId": 383,
+        "ItemAmountMin": 1,
+        "ItemAmountMax": 1,
+        "Weight": 0.025
       },
       {
         "ItemId": 649,
@@ -1286,6 +1304,12 @@
         "Weight": 0.1
       },
       {
+        "ItemId": 383,
+        "ItemAmountMin": 1,
+        "ItemAmountMax": 1,
+        "Weight": 0.025
+      },
+      {
         "ItemId": 392,
         "ItemAmountMin": 1,
         "ItemAmountMax": 1,
@@ -1377,6 +1401,12 @@
         "Weight": 0.1
       },
       {
+        "ItemId": 383,
+        "ItemAmountMin": 1,
+        "ItemAmountMax": 1,
+        "Weight": 0.025
+      },
+      {
         "ItemId": 655,
         "ItemAmountMin": 1,
         "ItemAmountMax": 1,
@@ -1466,6 +1496,12 @@
         "ItemAmountMin": 1,
         "ItemAmountMax": 1,
         "Weight": 0.1
+      },
+      {
+        "ItemId": 383,
+        "ItemAmountMin": 1,
+        "ItemAmountMax": 1,
+        "Weight": 0.025
       },
       {
         "ItemId": 658,
@@ -2304,8 +2340,8 @@
       {
         "ItemId": 19,
         "ItemAmountMin": 20000,
-        "ItemAmountMax": 40000,
-        "Weight": 8
+        "ItemAmountMax": 100000,
+        "Weight": 3
       },
       {
         "ItemId": 131,
@@ -2425,6 +2461,18 @@
         "ItemId": 245,
         "ItemAmountMin": 750,
         "ItemAmountMax": 1500,
+        "Weight": 2
+      },
+      {
+        "ItemId": 382,
+        "ItemAmountMin": 2,
+        "ItemAmountMax": 4,
+        "Weight": 3
+      },
+      {
+        "ItemId": 383,
+        "ItemAmountMin": 1,
+        "ItemAmountMax": 2,
         "Weight": 2
       },
       {
@@ -2467,8 +2515,8 @@
       {
         "ItemId": 19,
         "ItemAmountMin": 20000,
-        "ItemAmountMax": 40000,
-        "Weight": 8
+        "ItemAmountMax": 100000,
+        "Weight": 3
       },
       {
         "ItemId": 131,
@@ -2588,6 +2636,18 @@
         "ItemId": 245,
         "ItemAmountMin": 750,
         "ItemAmountMax": 1500,
+        "Weight": 2
+      },
+      {
+        "ItemId": 382,
+        "ItemAmountMin": 2,
+        "ItemAmountMax": 4,
+        "Weight": 3
+      },
+      {
+        "ItemId": 383,
+        "ItemAmountMin": 1,
+        "ItemAmountMax": 2,
         "Weight": 2
       },
       {
@@ -2630,8 +2690,8 @@
       {
         "ItemId": 19,
         "ItemAmountMin": 20000,
-        "ItemAmountMax": 40000,
-        "Weight": 10
+        "ItemAmountMax": 100000,
+        "Weight": 5
       },
       {
         "ItemId": 131,
@@ -2751,6 +2811,18 @@
         "ItemId": 245,
         "ItemAmountMin": 750,
         "ItemAmountMax": 1500,
+        "Weight": 2
+      },
+      {
+        "ItemId": 382,
+        "ItemAmountMin": 2,
+        "ItemAmountMax": 4,
+        "Weight": 3
+      },
+      {
+        "ItemId": 383,
+        "ItemAmountMin": 1,
+        "ItemAmountMax": 2,
         "Weight": 2
       },
       {
@@ -2787,8 +2859,8 @@
       {
         "ItemId": 19,
         "ItemAmountMin": 20000,
-        "ItemAmountMax": 40000,
-        "Weight": 10
+        "ItemAmountMax": 100000,
+        "Weight": 5
       },
       {
         "ItemId": 131,
@@ -2909,6 +2981,18 @@
         "ItemAmountMin": 750,
         "ItemAmountMax": 1500,
         "Weight": 3
+      },
+      {
+        "ItemId": 382,
+        "ItemAmountMin": 2,
+        "ItemAmountMax": 4,
+        "Weight": 3
+      },
+      {
+        "ItemId": 383,
+        "ItemAmountMin": 1,
+        "ItemAmountMax": 2,
+        "Weight": 2
       },
       {
         "ItemId": 389,
@@ -2944,8 +3028,8 @@
       {
         "ItemId": 19,
         "ItemAmountMin": 20000,
-        "ItemAmountMax": 40000,
-        "Weight": 8
+        "ItemAmountMax": 100000,
+        "Weight": 3
       },
       {
         "ItemId": 131,
@@ -3065,6 +3149,18 @@
         "ItemId": 245,
         "ItemAmountMin": 750,
         "ItemAmountMax": 1500,
+        "Weight": 2
+      },
+      {
+        "ItemId": 382,
+        "ItemAmountMin": 2,
+        "ItemAmountMax": 4,
+        "Weight": 3
+      },
+      {
+        "ItemId": 383,
+        "ItemAmountMin": 1,
+        "ItemAmountMax": 2,
         "Weight": 2
       },
       {
@@ -3107,8 +3203,8 @@
       {
         "ItemId": 19,
         "ItemAmountMin": 20000,
-        "ItemAmountMax": 40000,
-        "Weight": 8
+        "ItemAmountMax": 100000,
+        "Weight": 3
       },
       {
         "ItemId": 131,
@@ -3228,6 +3324,18 @@
         "ItemId": 245,
         "ItemAmountMin": 750,
         "ItemAmountMax": 1500,
+        "Weight": 2
+      },
+      {
+        "ItemId": 382,
+        "ItemAmountMin": 2,
+        "ItemAmountMax": 4,
+        "Weight": 3
+      },
+      {
+        "ItemId": 383,
+        "ItemAmountMin": 1,
+        "ItemAmountMax": 2,
         "Weight": 2
       },
       {
@@ -3300,8 +3408,8 @@
     "Loot": [
       {
         "ItemId": 19,
-        "ItemAmountMin": 20000,
-        "ItemAmountMax": 50000,
+        "ItemAmountMin": 50000,
+        "ItemAmountMax": 100000,
         "Weight": 30
       },
       {
@@ -3361,139 +3469,6 @@
     ]
   },
   {
-    "Name": "mesines",
-    "NpcArea": "valley_of_gods",
-    "AttackStyleWeakness": 5,
-    "Loot": [
-      {
-        "ItemId": 926,
-        "ItemAmountMin": 1,
-        "ItemAmountMax": 1,
-        "Weight": 2.5
-      },
-      {
-        "ItemId": 131,
-        "ItemAmountMin": 12,
-        "ItemAmountMax": 30,
-        "Weight": 10
-      },
-      {
-        "ItemId": 400,
-        "ItemAmountMin": 10,
-        "ItemAmountMax": 25,
-        "Weight": 5
-      },
-      {
-        "ItemId": 402,
-        "ItemAmountMin": 8,
-        "ItemAmountMax": 16,
-        "Weight": 3
-      },
-      {
-        "ItemId": 404,
-        "ItemAmountMin": 5,
-        "ItemAmountMax": 15,
-        "Weight": 3
-      },
-      {
-        "ItemId": 137,
-        "ItemAmountMin": 125,
-        "ItemAmountMax": 300,
-        "Weight": 5.5
-      },
-      {
-        "ItemId": 401,
-        "ItemAmountMin": 75,
-        "ItemAmountMax": 125,
-        "Weight": 4
-      },
-      {
-        "ItemId": 403,
-        "ItemAmountMin": 50,
-        "ItemAmountMax": 100,
-        "Weight": 3
-      },
-      {
-        "ItemId": 405,
-        "ItemAmountMin": 45,
-        "ItemAmountMax": 75,
-        "Weight": 3
-      },
-      {
-        "ItemId": 8,
-        "ItemAmountMin": 900,
-        "ItemAmountMax": 2500,
-        "Weight": 4
-      },
-      {
-        "ItemId": 9,
-        "ItemAmountMin": 750,
-        "ItemAmountMax": 1750,
-        "Weight": 4
-      },
-      {
-        "ItemId": 406,
-        "ItemAmountMin": 100,
-        "ItemAmountMax": 400,
-        "Weight": 4
-      },
-      {
-        "ItemId": 407,
-        "ItemAmountMin": 75,
-        "ItemAmountMax": 300,
-        "Weight": 4
-      },
-      {
-        "ItemId": 39,
-        "ItemAmountMin": 125,
-        "ItemAmountMax": 500,
-        "Weight": 5
-      },
-      {
-        "ItemId": 41,
-        "ItemAmountMin": 110,
-        "ItemAmountMax": 415,
-        "Weight": 5
-      },
-      {
-        "ItemId": 42,
-        "ItemAmountMin": 100,
-        "ItemAmountMax": 350,
-        "Weight": 5
-      },
-      {
-        "ItemId": 161,
-        "ItemAmountMin": 200,
-        "ItemAmountMax": 800,
-        "Weight": 6
-      },
-      {
-        "ItemId": 157,
-        "ItemAmountMin": 500,
-        "ItemAmountMax": 1250,
-        "Weight": 6
-      },
-      {
-        "ItemId": 155,
-        "ItemAmountMin": 200,
-        "ItemAmountMax": 550,
-        "Weight": 6
-      },
-      {
-        "ItemId": 275,
-        "ItemAmountMin": 150,
-        "ItemAmountMax": 250,
-        "Weight": 6
-      },
-      {
-        "ItemId": 245,
-        "ItemAmountMin": 750,
-        "ItemAmountMax": 1500,
-        "Weight": 6
-      }
-    ]
-  },
-  {
     "Name": "hydra",
     "NpcArea": "lair_of_beasts",
     "AttackStyleWeakness": 3,
@@ -3521,6 +3496,12 @@
         "ItemAmountMin": 1,
         "ItemAmountMax": 1,
         "Weight": 0.1
+      },
+      {
+        "ItemId": 383,
+        "ItemAmountMin": 1,
+        "ItemAmountMax": 1,
+        "Weight": 0.025
       },
       {
         "ItemId": 611,
@@ -3584,6 +3565,12 @@
         "Weight": 0.1
       },
       {
+        "ItemId": 383,
+        "ItemAmountMin": 1,
+        "ItemAmountMax": 1,
+        "Weight": 0.025
+      },
+      {
         "ItemId": 609,
         "ItemAmountMin": 3,
         "ItemAmountMax": 6,
@@ -3643,6 +3630,12 @@
         "ItemAmountMin": 1,
         "ItemAmountMax": 1,
         "Weight": 0.1
+      },
+      {
+        "ItemId": 383,
+        "ItemAmountMin": 1,
+        "ItemAmountMax": 1,
+        "Weight": 0.025
       },
       {
         "ItemId": 607,
@@ -3706,6 +3699,12 @@
         "Weight": 0.1
       },
       {
+        "ItemId": 383,
+        "ItemAmountMin": 1,
+        "ItemAmountMax": 1,
+        "Weight": 0.025
+      },
+      {
         "ItemId": 601,
         "ItemAmountMin": 6,
         "ItemAmountMax": 18,
@@ -3767,6 +3766,12 @@
         "Weight": 0.1
       },
       {
+        "ItemId": 383,
+        "ItemAmountMin": 1,
+        "ItemAmountMax": 1,
+        "Weight": 0.025
+      },
+      {
         "ItemId": 605,
         "ItemAmountMin": 6,
         "ItemAmountMax": 18,
@@ -3826,6 +3831,12 @@
         "ItemAmountMin": 1,
         "ItemAmountMax": 1,
         "Weight": 0.1
+      },
+      {
+        "ItemId": 383,
+        "ItemAmountMin": 1,
+        "ItemAmountMax": 1,
+        "Weight": 0.025
       },
       {
         "ItemId": 603,
@@ -4395,7 +4406,7 @@
         "ItemId": 19,
         "ItemAmountMin": 175,
         "ItemAmountMax": 350,
-        "Weight": 79.6
+        "Weight": 79.8
       },
       {
         "ItemId": 840,
@@ -4426,12 +4437,6 @@
         "ItemAmountMin": 1,
         "ItemAmountMax": 1,
         "Weight": 0.1
-      },
-      {
-        "ItemId": 910,
-        "ItemAmountMin": 1,
-        "ItemAmountMax": 1,
-        "Weight": 0.2
       }
     ]
   },
@@ -4444,7 +4449,7 @@
         "ItemId": 19,
         "ItemAmountMin": 200,
         "ItemAmountMax": 400,
-        "Weight": 69.65
+        "Weight": 69.9
       },
       {
         "ItemId": 841,
@@ -4469,12 +4474,6 @@
         "ItemAmountMin": 5,
         "ItemAmountMax": 10,
         "Weight": 10
-      },
-      {
-        "ItemId": 910,
-        "ItemAmountMin": 1,
-        "ItemAmountMax": 1,
-        "Weight": 0.25
       }
     ]
   },
@@ -4487,7 +4486,7 @@
         "ItemId": 19,
         "ItemAmountMin": 250,
         "ItemAmountMax": 500,
-        "Weight": 84.68
+        "Weight": 84.98
       },
       {
         "ItemId": 842,
@@ -4512,12 +4511,6 @@
         "ItemAmountMin": 5,
         "ItemAmountMax": 10,
         "Weight": 5
-      },
-      {
-        "ItemId": 910,
-        "ItemAmountMin": 1,
-        "ItemAmountMax": 1,
-        "Weight": 0.3
       }
     ]
   },
@@ -4530,7 +4523,7 @@
         "ItemId": 19,
         "ItemAmountMin": 300,
         "ItemAmountMax": 600,
-        "Weight": 49.63
+        "Weight": 49.98
       },
       {
         "ItemId": 843,
@@ -4567,12 +4560,6 @@
         "ItemAmountMin": 5,
         "ItemAmountMax": 10,
         "Weight": 10
-      },
-      {
-        "ItemId": 910,
-        "ItemAmountMin": 1,
-        "ItemAmountMax": 1,
-        "Weight": 0.35
       }
     ]
   },
@@ -4585,7 +4572,7 @@
         "ItemId": 19,
         "ItemAmountMin": 400,
         "ItemAmountMax": 800,
-        "Weight": 49.58
+        "Weight": 49.98
       },
       {
         "ItemId": 844,
@@ -4616,86 +4603,6 @@
         "ItemAmountMin": 2,
         "ItemAmountMax": 5,
         "Weight": 10
-      },
-      {
-        "ItemId": 910,
-        "ItemAmountMin": 1,
-        "ItemAmountMax": 1,
-        "Weight": 0.4
-      }
-    ]
-  },
-  {
-    "Name": "grimwark",
-    "NpcArea": "exterminating",
-    "AttackStyleWeakness": 4,
-    "Loot": [
-      {
-        "ItemId": 19,
-        "ItemAmountMin": 300,
-        "ItemAmountMax": 600,
-        "Weight": 79.53
-      },
-      {
-        "ItemId": 919,
-        "ItemAmountMin": 1,
-        "ItemAmountMax": 1,
-        "Weight": 0.02
-      },
-      {
-        "ItemId": 112,
-        "ItemAmountMin": 10,
-        "ItemAmountMax": 20,
-        "Weight": 10
-      },
-      {
-        "ItemId": 113,
-        "ItemAmountMin": 5,
-        "ItemAmountMax": 10,
-        "Weight": 10
-      },
-      {
-        "ItemId": 910,
-        "ItemAmountMin": 1,
-        "ItemAmountMax": 1,
-        "Weight": 0.45
-      }
-    ]
-  },
-  {
-    "Name": "otherworldly_executioner",
-    "NpcArea": "exterminating",
-    "AttackStyleWeakness": 3,
-    "Loot": [
-      {
-        "ItemId": 19,
-        "ItemAmountMin": 300,
-        "ItemAmountMax": 600,
-        "Weight": 79.53
-      },
-      {
-        "ItemId": 921,
-        "ItemAmountMin": 1,
-        "ItemAmountMax": 1,
-        "Weight": 0.02
-      },
-      {
-        "ItemId": 112,
-        "ItemAmountMin": 10,
-        "ItemAmountMax": 20,
-        "Weight": 10
-      },
-      {
-        "ItemId": 113,
-        "ItemAmountMin": 5,
-        "ItemAmountMax": 10,
-        "Weight": 10
-      },
-      {
-        "ItemId": 910,
-        "ItemAmountMin": 1,
-        "ItemAmountMax": 1,
-        "Weight": 0.5
       }
     ]
   }

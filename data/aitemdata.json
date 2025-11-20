@@ -4050,17 +4050,17 @@
     "Name": "quiver"
   },
   {
-    "GoldValue": 3000,
+    "GoldValue": 5000,
     "ItemId": 815,
     "Name": "spider_fang"
   },
   {
-    "GoldValue": 15000,
+    "GoldValue": 5000,
     "ItemId": 816,
     "Name": "ancient_bone"
   },
   {
-    "GoldValue": 200000,
+    "GoldValue": 5000,
     "ItemId": 817,
     "Name": "golem_fragment"
   },
@@ -4513,150 +4513,5 @@
     "GoldValue": 25000,
     "ItemId": 908,
     "Name": "sobeks_charm"
-  },
-  {
-    "GoldValue": 1,
-    "ItemId": 909,
-    "Name": "sku_auto_raid_token"
-  },
-  {
-    "GoldValue": 5000,
-    "ItemId": 910,
-    "Name": "exterminating_supply_crate"
-  },
-  {
-    "GoldValue": 3000,
-    "ItemId": 911,
-    "Name": "otherworldly_key"
-  },
-  {
-    "GoldValue": 150,
-    "ItemId": 912,
-    "Name": "ignis_log"
-  },
-  {
-    "GoldValue": 375,
-    "ItemId": 913,
-    "Name": "ignis_heartwood"
-  },
-  {
-    "GoldValue": 85,
-    "ItemId": 914,
-    "Name": "smoldering_mushroom"
-  },
-  {
-    "GoldValue": 175,
-    "ItemId": 915,
-    "Name": "sunfire_seed"
-  },
-  {
-    "GoldValue": 1500,
-    "ItemId": 916,
-    "Name": "sunfire_berry"
-  },
-  {
-    "GoldValue": 2500,
-    "ItemId": 917,
-    "Name": "dragonfire_potion"
-  },
-  {
-    "GoldValue": 45000,
-    "ItemId": 918,
-    "Name": "otherworldly_dragonscale_shield"
-  },
-  {
-    "GoldValue": 15000,
-    "ItemId": 919,
-    "Name": "grimwark_sigil"
-  },
-  {
-    "GoldValue": 40000,
-    "ItemId": 920,
-    "Name": "grimwark_shield"
-  },
-  {
-    "GoldValue": 15000,
-    "ItemId": 921,
-    "Name": "otherworldly_coreplate"
-  },
-  {
-    "GoldValue": 600000,
-    "ItemId": 922,
-    "Name": "otherworldly_shield"
-  },
-  {
-    "GoldValue": 900000,
-    "ItemId": 923,
-    "Name": "otherworldly_platebody"
-  },
-  {
-    "GoldValue": 600000,
-    "ItemId": 924,
-    "Name": "otherworldly_platelegs"
-  },
-  {
-    "GoldValue": 300000,
-    "ItemId": 925,
-    "Name": "otherworldly_helmet"
-  },
-  {
-    "GoldValue": 50000,
-    "ItemId": 926,
-    "Name": "otherworldly_ore"
-  },
-  {
-    "GoldValue": 100000,
-    "ItemId": 927,
-    "Name": "otherworldly_bar"
-  },
-  {
-    "GoldValue": 990000,
-    "ItemId": 928,
-    "Name": "otherworldly_dragon_slayer_crossbow"
-  },
-  {
-    "GoldValue": 10000,
-    "ItemId": 929,
-    "Name": "ancient_crossbow_string"
-  },
-  {
-    "GoldValue": 250000,
-    "ItemId": 930,
-    "Name": "exterminating_cape_tier_1"
-  },
-  {
-    "GoldValue": 500000,
-    "ItemId": 931,
-    "Name": "exterminating_cape_tier_2"
-  },
-  {
-    "GoldValue": 1000000,
-    "ItemId": 932,
-    "Name": "exterminating_cape_tier_3"
-  },
-  {
-    "GoldValue": 2500000,
-    "ItemId": 933,
-    "Name": "exterminating_cape_tier_4"
-  },
-  {
-    "GoldValue": 500,
-    "ItemId": 934,
-    "Name": "common_scroll_of_exterminating"
-  },
-  {
-    "GoldValue": 500,
-    "ItemId": 935,
-    "Name": "rare_scroll_of_exterminating"
-  },
-  {
-    "GoldValue": 500,
-    "ItemId": 936,
-    "Name": "exceptional_scroll_of_exterminating"
-  },
-  {
-    "GoldValue": 100,
-    "ItemId": 937,
-    "Name": "raid_ignis_arrow"
   }
 ]

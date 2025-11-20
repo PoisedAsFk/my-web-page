@@ -1,126 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Data Extractor</title>
-    <!-- Reusing styles for consistency -->
     <link rel="stylesheet" href="styles.css">
     <style>
         /* Additional styles for the updater page */
-        body { max-width: 1200px; }
-        .container {
+        .updater-container {
             display: flex;
             flex-direction: column;
-            gap: 20px;
-            padding: 20px;
+            gap: 2rem;
         }
+
         .section {
-            background-color: #1e1e1e;
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px solid #555;
+            background-color: var(--surface-color);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
             text-align: center;
+            box-shadow: var(--shadow-md);
         }
+
+        .section h2 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+
         .output-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            gap: 2rem;
         }
+
+        @media (max-width: 768px) {
+            .output-section {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .json-container {
-            background-color: #1e1e1e;
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px solid #555;
+            background-color: var(--surface-color);
+            padding: 1.5rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
             display: flex;
             flex-direction: column;
+            box-shadow: var(--shadow-md);
         }
+
+        .json-container h2 {
+            font-size: 1.1rem;
+            margin-top: 0;
+        }
+
         textarea {
             width: 100%;
             height: 400px;
-            background-color: #252525;
-            color: #ddd;
-            border: 1px solid #555;
-            border-radius: 5px;
-            margin-top: 10px;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            margin-top: 1rem;
             flex-grow: 1;
             font-family: monospace;
-            padding: 10px;
+            padding: 1rem;
+            resize: vertical;
         }
+
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
         button {
-            padding: 10px 20px;
+            padding: 0.75rem 1.5rem;
             cursor: pointer;
-            background-color: #0078d7;
+            background-color: var(--primary-color);
             color: white;
             border: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-            margin-top: 10px;
+            border-radius: var(--radius-md);
+            transition: background-color 0.2s;
+            margin-top: 1rem;
+            font-weight: 500;
+            font-size: 1rem;
         }
-        button:hover { background-color: #005a9e; }
-        button:disabled { background-color: #333; cursor: not-allowed; }
-        .status-message { margin-top: 15px; color: #00ff7f; min-height: 1.2em;}
-        .error-message { color: #ff4d4d; }
+
+        button:hover {
+            background-color: var(--primary-hover);
+        }
+
+        button:disabled {
+            background-color: var(--surface-hover);
+            color: var(--text-secondary);
+            cursor: not-allowed;
+        }
+
+        .status-message {
+            margin-top: 1rem;
+            font-weight: 500;
+            min-height: 1.5rem;
+        }
+
+        .status-success {
+            color: #10b981;
+        }
+
+        .status-error {
+            color: #ef4444;
+        }
+
         a.back-link {
-            display: block;
-            text-align: center;
-            margin-bottom: 20px;
-            color: #0078d7;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
             text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        a.back-link:hover {
+            color: var(--primary-color);
+        }
+
+        input[type="file"] {
+            margin-top: 1rem;
+            padding: 0.5rem;
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            color: var(--text-primary);
         }
     </style>
 </head>
+
 <body>
 
-    <div class="container">
-        <a href="index.html" class="back-link">&larr; Back to NPC Drop Calculator</a>
-        <h1>Game Data Extractor</h1>
-        
-        <!-- Step 1: File Upload -->
-        <div class="section">
-            <h2>1. Upload Game Config File</h2>
-            <p>Select the <code>configData.json</code> file from the game's root folder.</p>
-            <input type="file" id="configFile" accept=".json">
-            <div id="fileStatus" class="status-message"></div>
-        </div>
+    <main class="app-container">
+        <div class="updater-container">
+            <div>
+                <a href="index.html" class="back-link">&larr; Back to NPC Drop Calculator</a>
+                <h1 style="margin: 0; text-align: center;">Game Data Extractor</h1>
+            </div>
 
-        <!-- Step 2: Process & Download -->
-        <div class="section">
-             <h2>2. Process Data and Download</h2>
-             <p>Once the file is loaded, process it to generate the data for your tool.</p>
-             <button id="processButton" disabled>Process File</button>
-             <div id="processStatus" class="status-message"></div>
-        </div>
-        
-        <div class="output-section">
-            <div class="json-container">
-                <h2>Generated <code>itemdata.json</code></h2>
-                <button id="downloadItems" disabled>Download itemdata.json</button>
-                <textarea id="itemDataOutput" readonly placeholder="Item JSON will appear here..."></textarea>
+            <!-- Step 1: File Upload -->
+            <div class="section">
+                <h2>1. Upload Game Config File</h2>
+                <p style="color: var(--text-secondary);">Select the <code>configData.json</code> file from the game's
+                    root folder.</p>
+                <input type="file" id="configFile" accept=".json">
+                <div id="fileStatus" class="status-message"></div>
             </div>
-            <div class="json-container">
-                <h2>Generated <code>npcdata.json</code></h2>
-                <button id="downloadNpcs" disabled>Download npcdata.json</button>
-                <textarea id="npcDataOutput" readonly placeholder="NPC JSON will appear here..."></textarea>
+
+            <!-- Step 2: Process & Download -->
+            <div class="section">
+                <h2>2. Process Data and Download</h2>
+                <p style="color: var(--text-secondary);">Once the file is loaded, process it to generate the data for
+                    your tool.</p>
+                <button id="processButton" disabled>Process File</button>
+                <div id="processStatus" class="status-message"></div>
+            </div>
+
+            <div class="output-section">
+                <div class="json-container">
+                    <h2>Generated <code>itemdata.json</code></h2>
+                    <button id="downloadItems" disabled>Download itemdata.json</button>
+                    <textarea id="itemDataOutput" readonly placeholder="Item JSON will appear here..."></textarea>
+                </div>
+                <div class="json-container">
+                    <h2>Generated <code>npcdata.json</code></h2>
+                    <button id="downloadNpcs" disabled>Download npcdata.json</button>
+                    <textarea id="npcDataOutput" readonly placeholder="NPC JSON will appear here..."></textarea>
+                </div>
             </div>
         </div>
-    </div>
+    </main>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // UI Elements
             const configFile = document.getElementById('configFile');
             const processButton = document.getElementById('processButton');
-            
+
             const fileStatus = document.getElementById('fileStatus');
             const processStatus = document.getElementById('processStatus');
-            
+
             const itemDataOutput = document.getElementById('itemDataOutput');
             const npcDataOutput = document.getElementById('npcDataOutput');
-            
+
             const downloadItemsButton = document.getElementById('downloadItems');
             const downloadNpcsButton = document.getElementById('downloadNpcs');
-            
+
             // State
             let parsedConfigData = null;
 
@@ -129,33 +199,36 @@
                 const file = event.target.files[0];
                 if (!file) {
                     fileStatus.textContent = 'No file selected.';
+                    fileStatus.className = 'status-message';
                     return;
                 }
-                
+
                 fileStatus.textContent = `Selected file: ${file.name}`;
+                fileStatus.className = 'status-message';
+
                 const reader = new FileReader();
-                
+
                 reader.onload = (e) => {
                     try {
                         parsedConfigData = JSON.parse(e.target.result);
                         fileStatus.textContent = `File loaded successfully. Ready to process.`;
+                        fileStatus.className = 'status-message status-success';
                         processButton.disabled = false;
-                        fileStatus.classList.remove('error-message');
                     } catch (error) {
                         fileStatus.textContent = `Error: The selected file is not valid JSON. Please ensure it's a correct, unaltered config file. Error: ${error.message}`;
-                        fileStatus.classList.add('error-message');
+                        fileStatus.className = 'status-message status-error';
                         parsedConfigData = null;
                         processButton.disabled = true;
                     }
                 };
-                
+
                 reader.onerror = () => {
-                     fileStatus.textContent = 'Error reading file.';
-                     fileStatus.classList.add('error-message');
-                     parsedConfigData = null;
-                     processButton.disabled = true;
+                    fileStatus.textContent = 'Error reading file.';
+                    fileStatus.className = 'status-message status-error';
+                    parsedConfigData = null;
+                    processButton.disabled = true;
                 }
-                
+
                 reader.readAsText(file);
             });
 
@@ -163,28 +236,29 @@
             processButton.addEventListener('click', () => {
                 if (!parsedConfigData) {
                     processStatus.textContent = 'Cannot process because the file is not loaded correctly.';
-                    processStatus.classList.add('error-message');
+                    processStatus.className = 'status-message status-error';
                     return;
                 }
-                
+
                 try {
                     processStatus.textContent = 'Processing...';
-                    processStatus.classList.remove('error-message');
+                    processStatus.className = 'status-message';
 
                     // Extract Item Data
                     const itemData = extractItemData(parsedConfigData);
                     itemDataOutput.value = JSON.stringify(itemData, null, 2);
                     downloadItemsButton.disabled = false;
-                    
+
                     // Extract NPC Data
                     const npcData = extractNpcData(parsedConfigData);
                     npcDataOutput.value = JSON.stringify(npcData, null, 2);
                     downloadNpcsButton.disabled = false;
 
                     processStatus.textContent = 'Processing complete. You can now download the JSON files.';
+                    processStatus.className = 'status-message status-success';
                 } catch (error) {
                     processStatus.textContent = `An error occurred during processing: ${error.message}`;
-                    processStatus.classList.add('error-message');
+                    processStatus.className = 'status-message status-error';
                     console.error(error);
                 }
             });
@@ -242,12 +316,12 @@
                         npcsInArea.forEach(npc => {
                             if (npc.Name) { // Make sure it's a valid NPC entry
                                 const lootTable = Array.isArray(npc.Loot) ? npc.Loot.map(loot => ({
-                                   ItemId: loot.ItemId,
-                                   // If both min and max are 0, set to 1, otherwise keep the original value.
-                                   ItemAmountMin: (loot.ItemAmountMin === 0 && loot.ItemAmountMax === 0) ? 1 : loot.ItemAmountMin,
-                                   // If both min and max are 0, set to 1, otherwise keep the original value.
-                                   ItemAmountMax: (loot.ItemAmountMin === 0 && loot.ItemAmountMax === 0) ? 1 : loot.ItemAmountMax,
-                                   Weight: loot.Weight
+                                    ItemId: loot.ItemId,
+                                    // If both min and max are 0, set to 1, otherwise keep the original value.
+                                    ItemAmountMin: (loot.ItemAmountMin === 0 && loot.ItemAmountMax === 0) ? 1 : loot.ItemAmountMin,
+                                    // If both min and max are 0, set to 1, otherwise keep the original value.
+                                    ItemAmountMax: (loot.ItemAmountMin === 0 && loot.ItemAmountMax === 0) ? 1 : loot.ItemAmountMax,
+                                    Weight: loot.Weight
                                 })) : [];
 
                                 allNpcs.push({
@@ -264,7 +338,7 @@
                 if (allNpcs.length === 0) {
                     throw new Error("Extraction logic ran successfully, but no NPCs were found. The data structure might have changed again or the combat task is empty.");
                 }
-                
+
                 return allNpcs;
             }
 
@@ -280,5 +354,5 @@
         });
     </script>
 </body>
-</html>
 
+</html>

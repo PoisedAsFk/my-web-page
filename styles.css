@@ -1,199 +1,389 @@
-/* Chrome, Safari, Edge, Opera */
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-	-webkit-appearance: none;
-	appearance: none;
+:root {
+    --bg-color: #0f1115;
+    --surface-color: #181b21;
+    --surface-hover: #22262e;
+    --primary-color: #3b82f6;
+    --primary-hover: #2563eb;
+    --text-primary: #f3f4f6;
+    --text-secondary: #9ca3af;
+    --border-color: #2d333b;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
 }
 
-/* Firefox */
-input[type="number"] {
-	-moz-appearance: textfield;
-	appearance: textfield;
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
 
 body {
-	background-color: #121212;
-	color: #fff;
-	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-	margin: 0 auto;
-	padding: 20px;
-	max-width: 1550px;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+.app-container {
+    width: 100%;
+    max-width: 1400px;
+    padding: 2rem;
+}
+
+/* Tabs */
 .tab-container {
-	display: flex;
-	justify-content: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
 }
 
 .tab-wrapper {
-	display: flex;
-	border: none;
-	border-radius: 8px 8px 0 0;
-	overflow: hidden;
+    display: flex;
+    background-color: var(--surface-color);
+    padding: 0.5rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    gap: 0.5rem;
+    box-shadow: var(--shadow-md);
 }
 
 .tab {
-	padding: 10px 20px;
-	margin: 0;
-	cursor: pointer;
-	background-color: #333;
-	border: none;
-	transition: background-color 0.3s;
+    padding: 0.75rem 1.5rem;
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border-radius: var(--radius-md);
+    transition: all 0.2s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: inherit;
 }
 
-.tab:not(:first-child) {
-	border-left: 1px solid #555;
+.tab:hover {
+    color: var(--text-primary);
+    background-color: var(--surface-hover);
 }
 
+.tab.active {
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: var(--shadow-sm);
+}
+
+.link-tab {
+    color: var(--text-secondary);
+}
+
+.link-tab:hover {
+    color: var(--text-primary);
+}
+
+/* Tab Content */
 .tab-content {
-	display: none;
-	text-align: center;
-	margin-top: -1px; /* Aligns with the bottom border of the tabs */
-	padding: 20px;
-	background-color: #1e1e1e;
-	border: 1px solid #555;
-	border-radius: 8px;
+    display: none;
+    animation: fadeIn 0.3s ease;
 }
 
-.active.tab {
-	background-color: #404040;
-	border-bottom: 3px solid #0078d7; /* Active tab indicator */
-	transition: border-bottom-color 0.2s ease-out;
+.tab-content.active {
+    display: block;
 }
 
-.active.tab-content {
-	display: block;
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.npc-area-panel {
-	background-color: #1e1e1e;
-	border-radius: 8px;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.35);
-	padding: 10px 15px;
-	margin: 10px;
-	display: inline-block;
-	vertical-align: top;
-}
-
-.npc-area-panel h2 {
-	margin: 0;
-}
-
-ul {
-	list-style: none;
-	padding: 4px;
-	margin: 10px 5px;
-}
-
-ul li {
-	background-color: #252525;
-	margin: 4px 0;
-	padding: 8px;
-	border-radius: 5px;
-	display: flex; /* Use flexbox layout */
-	justify-content: space-between; /* Space between the text and the input */
-	align-items: center; /* Align items vertically */
-	width: 200px;
-}
-
-input[type="number"] {
-	background-color: #252525;
-	border: 1px solid #555;
-	color: #ddd;
-	padding: 5px;
-	border-radius: 5px;
-	width: 30px;
-	text-align: center;
-}
-
+/* Layout Containers */
 .calculateTabContainer {
-	display: flex;
-	justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
+
+.monster-loot-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+    .calculateTabContainer {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .select-and-table {
+        flex: 2;
+    }
+
+    .filtered-npc-panel {
+        flex: 1;
+    }
+}
+
+.select-and-table,
+.monster-loot-details {
+    background-color: var(--surface-color);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-lg);
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Dropdowns & Inputs */
+.select-and-search,
+.monster-selection-container {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
 .dropdown-container {
-	position: relative;
-	width: 250px;
+    position: relative;
+    width: 100%;
+    max-width: 350px;
 }
 
 .dropdown-input,
-.monster-dropdown-input {
-	width: 100%;
-	padding: 10px;
-	border: 1px solid #555; /* Darker border */
-	color: #ddd; /* Lighter text for contrast */
-	background-color: #252525;
-	box-sizing: border-box;
-	border-radius: 5px;
+.monster-dropdown-input,
+.market-monster-dropdown-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    font-family: inherit;
+}
+
+.dropdown-input:focus,
+.monster-dropdown-input:focus,
+.market-monster-dropdown-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
 }
 
 .dropdown-list,
-.monster-dropdown-list {
-	display: none;
-	position: absolute;
-	background-color: #333; /* Darker list background */
-	border: 1px solid #555;
-	width: 100%;
-	max-height: 200px;
-	overflow-y: auto;
-	list-style-type: none;
-	padding: 0;
-	margin: 0;
-	z-index: 10;
-	border-radius: 5px;
+.monster-dropdown-list,
+.market-monster-dropdown-list {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 300px;
+    overflow-y: auto;
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    list-style: none;
+    z-index: 50;
+    box-shadow: var(--shadow-lg);
 }
 
 .dropdown-list li,
-.monster-dropdown-list li {
-	padding: 10px;
-	cursor: pointer;
-	color: #ddd;
+.monster-dropdown-list li,
+.market-monster-dropdown-list li {
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    border-radius: var(--radius-md);
+    color: var(--text-secondary);
+    transition: background-color 0.1s;
 }
 
 .dropdown-list li:hover,
-.monster-dropdown-list li:hover {
-	background-color: #404040; /* Highlighted item */
-}
-
-.select-and-search,
-.monster-selection-container {
-	display: flex;
-	align-items: center;
+.monster-dropdown-list li:hover,
+.market-monster-dropdown-list li:hover {
+    background-color: var(--surface-hover);
+    color: var(--text-primary);
 }
 
 .selected-item-header,
-.selected-monster-header {
-	margin: 8px;
-	font-size: 18px;
-	color: #0078d7; /* Accent color for selection */
+.selected-monster-header,
+.market-selected-monster-header {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--primary-color);
 }
 
-.npc-table,
-.monster-loot-table {
-	width: 100%; /* Make the table responsive */
-	border-collapse: collapse;
-	background-color: #252525;
-	color: #ddd; /* Lighter text against dark background */
-	border-radius: 6px;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+/* Tables */
+.table-wrapper {
+    overflow-x: auto;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
 }
 
-.npc-table th,
-.npc-table td,
-.monster-loot-table th,
-.monster-loot-table td {
-	text-align: left;
-	padding: 12px 15px;
-	border: 1px solid #333; /* Softer cell borders */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
 }
 
-.npc-table th,
-.monster-loot-table th {
-	background-color: #333; /* Slightly darker header background */
+th,
+td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
 }
-input[type="text"]:focus,
-input[type="number"]:focus,
-.dropdown-list li:focus,
-.monster-dropdown-list li:focus {
-	outline: none; /* Remove default outline if undesirable */
-	box-shadow: 0 0 5px #0078d7; /* Subtle focus indicator */
+
+th {
+    background-color: var(--bg-color);
+    color: var(--text-secondary);
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+td {
+    color: var(--text-primary);
+    font-size: 0.95rem;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:hover td {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* NPC Panels (Settings & Filtered) */
+/* NPC Panels (Settings & Filtered) */
+.filtered-npc-panel,
+#settingsTabContent.active {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+}
+
+/* Ensure settings tab content is hidden when not active */
+#settingsTabContent {
+    display: none;
+}
+
+.npc-area-panel {
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    /* Removed flex properties as we are using grid now */
+}
+
+.npc-area-panel h2 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.75rem;
+}
+
+.npc-content-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.npc-content-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.npc-content-list li:last-child {
+    border-bottom: none;
+}
+
+input[type="number"] {
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 0.5rem;
+    border-radius: var(--radius-md);
+    width: 80px;
+    text-align: center;
+    font-family: inherit;
+    transition: border-color 0.2s;
+}
+
+input[type="number"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+/* Total Gold */
+.total-gold-value {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+    text-align: right;
+}
+
+.total-gold-value h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: var(--text-primary);
+}
+
+#total-gold {
+    color: #10b981;
+    /* Emerald green for money */
+    font-family: monospace;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
 }

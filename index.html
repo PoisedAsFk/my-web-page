@@ -6,98 +6,147 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabbed Interfaces</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Preload fonts if we were using external ones, for now relying on system fonts but styled better -->
 </head>
 
 <body>
 
-    <div class="tab-container">
-        <div class="tab-wrapper">
-            <div id="calculateTab" class="tab active">Calculate</div>
-            <div id="settingsTab" class="tab">Settings</div>
-            <div id="monsterLootTab" class="tab">Monster Loot</div>
-            <a id="itemidslink" href="itemids.html" class="tab" style="
-    color: white;
-    text-decoration: none;
-">ItemIDS Tool</a>
-            <a href="data_updater.html" class="tab" style="color: white; text-decoration: none;">Data Updater</a>
-        </div>
-    </div>
+    <main class="app-container">
+        <nav class="tab-container" role="tablist">
+            <div class="tab-wrapper">
+                <button id="calculateTab" class="tab active" role="tab" aria-selected="true"
+                    aria-controls="calculateTabContent">Calculate</button>
+                <button id="settingsTab" class="tab" role="tab" aria-selected="false"
+                    aria-controls="settingsTabContent">Settings</button>
+                <button class="tab" id="monsterLootTab" role="tab" aria-selected="false"
+                    aria-controls="monsterLootTabContent">
+                    Monster Loot
+                </button>
+                <button class="tab" id="marketTestTab" role="tab" aria-selected="false"
+                    aria-controls="marketTestTabContent">
+                    Calculate Market Test
+                </button>
+                <a href="itemids.html" class="tab link-tab" aria-label="Go to Item IDs page">Item IDs</a>
+                <a href="data_updater.html" class="tab link-tab">Data Updater</a>
+            </div>
+        </nav>
 
-    <div id="calculateTabContent" class="tab-content active">
-        <div class="calculateTabContainer">
-            <div class="select-and-table">
-                <div class="select-and-search">
-                    <div class="dropdown-container">
-                        <input name="item-input-text" class="dropdown-input" placeholder="Select or search for item" />
-                        <ul class="dropdown-list"></ul>
+        <section id="calculateTabContent" class="tab-content active" role="tabpanel" aria-labelledby="calculateTab">
+            <div class="calculateTabContainer">
+                <div class="select-and-table">
+                    <div class="select-and-search">
+                        <div class="dropdown-container">
+                            <input name="item-input-text" class="dropdown-input" placeholder="Select or search for item"
+                                aria-label="Search for item" autocomplete="off" />
+                            <ul class="dropdown-list"></ul>
+                        </div>
+                        <h3 class="selected-item-header">Selected: None</h3>
                     </div>
-                    <h3 class="selected-item-header">Selected: None</h3>
+                    <div class="table-wrapper">
+                        <table class="npc-table">
+                            <thead>
+                                <tr>
+                                    <th>NPC Name</th>
+                                    <th>Kills/h</th>
+                                    <th>Drops/h</th>
+                                    <th>Drops/6h</th>
+                                    <th>Avg Hours:Min</th>
+                                    <th>~kills/1</th>
+                                </tr>
+                            </thead>
+                            <tbody class="npc-table-body">
+                                <!-- Populated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-                <table class="npc-table">
-                    <thead>
-                        <tr>
-                            <th>NPC Name</th>
-                            <th>Kills/h</th>
-                            <th>Drops/h</th>
-                            <th>Drops/6h</th>
-                            <th>Avg Hours:Min</th>
-                            <th>~kills/1</th>
-                        </tr>
-                    </thead>
-                    <tbody class="npc-table-body">
-
-
-                    </tbody>
-                </table>
-
-            </div>
-            <div class="filtered-npc-panel">
-
-            </div>
-
-
-        </div>
-    </div>
-
-    <div id="settingsTabContent" class="tab-content">
-
-    </div>
-
-    <div id="monsterLootTabContent" class="tab-content">
-        <div class="monster-loot-container">
-            <div class="monster-selection-container">
-                <div class="dropdown-container">
-                    <input name="monster-input-text" class="monster-dropdown-input"
-                        placeholder="Select or search for a monster" />
-                    <ul class="monster-dropdown-list"></ul>
-                </div>
-                <h3 class="selected-monster-header">Selected: None</h3>
-            </div>
-            <div class="monster-loot-details">
-                <table class="monster-loot-table">
-                    <thead>
-                        <tr>
-                            <th>Item Name</th>
-                            <th>Dropchance%</th>
-                            <th>Average Gold Value</th>
-                            <th>Drops/hr</th>
-                            <th>Gold value/hr</th>
-                            <th>Drops/6hr</th>
-                            <th>Gold value/6hr</th>
-                            <th>Drops/day</th>
-                            <th>Gold value/day</th>
-                        </tr>
-                    </thead>
-                    <tbody class="monster-loot-table-body">
-                    </tbody>
-                </table>
-                <div class="total-gold-value">
-                    <h3>Total Gold Value per hour: <span id="total-gold">0</span></h3>
+                <div class="filtered-npc-panel">
+                    <!-- Populated by JS -->
                 </div>
             </div>
-        </div>
-    </div>
+        </section>
 
+        <section id="settingsTabContent" class="tab-content" role="tabpanel" aria-labelledby="settingsTab">
+            <!-- Populated by JS -->
+        </section>
+
+        <section id="monsterLootTabContent" class="tab-content" role="tabpanel" aria-labelledby="monsterLootTab">
+            <div class="monster-loot-container">
+                <div class="monster-selection-container">
+                    <div class="dropdown-container">
+                        <input name="monster-input-text" class="monster-dropdown-input"
+                            placeholder="Select or search for a monster" aria-label="Search for monster"
+                            autocomplete="off" />
+                        <ul class="monster-dropdown-list"></ul>
+                    </div>
+                    <h3 class="selected-monster-header">Selected: None</h3>
+                </div>
+                <div class="monster-loot-details hidden">
+                    <div class="table-wrapper">
+                        <table class="monster-loot-table">
+                            <thead>
+                                <tr>
+                                    <th>Item Name</th>
+                                    <th>Drop Chance (%)</th>
+                                    <th>Avg Gold Value</th>
+                                    <th>Drops / Hour</th>
+                                    <th>Gold / Hour</th>
+                                    <th>Drops / 6 Hours</th>
+                                    <th>Gold / 6 Hours</th>
+                                    <th>Drops / Day</th>
+                                    <th>Gold / Day</th>
+                                </tr>
+                            </thead>
+                            <tbody class="monster-loot-table-body">
+                                <!-- Rows will be populated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="total-gold-container">
+                        <h3>Total Gold / Hour: <span id="total-gold">0</span></h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="marketTestTabContent" class="tab-content" role="tabpanel" aria-labelledby="marketTestTab">
+            <div class="monster-loot-container">
+                <div class="monster-selection-container">
+                    <div class="dropdown-container">
+                        <input name="market-monster-input-text" class="market-monster-dropdown-input"
+                            placeholder="Select or search for a monster" aria-label="Search for monster"
+                            autocomplete="off" />
+                        <ul class="market-monster-dropdown-list"></ul>
+                    </div>
+                    <h3 class="market-selected-monster-header">Selected: None</h3>
+                </div>
+
+                <div class="market-loot-details hidden">
+                    <div class="table-wrapper">
+                        <table class="market-loot-table">
+                            <thead>
+                                <tr>
+                                    <th>Item Name</th>
+                                    <th>Drop Chance (%)</th>
+                                    <th>Market Price</th>
+                                    <th>Drops / Hour</th>
+                                    <th>Profit / Hour</th>
+                                    <th>Drops / Day</th>
+                                    <th>Profit / Day</th>
+                                </tr>
+                            </thead>
+                            <tbody class="market-loot-table-body">
+                                <!-- Rows will be populated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="total-gold-container">
+                        <h3>Total Profit / Hour: <span id="market-total-profit">0</span></h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <script type="module" src="script.js"></script>
 </body>

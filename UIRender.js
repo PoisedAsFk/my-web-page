@@ -91,6 +91,39 @@ export function createMonsterLootTable(lootTable) {
 	return fragment;
 }
 
+export function createMarketLootTable(lootTable) {
+	const fragment = document.createDocumentFragment();
+	lootTable.forEach((item) => {
+		const tr = document.createElement("tr");
+		const tdItemName = document.createElement("td");
+		const tdDropChance = document.createElement("td");
+		const tdMarketPrice = document.createElement("td");
+		const tdDropsPerHour = document.createElement("td");
+		const tdProfitPerHour = document.createElement("td");
+		const tdDropsPerDay = document.createElement("td");
+		const tdProfitPerDay = document.createElement("td");
+
+		tdItemName.textContent = prettifyString(item.itemName);
+		tdDropChance.textContent = item.dropChance.toFixed(2);
+		tdMarketPrice.textContent = item.marketPrice.toLocaleString(); // Format with commas
+		tdDropsPerHour.textContent = item.dropsPerHour.toFixed(2);
+		tdProfitPerHour.textContent = item.profitPerHour.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+		tdDropsPerDay.textContent = item.dropsPerDay.toFixed(2);
+		tdProfitPerDay.textContent = item.profitPerDay.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+
+		tr.appendChild(tdItemName);
+		tr.appendChild(tdDropChance);
+		tr.appendChild(tdMarketPrice);
+		tr.appendChild(tdDropsPerHour);
+		tr.appendChild(tdProfitPerHour);
+		tr.appendChild(tdDropsPerDay);
+		tr.appendChild(tdProfitPerDay);
+
+		fragment.appendChild(tr);
+	});
+	return fragment;
+}
+
 export function createNpcBox(npcs, headerText, saveLocalStorageKills) {
 	const fragment = document.createDocumentFragment();
 	const npcBoxDiv = document.createElement("div");
