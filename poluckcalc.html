@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MMO Drop Rate Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600;800&display=swap');
+
+        :root {
+            --bg-dark: #0f172a;
+            --card-bg: #1e293b;
+            --accent: #10b981; /* Emerald 500 */
+            --accent-glow: rgba(16, 185, 129, 0.2);
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .input-field {
+            background: #0f172a;
+            border: 1px solid #334155;
+            transition: all 0.2s ease;
+        }
+
+        .input-field:focus-within {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 2px var(--accent-glow);
+        }
+
+        .stat-card {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid #334155;
+            transition: transform 0.2s;
+        }
+
+        .stat-card:hover {
+            border-color: #475569;
+        }
+
+        /* Custom Range Slider */
+        input[type=range] {
+            -webkit-appearance: none; 
+            background: transparent; 
+        }
+
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            background: var(--accent);
+            cursor: pointer;
+            margin-top: -6px; 
+            box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+        }
+
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            cursor: pointer;
+            background: #334155;
+            border-radius: 2px;
+        }
+
+        /* Animation for results */
+        @keyframes pulse-green {
+            0% { color: var(--text-primary); }
+            50% { color: var(--accent); }
+            100% { color: var(--text-primary); }
+        }
+
+        .result-change {
+            animation: pulse-green 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+
+    <div class="w-full max-w-lg bg-slate-800 rounded-2xl shadow-2xl overflow-hidden border border-slate-700">
+        
+        <!-- Header -->
+        <div class="bg-slate-900 p-6 border-b border-slate-700 flex justify-between items-center">
+            <div>
+                <h1 class="text-xl font-bold text-emerald-400 uppercase tracking-wider flex items-center gap-2">
+                    <i class="fas fa-dice-d20"></i> Drop Calc
+                </h1>
+                <p class="text-xs text-slate-400 mt-1">Luck Multiplier Utility</p>
+            </div>
+            <div class="text-right">
+                <div class="text-xs text-slate-500 font-mono">FORMULA</div>
+                <div class="text-xs text-slate-300 font-mono bg-slate-800 px-2 py-1 rounded border border-slate-700">
+                    1 + log2(luck+2)/40
+                </div>
+            </div>
+        </div>
+
+        <div class="p-6 space-y-8">
+            
+            <!-- Inputs Section -->
+            <div class="space-y-6">
+                <!-- Luck Input -->
+                <div>
+                    <label class="flex justify-between text-sm font-semibold text-slate-300 mb-2">
+                        <span>Your Luck</span>
+                        <span id="luckValueDisplay" class="text-emerald-400 font-mono">250</span>
+                    </label>
+                    <div class="input-field rounded-lg p-1 flex items-center">
+                        <div class="pl-3 text-slate-500"><i class="fas fa-clover"></i></div>
+                        <input type="number" id="luckInput" value="250" class="w-full bg-transparent border-none text-white p-2 focus:ring-0 outline-none font-mono" placeholder="0">
+                    </div>
+                    <input type="range" id="luckSlider" min="0" max="10000" value="250" class="w-full mt-3">
+                    <div class="flex justify-between text-xs text-slate-500 mt-1">
+                        <span>0</span>
+                        <span>5000</span>
+                        <span>10k</span>
+                    </div>
+                </div>
+
+                <!-- Base Chance Input -->
+                <div>
+                    <label class="flex justify-between text-sm font-semibold text-slate-300 mb-2">
+                        <span>Base Drop Chance (%)</span>
+                        <span id="baseChanceValueDisplay" class="text-blue-400 font-mono">5%</span>
+                    </label>
+                    <div class="input-field rounded-lg p-1 flex items-center">
+                        <div class="pl-3 text-slate-500"><i class="fas fa-percentage"></i></div>
+                        <input type="number" id="baseChanceInput" value="5" step="0.0001" class="w-full bg-transparent border-none text-white p-2 focus:ring-0 outline-none font-mono" placeholder="e.g. 0.5">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="h-px bg-slate-700 w-full"></div>
+
+            <!-- Results Grid -->
+            <div class="grid grid-cols-2 gap-4">
+                
+                <!-- Multiplier Box -->
+                <div class="stat-card rounded-xl p-4 flex flex-col justify-between">
+                    <div class="text-xs text-slate-400 uppercase tracking-wide font-semibold">Multiplier</div>
+                    <div class="text-3xl font-bold text-white mono mt-2" id="multiplierResult">1.20x</div>
+                    <div class="text-xs text-emerald-500 mt-1 flex items-center gap-1">
+                        <i class="fas fa-arrow-up"></i> <span id="bonusPercent">20%</span> boost
+                    </div>
+                </div>
+
+                <!-- Final Chance Box -->
+                <div class="stat-card rounded-xl p-4 flex flex-col justify-between border-emerald-500/30 bg-emerald-900/10">
+                    <div class="text-xs text-emerald-400 uppercase tracking-wide font-semibold">New Drop Rate</div>
+                    <div class="text-3xl font-bold text-emerald-400 mono mt-2" id="finalChanceResult">6.00%</div>
+                    <div class="text-xs text-slate-400 mt-1">
+                        was <span id="oldChanceDisplay">5%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 1 in X Bar -->
+            <div class="bg-slate-900 rounded-xl p-4 border border-slate-700">
+                <div class="flex justify-between items-end mb-2">
+                    <span class="text-sm text-slate-400">Expected Kills</span>
+                    <span class="text-xl font-bold text-white mono" id="oneInXResult">1 in 17</span>
+                </div>
+                <!-- Visual Bar -->
+                <div class="h-2 bg-slate-700 rounded-full overflow-hidden flex">
+                    <div id="chanceBarBase" class="h-full bg-blue-500 opacity-50" style="width: 5%"></div>
+                    <div id="chanceBarBonus" class="h-full bg-emerald-500" style="width: 1%"></div>
+                </div>
+                <div class="flex justify-between text-xs text-slate-500 mt-2">
+                    <span>Guaranteed</span>
+                    <span>Impossible</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // DOM Elements
+        const luckInput = document.getElementById('luckInput');
+        const luckSlider = document.getElementById('luckSlider');
+        const baseChanceInput = document.getElementById('baseChanceInput');
+        
+        const luckValueDisplay = document.getElementById('luckValueDisplay');
+        const baseChanceValueDisplay = document.getElementById('baseChanceValueDisplay');
+        
+        const multiplierResult = document.getElementById('multiplierResult');
+        const bonusPercent = document.getElementById('bonusPercent');
+        const finalChanceResult = document.getElementById('finalChanceResult');
+        const oldChanceDisplay = document.getElementById('oldChanceDisplay');
+        const oneInXResult = document.getElementById('oneInXResult');
+        
+        const chanceBarBase = document.getElementById('chanceBarBase');
+        const chanceBarBonus = document.getElementById('chanceBarBonus');
+
+        // Sync Slider and Input
+        luckSlider.addEventListener('input', (e) => {
+            luckInput.value = e.target.value;
+            calculate();
+        });
+
+        luckInput.addEventListener('input', (e) => {
+            luckSlider.value = e.target.value;
+            calculate();
+        });
+
+        baseChanceInput.addEventListener('input', calculate);
+
+        function calculate() {
+            // 1. Parse Inputs
+            let luck = parseFloat(luckInput.value);
+            let baseChance = parseFloat(baseChanceInput.value);
+
+            if (isNaN(luck) || luck < 0) luck = 0;
+            if (isNaN(baseChance) || baseChance < 0) baseChance = 0;
+
+            // Update Input Labels
+            luckValueDisplay.textContent = luck.toLocaleString();
+            baseChanceValueDisplay.textContent = baseChance + "%";
+            oldChanceDisplay.textContent = baseChance + "%";
+
+            // 2. Logic: Multiplier = 1 + (log2(luck + 2) / 40)
+            // Note: Adding 2 to luck prevents log2(0) issues and matches user graph baseline
+            const effectiveLuck = luck + 2;
+            const logVal = Math.log2(effectiveLuck);
+            const multiplier = 1 + (logVal / 40);
+
+            // 3. Logic: Final Chance
+            const finalChance = baseChance * multiplier;
+
+            // 4. Logic: 1 in X
+            let oneInX = 0;
+            if (finalChance > 0) {
+                oneInX = 100 / finalChance;
+            }
+
+            // 5. Update UI
+            
+            // Multiplier
+            multiplierResult.textContent = multiplier.toFixed(4) + "x";
+            
+            // Bonus Percent (e.g., 1.2x is +20%)
+            const percentIncrease = ((multiplier - 1) * 100).toFixed(1);
+            bonusPercent.textContent = `+${percentIncrease}%`;
+
+            // Final Chance
+            // Smart formatting: if it's very small, show more decimals
+            let finalString = "";
+            if (finalChance === 0) finalString = "0%";
+            else if (finalChance < 0.01) finalString = finalChance.toExponential(2) + "%";
+            else finalString = parseFloat(finalChance.toFixed(4)) + "%"; // Remove trailing zeros
+            
+            finalChanceResult.textContent = finalString;
+
+            // 1 in X
+            if (finalChance <= 0) {
+                oneInXResult.textContent = "Never";
+            } else if (finalChance >= 100) {
+                oneInXResult.textContent = "Guaranteed";
+            } else {
+                // If it's an integer like 20.0, show 20, else show 1 decimal
+                const oneInXFormatted = oneInX % 1 === 0 ? oneInX.toFixed(0) : oneInX.toFixed(1);
+                oneInXResult.textContent = `1 in ${oneInXFormatted}`;
+            }
+
+            // Visual Bars
+            // Scale the bars. We cap the visualization at 100% width for layout safety
+            // but the numbers remain accurate.
+            let totalWidth = Math.min(finalChance, 100);
+            let baseWidth = Math.min(baseChance, 100);
+            
+            // If base chance > 100 (unlikely but possible), cap it
+            if (baseWidth > 100) baseWidth = 100;
+            
+            // The bonus width is the difference
+            let bonusWidth = totalWidth - baseWidth;
+            if (bonusWidth < 0) bonusWidth = 0; // Should not happen with multiplier >= 1
+
+            // If the total is tiny, we boost the bar minimum width slightly just so it's visible (optional UX tweak)
+            // purely for visual feedback that "something is there"
+            if (finalChance > 0 && totalWidth < 1) {
+                // Scale up specifically for the bar view if it's microscopic? 
+                // Let's keep it accurate for now, but maybe use a log scale?
+                // For simplicity, we stick to linear.
+            }
+
+            chanceBarBase.style.width = `${baseWidth}%`;
+            chanceBarBonus.style.width = `${bonusWidth}%`;
+        }
+
+        // Initial Run
+        calculate();
+
+    </script>
+</body>
+</html>
