@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antigravity Refinement Optimizer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gray: {
+                            850: '#1f2937',
+                            900: '#111827',
+                            950: '#0b0f19',
+                        }
+                    },
+                    fontFamily: {
+                        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', "Liberation Mono", "Courier New", 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar for table */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1f2937; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4b5563; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6b7280; 
+        }
+        .loader {
+            border: 3px solid rgba(255,255,255,0.1);
+            border-left-color: #3b82f6;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .tooltip-trigger {
+            cursor: help;
+            border-bottom: 1px dotted rgba(156, 163, 175, 0.5);
+            position: relative;
+        }
+    </style>
+</head>
+<body class="bg-gray-950 text-gray-100 min-h-screen font-sans selection:bg-blue-500 selection:text-white">
+
+    <div class="max-w-7xl mx-auto px-4 py-8 md:py-12">
+        
+        <!-- Header -->
+        <header class="mb-8 text-center md:text-left border-b border-gray-800 pb-6">
+            <h1 class="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-emerald-400">
+                Antigravity Optimizer
+            </h1>
+            <p class="text-gray-400 mt-2 text-sm md:text-base">
+                Agentic Solver for Minimum-Cost Refinement Paths
+            </p>
+        </header>
+
+        <!-- Input Section -->
+        <div class="bg-gray-900 rounded-xl border border-gray-800 shadow-xl overflow-hidden mb-8">
+            <div class="p-6 md:p-8 grid grid-cols-1 md:grid-cols-3 gap-6 items-end">
+                
+                <!-- Base Stat Input -->
+                <div class="space-y-2">
+                    <label for="baseStat" class="block text-sm font-medium text-gray-300">Base Stat (Level 1)</label>
+                    <div class="relative">
+                        <input type="number" id="baseStat" value="5" min="1" 
+                            class="w-full bg-gray-800 border border-gray-700 rounded-lg py-3 px-4 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all font-mono">
+                    </div>
+                </div>
+
+                <!-- Stat Type Select -->
+                <div class="space-y-2">
+                    <label for="statType" class="block text-sm font-medium text-gray-300">Stat Category</label>
+                    <div class="relative">
+                        <select id="statType" 
+                            class="w-full bg-gray-800 border border-gray-700 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all appearance-none cursor-pointer">
+                            <option value="0.25">Combat (Atk/Def/HP)</option>
+                            <option value="0.16666667">Critical (Chance/Dmg)</option>
+                            <option value="0.125">Resource (Mining/Fish)</option>
+                            <option value="0.0625">Gathering (Encounter)</option>
+                        </select>
+                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-400">
+                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Button -->
+                <div>
+                    <button id="calculateBtn" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2 shadow-lg shadow-blue-900/20">
+                        <span id="btnText">Calculate Optimal Path</span>
+                        <div id="btnLoader" class="loader hidden"></div>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div id="resultsContainer" class="hidden space-y-6">
+            
+            <!-- Summary Card -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-gray-900 border border-gray-800 p-5 rounded-lg">
+                    <div class="text-sm text-gray-400 mb-1">Target Stat (P10)</div>
+                    <div class="text-2xl font-bold text-white font-mono" id="summaryStat">-</div>
+                </div>
+                <div class="bg-gray-900 border border-gray-800 p-5 rounded-lg">
+                    <div class="text-sm text-gray-400 mb-1">Total P1 Items</div>
+                    <div class="text-2xl font-bold text-emerald-400 font-mono" id="summaryCost">-</div>
+                    <div class="text-xs text-gray-500">Optimized Cost</div>
+                </div>
+                <div class="bg-gray-900 border border-gray-800 p-5 rounded-lg">
+                    <div class="text-sm text-gray-400 mb-1">Total Savings</div>
+                    <div class="text-2xl font-bold text-blue-400 font-mono" id="summarySavings">-</div>
+                    <div class="text-xs text-gray-500">vs Standard (512)</div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 xl:grid-cols-3 gap-6">
+                
+                <!-- Main Path Table -->
+                <div class="xl:col-span-2 bg-gray-900 border border-gray-800 rounded-xl overflow-hidden shadow-xl h-fit">
+                    <div class="p-4 border-b border-gray-800 bg-gray-800/50 flex justify-between items-center">
+                        <h3 class="font-bold text-lg text-white">Main Refinement Path</h3>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="bg-gray-800 border-b border-gray-700 text-gray-300 text-sm uppercase tracking-wider">
+                                    <th class="p-4 font-semibold w-16">Tier</th>
+                                    <th class="p-4 font-semibold">Recipe Step</th>
+                                    <th class="p-4 font-semibold text-right w-24">Stat</th>
+                                    <th class="p-4 font-semibold text-right w-24">Cost</th>
+                                </tr>
+                            </thead>
+                            <tbody id="resultsTableBody" class="text-sm font-mono text-gray-300">
+                                <!-- Rows injected by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Step-by-Step Guide Panel -->
+                <div class="bg-gray-900 border border-gray-800 rounded-xl overflow-hidden shadow-xl h-fit flex flex-col max-h-[1000px]">
+                    <div class="p-4 border-b border-gray-800 bg-gray-800/50">
+                        <h3 class="font-bold text-lg text-blue-400">Step-by-Step Crafting Guide</h3>
+                        <p class="text-xs text-gray-400 mt-1">Follow these steps exactly to build efficiently.</p>
+                    </div>
+                    <div id="guideContainer" class="p-4 space-y-6 text-sm font-mono text-gray-300 overflow-y-auto flex-1">
+                        <!-- Guide steps injected here -->
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="text-center text-xs text-gray-600 pt-4">
+                Algorithm: Bottom-Up Dynamic Programming • Constraint: Math.max(2.0, gain)
+            </div>
+        </div>
+    </div>
+
+    <!-- Application Logic -->
+    <script>
+        // --- CONSTANTS & DOMAIN LOGIC ---
+        
+        const MIN_GAIN_FLOOR = 2.0;
+
+        function calculateNewStat(dominantStat, secondaryStat, statTypeMultiplier) {
+            const baseGain = dominantStat * statTypeMultiplier;
+            const diff = dominantStat - secondaryStat;
+            const ratio = (dominantStat > 0) ? (diff / dominantStat) : 0;
+            const penalty = 1.0 - ratio;
+            const finalGain = baseGain * penalty;
+            const appliedGain = Math.max(MIN_GAIN_FLOOR, finalGain);
+            return Math.floor(dominantStat + appliedGain);
+        }
+
+        function getPerfectTargets(baseStat, multiplier) {
+            const targets = { 1: baseStat };
+            for (let i = 2; i <= 10; i++) {
+                const prev = targets[i - 1];
+                targets[i] = calculateNewStat(prev, prev, multiplier);
+            }
+            return targets;
+        }
+
+        // --- SOLVER ALGORITHM ---
+
+        async function findOptimalPath(baseStat, multiplier) {
+            await new Promise(r => setTimeout(r, 20));
+
+            const P_TARGETS = getPerfectTargets(baseStat, multiplier);
+            const memo = new Map();
+            
+            const p1Key = `L1_S${baseStat}`;
+            memo.set(p1Key, {
+                level: 1,
+                stat: baseStat,
+                cost: 1,
+                label: 'P1',
+                isPerfect: true,
+                dom: null,
+                sec: null,
+                id: 'P1'
+            });
+
+            let knownItems = [memo.get(p1Key)];
+
+            for (let targetLvl = 2; targetLvl <= 10; targetLvl++) {
+                
+                const dominantCandidates = knownItems.filter(i => i.level === targetLvl - 1);
+                const secondaryCandidates = knownItems.filter(i => i.level <= targetLvl - 1);
+
+                for (const dom of dominantCandidates) {
+                    for (const sec of secondaryCandidates) {
+                        
+                        const newStat = calculateNewStat(dom.stat, sec.stat, multiplier);
+                        const isPerfect = (newStat === P_TARGETS[targetLvl]);
+                        
+                        // Heuristic: Prefer Perfect recipes slightly if costs are equal to avoid noise
+                        const complexityPenalty = isPerfect ? 0 : 0.001; 
+                        const newCost = dom.cost + sec.cost;
+                        const sortCost = newCost + complexityPenalty;
+
+                        const key = `L${targetLvl}_S${newStat}`;
+                        
+                        // ID construction
+                        const id = isPerfect ? `P${targetLvl}` : `I${targetLvl}_${newStat}`;
+                        const label = isPerfect ? `P${targetLvl}` : `I${targetLvl}`;
+
+                        const existing = memo.get(key);
+                        const existingSortCost = existing ? (existing.cost + (existing.isPerfect ? 0 : 0.001)) : Infinity;
+
+                        if (!existing || sortCost < existingSortCost) {
+                            const newItem = {
+                                level: targetLvl,
+                                stat: newStat,
+                                cost: newCost,
+                                label: label,
+                                isPerfect: isPerfect,
+                                dom: dom,
+                                sec: sec,
+                                id: id
+                            };
+                            memo.set(key, newItem);
+                            
+                            if (!existing) knownItems.push(newItem);
+                            else {
+                                const idx = knownItems.findIndex(x => x.level === newItem.level && x.stat === newItem.stat);
+                                if(idx !== -1) knownItems[idx] = newItem;
+                            }
+                        }
+                    }
+                }
+                if (targetLvl % 2 === 0) await new Promise(r => setTimeout(r, 0));
+            }
+
+            const results = [];
+            for (let i = 1; i <= 10; i++) {
+                const targetStat = P_TARGETS[i];
+                const key = `L${i}_S${targetStat}`;
+                results.push(memo.get(key) || null);
+            }
+            return results;
+        }
+
+        // --- UI HELPER FUNCTIONS ---
+
+        function createItemSpan(item) {
+            if (!item) return '<span>?</span>';
+            const colorClass = item.isPerfect ? 'text-emerald-400' : 'text-yellow-400';
+            const label = item.label;
+            // Enhanced Tooltip format
+            const tooltip = `Level: ${item.level}&#10;Stat: ${item.stat}&#10;Cost: ${item.cost}`;
+            return `<span class="${colorClass} font-bold tooltip-trigger" title="${tooltip}">${label}</span>`;
+        }
+
+        // --- GUIDE GENERATOR (New Feature) ---
+
+        /**
+         * Simulates the build process to generate a human-readable guide.
+         */
+        function generateCraftingGuide(p10Item) {
+            if (!p10Item) return [];
+
+            // 1. Calculate Total Requirements by ID
+            // We traverse the tree downwards and tally up every node used
+            const counts = new Map(); // Map<ID, {count, item}>
+
+            function addRequirement(item) {
+                if (!item) return;
+                const id = item.id;
+                if (!counts.has(id)) {
+                    counts.set(id, { count: 0, item: item });
+                }
+                counts.get(id).count++;
+
+                // Recurse into ingredients
+                if (item.level > 1) {
+                    addRequirement(item.dom);
+                    addRequirement(item.sec);
+                }
+            }
+            
+            // Start the recursion from the top
+            addRequirement(p10Item);
+
+            // 2. Generate Steps by Tier (Bottom-Up)
+            const steps = [];
+            
+            // Initial Step: P1s
+            const p1Data = counts.get('P1');
+            steps.push({
+                title: "Step 1: Preparation",
+                text: `Collect <span class="text-emerald-400 font-bold">${p1Data.count}</span> x P1 (Level 1 Items).`,
+                inventory: `Inventory: ${p1Data.count} P1`
+            });
+
+            // Iterate Levels 2 to 10
+            for (let lvl = 2; lvl <= 10; lvl++) {
+                const tierSteps = [];
+                
+                // Check for Perfects of this Level
+                const pKey = `P${lvl}`;
+                if (counts.has(pKey)) {
+                    const data = counts.get(pKey);
+                    // Find recipe
+                    const item = data.item;
+                    const recipe = `${item.dom.label} + ${item.sec.label}`;
+                    tierSteps.push(`Craft <span class="text-emerald-400 font-bold">${data.count}x ${item.label}</span>`);
+                    tierSteps.push(`<span class="text-gray-500 text-xs ml-4">Recipe: ${recipe}</span>`);
+                }
+
+                // Check for Imperfects of this Level
+                // Filter counts for items where level == lvl and isPerfect == false
+                const imperfects = Array.from(counts.values()).filter(v => v.item.level === lvl && !v.item.isPerfect);
+                
+                imperfects.forEach(data => {
+                    const item = data.item;
+                    const recipe = `${item.dom.label} + ${item.sec.label}`;
+                    tierSteps.push(`Craft <span class="text-yellow-400 font-bold">${data.count}x Special ${item.label}</span> (Stat: ${item.stat})`);
+                    tierSteps.push(`<span class="text-gray-500 text-xs ml-4">Recipe: ${recipe}</span>`);
+                });
+
+                if (tierSteps.length > 0) {
+                    steps.push({
+                        title: `Step ${lvl}: Tier ${lvl} Crafting`,
+                        html: tierSteps.join('<br>')
+                    });
+                }
+            }
+
+            return steps;
+        }
+
+        // --- UI CONTROLLER ---
+
+        const dom = {
+            baseStat: document.getElementById('baseStat'),
+            statType: document.getElementById('statType'),
+            btn: document.getElementById('calculateBtn'),
+            btnText: document.getElementById('btnText'),
+            loader: document.getElementById('btnLoader'),
+            results: document.getElementById('resultsContainer'),
+            tableBody: document.getElementById('resultsTableBody'),
+            guideContainer: document.getElementById('guideContainer'),
+            summaryStat: document.getElementById('summaryStat'),
+            summaryCost: document.getElementById('summaryCost'),
+            summarySavings: document.getElementById('summarySavings')
+        };
+
+        dom.btn.addEventListener('click', async () => {
+            dom.btn.disabled = true;
+            dom.btn.classList.add('opacity-75', 'cursor-not-allowed');
+            dom.btnText.textContent = 'Analyzing...';
+            dom.loader.classList.remove('hidden');
+            dom.results.classList.add('hidden');
+
+            try {
+                const baseStat = parseInt(dom.baseStat.value);
+                const multiplier = parseFloat(dom.statType.value);
+
+                if (isNaN(baseStat) || baseStat < 1) {
+                    alert("Please enter a valid base stat.");
+                    return;
+                }
+
+                const pathData = await findOptimalPath(baseStat, multiplier);
+                renderResults(pathData);
+
+            } catch (e) {
+                console.error(e);
+                alert("An error occurred during calculation.");
+            } finally {
+                dom.btn.disabled = false;
+                dom.btn.classList.remove('opacity-75', 'cursor-not-allowed');
+                dom.btnText.textContent = 'Calculate Optimal Path';
+                dom.loader.classList.add('hidden');
+            }
+        });
+
+        function renderResults(pathData) {
+            dom.tableBody.innerHTML = '';
+            dom.guideContainer.innerHTML = '';
+            
+            const p10Item = pathData[9]; 
+
+            if (!p10Item) {
+                dom.results.classList.remove('hidden');
+                dom.tableBody.innerHTML = `<tr><td colspan="4" class="p-4 text-center text-red-400">Could not find a valid path to P10 with these stats.</td></tr>`;
+                return;
+            }
+
+            // 1. Render Main Table
+            pathData.forEach((item, index) => {
+                if (!item) return;
+                
+                const tr = document.createElement('tr');
+                tr.className = "border-b border-gray-800 hover:bg-gray-800/30 transition-colors";
+                
+                let recipeHtml = '-';
+                let hasImperfect = false;
+                
+                if (item.level > 1) {
+                    recipeHtml = `${createItemSpan(item.dom)} <span class="text-gray-600 mx-1">+</span> ${createItemSpan(item.sec)}`;
+                    if (!item.dom.isPerfect || !item.sec.isPerfect) hasImperfect = true;
+                }
+
+                tr.innerHTML = `
+                    <td class="p-4 font-bold text-emerald-500">P${item.level}</td>
+                    <td class="p-4">${recipeHtml}</td>
+                    <td class="p-4 text-right text-gray-300 font-bold">${item.stat}</td>
+                    <td class="p-4 text-right text-gray-400">${item.cost}</td>
+                `;
+                dom.tableBody.appendChild(tr);
+
+                // Add Sub-row for details if Imperfect ingredients are used
+                if (hasImperfect) {
+                    const subTr = document.createElement('tr');
+                    subTr.className = "bg-gray-900/40 border-b border-gray-800/50";
+                    
+                    let detailsHtml = [];
+                    [item.dom, item.sec].forEach(ing => {
+                        if (!ing.isPerfect) {
+                            detailsHtml.push(`
+                                <div class="flex items-center gap-2 text-xs">
+                                    <span class="text-yellow-400 font-bold">↳ Make ${ing.label}:</span>
+                                    <span class="text-gray-400">Combine</span>
+                                    ${createItemSpan(ing.dom)}
+                                    <span class="text-gray-600">+</span>
+                                    ${createItemSpan(ing.sec)}
+                                    <span class="text-gray-500">(Stat: ${ing.stat})</span>
+                                </div>
+                            `);
+                        }
+                    });
+
+                    subTr.innerHTML = `
+                        <td colspan="4" class="px-4 py-2">
+                            <div class="flex flex-col gap-1 pl-4 border-l-2 border-yellow-500/20">
+                                ${detailsHtml.join('')}
+                            </div>
+                        </td>
+                    `;
+                    dom.tableBody.appendChild(subTr);
+                }
+            });
+
+            // 2. Render Guide
+            const guideSteps = generateCraftingGuide(p10Item);
+            guideSteps.forEach((step, idx) => {
+                const div = document.createElement('div');
+                div.className = "relative pl-6 pb-2 border-l border-gray-700 last:border-0";
+                
+                // Bullet point
+                const bullet = document.createElement('div');
+                bullet.className = "absolute -left-1.5 top-0 w-3 h-3 rounded-full bg-blue-500 border-2 border-gray-900";
+                div.appendChild(bullet);
+
+                div.innerHTML += `
+                    <h4 class="font-bold text-white mb-1">${step.title}</h4>
+                    <div class="text-gray-300 leading-relaxed">${step.text || step.html}</div>
+                `;
+                dom.guideContainer.appendChild(div);
+            });
+
+
+            // 3. Update Summary
+            const standardCost = 512; 
+            const optimizedCost = p10Item.cost;
+            const savings = standardCost - optimizedCost;
+            const pct = Math.round((savings / standardCost) * 100);
+
+            dom.summaryStat.textContent = p10Item.stat;
+            dom.summaryCost.textContent = optimizedCost;
+            
+            if (savings > 0) {
+                dom.summarySavings.innerHTML = `${savings} <span class="text-sm text-emerald-500">(${pct}%)</span>`;
+                dom.summarySavings.className = "text-2xl font-bold text-emerald-400 font-mono";
+            } else {
+                dom.summarySavings.textContent = "0 (0%)";
+                dom.summarySavings.className = "text-2xl font-bold text-gray-500 font-mono";
+            }
+
+            dom.results.classList.remove('hidden');
+        }
+
+    </script>
+</body>
+</html>
